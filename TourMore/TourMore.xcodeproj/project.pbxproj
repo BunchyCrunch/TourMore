@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EB265B726B70768034DDD5A /* Pods_TourMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA63E12E15E72558BB9B856 /* Pods_TourMore.framework */; };
+		28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28477F092385C48800C1CA16 /* GoogleService-Info.plist */; };
 		28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB525E2385C3CF00266868 /* AppDelegate.swift */; };
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
 		28FB52632385C3CF00266868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52622385C3CF00266868 /* ViewController.swift */; };
@@ -16,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28477F092385C48800C1CA16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		28FB525B2385C3CF00266868 /* TourMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FB525E2385C3CF00266868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28FB52602385C3CF00266868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		28FB52672385C3D000266868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28FB526A2385C3D000266868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28FB526C2385C3D000266868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B2427077D5ED5A64BBA444C /* Pods-TourMore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.release.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.release.xcconfig"; sourceTree = "<group>"; };
+		CEB1AA1DDD629C7992B98086 /* Pods-TourMore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.debug.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.debug.xcconfig"; sourceTree = "<group>"; };
+		DAA63E12E15E72558BB9B856 /* Pods_TourMore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourMore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EB265B726B70768034DDD5A /* Pods_TourMore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0677E528CC181593EE037476 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAA63E12E15E72558BB9B856 /* Pods_TourMore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		28FB52522385C3CF00266868 = {
 			isa = PBXGroup;
 			children = (
 				28FB525D2385C3CF00266868 /* TourMore */,
 				28FB525C2385C3CF00266868 /* Products */,
+				557646AAF2F3168FA41D19A7 /* Pods */,
+				0677E528CC181593EE037476 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +80,18 @@
 				28FB52672385C3D000266868 /* Assets.xcassets */,
 				28FB52692385C3D000266868 /* LaunchScreen.storyboard */,
 				28FB526C2385C3D000266868 /* Info.plist */,
+				28477F092385C48800C1CA16 /* GoogleService-Info.plist */,
 			);
 			path = TourMore;
+			sourceTree = "<group>";
+		};
+		557646AAF2F3168FA41D19A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEB1AA1DDD629C7992B98086 /* Pods-TourMore.debug.xcconfig */,
+				4B2427077D5ED5A64BBA444C /* Pods-TourMore.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28FB526F2385C3D000266868 /* Build configuration list for PBXNativeTarget "TourMore" */;
 			buildPhases = (
+				206D737FEED631AEDEE7D357 /* [CP] Check Pods Manifest.lock */,
 				28FB52572385C3CF00266868 /* Sources */,
 				28FB52582385C3CF00266868 /* Frameworks */,
 				28FB52592385C3CF00266868 /* Resources */,
+				592DEB37BC49C1CB4FDAA1FA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,10 +157,53 @@
 				28FB526B2385C3D000266868 /* LaunchScreen.storyboard in Resources */,
 				28FB52682385C3D000266868 /* Assets.xcassets in Resources */,
 				28FB52662385C3CF00266868 /* Main.storyboard in Resources */,
+				28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		206D737FEED631AEDEE7D357 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TourMore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		592DEB37BC49C1CB4FDAA1FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TourMore/Pods-TourMore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TourMore/Pods-TourMore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TourMore/Pods-TourMore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		28FB52572385C3CF00266868 /* Sources */ = {
@@ -282,6 +354,7 @@
 		};
 		28FB52702385C3D000266868 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEB1AA1DDD629C7992B98086 /* Pods-TourMore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +373,7 @@
 		};
 		28FB52712385C3D000266868 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B2427077D5ED5A64BBA444C /* Pods-TourMore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>538523311321-jsdqceqcmdagjup2rlib6habve695ad6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.538523311321-jsdqceqcmdagjup2rlib6habve695ad6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBToObfKveTl7LCgWAlz3YJkB8RD-csw3U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>538523311321</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>calegre.TourMore</string>
+	<key>PROJECT_ID</key>
+	<string>paris-81861</string>
+	<key>STORAGE_BUCKET</key>
+	<string>paris-81861.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:538523311321:ios:98e78670d6f0e0ab3072c8</string>
+	<key>DATABASE_URL</key>
+	<string>https://paris-81861.firebaseio.com</string>
+</dict>
+</plist>
