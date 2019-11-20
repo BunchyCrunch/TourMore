@@ -15,7 +15,6 @@
 		28FB52662385C3CF00266868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52642385C3CF00266868 /* Main.storyboard */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
 		28FB526B2385C3D000266868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52692385C3D000266868 /* LaunchScreen.storyboard */; };
-		FC7B5C742385E7FE00D1E4F8 /* TourMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B5C732385E7FE00D1E4F8 /* TourMore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		4B2427077D5ED5A64BBA444C /* Pods-TourMore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.release.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.release.xcconfig"; sourceTree = "<group>"; };
 		CEB1AA1DDD629C7992B98086 /* Pods-TourMore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.debug.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.debug.xcconfig"; sourceTree = "<group>"; };
 		DAA63E12E15E72558BB9B856 /* Pods_TourMore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourMore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC7B5C732385E7FE00D1E4F8 /* TourMore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TourMore.swift; path = "../../../../../../Stretch Problems/Dummy Apps/FirebaseLogin/FirebaseLogin/TourMore.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +64,6 @@
 		26D75CF22385D04300B285A4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FC7B5C732385E7FE00D1E4F8 /* TourMore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 			files = (
 				28FB52632385C3CF00266868 /* ViewController.swift in Sources */,
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
-				FC7B5C742385E7FE00D1E4F8 /* TourMore.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
