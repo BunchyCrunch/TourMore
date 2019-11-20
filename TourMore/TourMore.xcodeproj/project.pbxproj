@@ -52,6 +52,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		26D75CF12385D03000B285A4 /* SupportingFiles  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "SupportingFiles ";
+			sourceTree = "<group>";
+		};
+		26D75CF22385D04300B285A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26D75CF32385D05000B285A4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				26D75CF52385D06E00B285A4 /* ViewControllers */,
+				26D75CF42385D05B00B285A4 /* ModelControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		26D75CF42385D05B00B285A4 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		26D75CF52385D06E00B285A4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		28FB52522385C3CF00266868 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +110,9 @@
 		28FB525D2385C3CF00266868 /* TourMore */ = {
 			isa = PBXGroup;
 			children = (
+				26D75CF32385D05000B285A4 /* Controllers */,
+				26D75CF22385D04300B285A4 /* Models */,
+				26D75CF12385D03000B285A4 /* SupportingFiles  */,
 				28FB525E2385C3CF00266868 /* AppDelegate.swift */,
 				28FB52602385C3CF00266868 /* SceneDelegate.swift */,
 				28FB52622385C3CF00266868 /* ViewController.swift */,
