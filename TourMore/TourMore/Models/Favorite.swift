@@ -17,8 +17,8 @@ class Favorite {
         self.businessID = businessID
     }
     
-    init(snapshot: DataSnapshot) {
-    let snapshotValue = snapshot.value as? [String : AnyObject],
-    businessID = snapshotValue["businessID"] as? String
-    }
+//    init(snapshot: DataSnapshot) {
+//    let snapshotValue = snapshot.value as? [String : AnyObject],
+//    businessID = snapshotValue["businessID"] as? String
+//    }
 }

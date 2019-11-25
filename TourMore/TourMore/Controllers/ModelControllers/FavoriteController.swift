@@ -11,14 +11,14 @@ import Firebase
 
 class FavoriteController {
     
-    let db = Database.database().referance(withPath:"")
+//    let db = Database.database().referance(withPath:"")
     // MARK: - CRUD
-    func addNewFavorite(completion: @escaping (ref, Error)) {
-        if let error = error {
-            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-            return
-        }
-    }
+//    func addNewFavorite(completion: @escaping ( _ , Error)) {
+//        if let error = error {
+//            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+//            return
+//        }
+//    }
     
     func deleteFavorite() {
         
