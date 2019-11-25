@@ -10,6 +10,8 @@
 		1EB265B726B70768034DDD5A /* Pods_TourMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA63E12E15E72558BB9B856 /* Pods_TourMore.framework */; };
 		26A6B8A5238C78A30099382F /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8A4238C78A30099382F /* Favorite.swift */; };
 		26A6B8A7238C78EC0099382F /* CreatedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8A6238C78EC0099382F /* CreatedLocation.swift */; };
+		26A6B8A9238C82420099382F /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8A8238C82420099382F /* FavoriteController.swift */; };
+		26A6B8AB238C83BB0099382F /* CreatedLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8AA238C83BB0099382F /* CreatedLocationController.swift */; };
 		26CFDD60238C62ED0023444F /* APISearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD5F238C62ED0023444F /* APISearchController.swift */; };
 		26CFDD62238C63330023444F /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD61238C63330023444F /* URLConstants.swift */; };
 		26CFDD64238C63680023444F /* YelpAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD63238C63680023444F /* YelpAPIModel.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		26A6B8A4238C78A30099382F /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		26A6B8A6238C78EC0099382F /* CreatedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedLocation.swift; sourceTree = "<group>"; };
+		26A6B8A8238C82420099382F /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
+		26A6B8AA238C83BB0099382F /* CreatedLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedLocationController.swift; sourceTree = "<group>"; };
 		26CFDD5F238C62ED0023444F /* APISearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISearchController.swift; sourceTree = "<group>"; };
 		26CFDD61238C63330023444F /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		26CFDD63238C63680023444F /* YelpAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAPIModel.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 			children = (
 				26CFDD5C238C5CC90023444F /* URLConstants */,
 				26CFDD5F238C62ED0023444F /* APISearchController.swift */,
+				26A6B8A8238C82420099382F /* FavoriteController.swift */,
+				26A6B8AA238C83BB0099382F /* CreatedLocationController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -294,9 +300,11 @@
 				26CFDD68238C63C10023444F /* Comment.swift in Sources */,
 				26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */,
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
+				26A6B8AB238C83BB0099382F /* CreatedLocationController.swift in Sources */,
 				26A6B8A5238C78A30099382F /* Favorite.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
 				26CFDD66238C638E0023444F /* User.swift in Sources */,
+				26A6B8A9238C82420099382F /* FavoriteController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

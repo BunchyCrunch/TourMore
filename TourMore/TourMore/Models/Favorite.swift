@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Firebase
 
 
 class Favorite {
@@ -15,5 +15,10 @@ class Favorite {
     
     init(businessID: String){
         self.businessID = businessID
+    }
+    
+    init(snapshot: DataSnapshot) {
+    let snapshotValue = snapshot.value as? [String : AnyObject],
+    businessID = snapshotValue["businessID"] as? String
     }
 }
