@@ -14,19 +14,17 @@
 		28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28477F092385C48800C1CA16 /* GoogleService-Info.plist */; };
 		28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB525E2385C3CF00266868 /* AppDelegate.swift */; };
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
-		28FB52632385C3CF00266868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52622385C3CF00266868 /* ViewController.swift */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		26F8994F2386F091007542DE /* MapViewTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewTabViewController.swift; sourceTree = "<group>"; };
-		26F8995B238723BA007542DE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "New Group/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		26F8995C238723BA007542DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "New Group/Main.storyboard"; sourceTree = "<group>"; };
+		26F8995B238723BA007542DE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.Iproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		26F8995C238723BA007542DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.Iproj/Main.storyboard; sourceTree = "<group>"; };
 		28477F092385C48800C1CA16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		28FB525B2385C3CF00266868 /* TourMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FB525E2385C3CF00266868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28FB52602385C3CF00266868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		28FB52622385C3CF00266868 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		28FB52672385C3D000266868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28FB526C2385C3D000266868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B2427077D5ED5A64BBA444C /* Pods-TourMore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.release.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +52,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		26CFDD5B238C5C9B0023444F /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				26CFDD5C238C5CC90023444F /* URLConstants */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		26CFDD5C238C5CC90023444F /* URLConstants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = URLConstants;
+			sourceTree = "<group>";
+		};
+		26CFDD5D238C5CDD0023444F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26CFDD5E238C5CEA0023444F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				26F8995B238723BA007542DE /* LaunchScreen.storyboard */,
+				26F8995C238723BA007542DE /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		26D75CF12385D03000B285A4 /* SupportingFiles  */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,17 +95,18 @@
 		26F899522386F0BA007542DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				26F899532386F0C8007542DE /* ViewController */,
+				26F899532386F0C8007542DE /* ViewControllers */,
+				26CFDD5B238C5C9B0023444F /* ModelControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		26F899532386F0C8007542DE /* ViewController */ = {
+		26F899532386F0C8007542DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				26F8994F2386F091007542DE /* MapViewTabViewController.swift */,
 			);
-			path = ViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		28FB52522385C3CF00266868 = {
@@ -100,11 +130,10 @@
 		28FB525D2385C3CF00266868 /* TourMore */ = {
 			isa = PBXGroup;
 			children = (
-				26F8995B238723BA007542DE /* LaunchScreen.storyboard */,
-				26F8995C238723BA007542DE /* Main.storyboard */,
 				26F899522386F0BA007542DE /* Controllers */,
+				26CFDD5D238C5CDD0023444F /* Models */,
+				26CFDD5E238C5CEA0023444F /* Storyboards */,
 				26D75CF12385D03000B285A4 /* SupportingFiles  */,
-				28FB52622385C3CF00266868 /* ViewController.swift */,
 				28FB52672385C3D000266868 /* Assets.xcassets */,
 				28FB526C2385C3D000266868 /* Info.plist */,
 				28477F092385C48800C1CA16 /* GoogleService-Info.plist */,
@@ -238,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */,
-				28FB52632385C3CF00266868 /* ViewController.swift in Sources */,
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
 			);
