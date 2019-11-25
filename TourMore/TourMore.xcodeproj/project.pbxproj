@@ -11,14 +11,11 @@
 		281A8FC92387654E00EEB242 /* YelpApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A8FC82387654E00EEB242 /* YelpApiModel.swift */; };
 		281A8FCB2387660200EEB242 /* ApiSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A8FCA2387660200EEB242 /* ApiSearchController.swift */; };
 		281A8FCE2387667200EEB242 /* UrlConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A8FCD2387667200EEB242 /* UrlConstants.swift */; };
-		281A8FD02387698100EEB242 /* ProfilePictureUpload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281A8FCF2387698100EEB242 /* ProfilePictureUpload.storyboard */; };
 		28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28477F092385C48800C1CA16 /* GoogleService-Info.plist */; };
-		284B0C5123860DC5009BBC56 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284B0C5023860DC5009BBC56 /* CreateAccount.storyboard */; };
 		28E8DCEF238890DD00B1B620 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8DCEE238890DD00B1B620 /* User.swift */; };
 		28E8DCF9238C4EBE00B1B620 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8DCF8238C4EBE00B1B620 /* Comment.swift */; };
 		28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB525E2385C3CF00266868 /* AppDelegate.swift */; };
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
-		28FB52632385C3CF00266868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52622385C3CF00266868 /* ViewController.swift */; };
 		28FB52662385C3CF00266868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52642385C3CF00266868 /* Main.storyboard */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
 		28FB526B2385C3D000266868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52692385C3D000266868 /* LaunchScreen.storyboard */; };
@@ -26,17 +23,14 @@
 
 /* Begin PBXFileReference section */
 		281A8FC82387654E00EEB242 /* YelpApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YelpApiModel.swift; path = TourMore/Models/YelpApiModel.swift; sourceTree = SOURCE_ROOT; };
-		281A8FCA2387660200EEB242 /* ApiSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiSearchController.swift; path = "TourMore/New Group/ApiSearchController.swift"; sourceTree = SOURCE_ROOT; };
-		281A8FCD2387667200EEB242 /* UrlConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UrlConstants.swift; path = ModelControllers/URLConstants/UrlConstants.swift; sourceTree = SOURCE_ROOT; };
-		281A8FCF2387698100EEB242 /* ProfilePictureUpload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfilePictureUpload.storyboard; sourceTree = "<group>"; };
+		281A8FCA2387660200EEB242 /* ApiSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiSearchController.swift; path = TourMore/Controllers/ModelControllers/ApiSearchController.swift; sourceTree = SOURCE_ROOT; };
+		281A8FCD2387667200EEB242 /* UrlConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UrlConstants.swift; path = TourMore/Controllers/ModelControllers/URLConstants/UrlConstants.swift; sourceTree = SOURCE_ROOT; };
 		28477F092385C48800C1CA16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		284B0C5023860DC5009BBC56 /* CreateAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
 		28E8DCEE238890DD00B1B620 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = TourMore/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		28E8DCF8238C4EBE00B1B620 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		28FB525B2385C3CF00266868 /* TourMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FB525E2385C3CF00266868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28FB52602385C3CF00266868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		28FB52622385C3CF00266868 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		28FB52652385C3CF00266868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28FB52672385C3D000266868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28FB526A2385C3D000266868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,16 +95,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		26D75CF62385D7AB00B285A4 /* StoryBoards */ = {
+		26D75CF62385D7AB00B285A4 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				28FB52692385C3D000266868 /* LaunchScreen.storyboard */,
 				28FB52642385C3CF00266868 /* Main.storyboard */,
-				284B0C5023860DC5009BBC56 /* CreateAccount.storyboard */,
-				281A8FCF2387698100EEB242 /* ProfilePictureUpload.storyboard */,
+				28FB52692385C3D000266868 /* LaunchScreen.storyboard */,
 			);
-			name = StoryBoards;
-			path = "New Group";
+			name = Storyboards;
+			path = Storyboards/Base.lproj;
 			sourceTree = "<group>";
 		};
 		281A8FCC2387665000EEB242 /* URLConstants */ = {
@@ -159,11 +151,10 @@
 		28FB525D2385C3CF00266868 /* TourMore */ = {
 			isa = PBXGroup;
 			children = (
-				28E8DCF7238C4E9400B1B620 /* Models */,
 				26D75CF32385D05000B285A4 /* Controllers */,
-				26D75CF62385D7AB00B285A4 /* StoryBoards */,
+				28E8DCF7238C4E9400B1B620 /* Models */,
+				26D75CF62385D7AB00B285A4 /* Storyboards */,
 				26D75CF12385D03000B285A4 /* SupportingFiles  */,
-				28FB52622385C3CF00266868 /* ViewController.swift */,
 				28FB52672385C3D000266868 /* Assets.xcassets */,
 				28FB526C2385C3D000266868 /* Info.plist */,
 				28477F092385C48800C1CA16 /* GoogleService-Info.plist */,
@@ -242,9 +233,7 @@
 			files = (
 				28FB526B2385C3D000266868 /* LaunchScreen.storyboard in Resources */,
 				28FB52682385C3D000266868 /* Assets.xcassets in Resources */,
-				284B0C5123860DC5009BBC56 /* CreateAccount.storyboard in Resources */,
 				28FB52662385C3CF00266868 /* Main.storyboard in Resources */,
-				281A8FD02387698100EEB242 /* ProfilePictureUpload.storyboard in Resources */,
 				28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,7 +288,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				281A8FCB2387660200EEB242 /* ApiSearchController.swift in Sources */,
-				28FB52632385C3CF00266868 /* ViewController.swift in Sources */,
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
 				28E8DCF9238C4EBE00B1B620 /* Comment.swift in Sources */,
 				281A8FCE2387667200EEB242 /* UrlConstants.swift in Sources */,
@@ -318,6 +306,7 @@
 				28FB52652385C3CF00266868 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		28FB52692385C3D000266868 /* LaunchScreen.storyboard */ = {
@@ -326,6 +315,7 @@
 				28FB526A2385C3D000266868 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
