@@ -34,17 +34,15 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>CreateAccount</string>
+					<string>Main</string>
 				</dict>
 			</array>
-			<key>UIWindowSceneSessionRoleExternalDisplay</key>
-			<string>CreateAccount</string>
 		</dict>
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>CreateAccount</string>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
