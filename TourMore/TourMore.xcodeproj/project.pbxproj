@@ -11,20 +11,24 @@
 		281A8FC92387654E00EEB242 /* YelpApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A8FC82387654E00EEB242 /* YelpApiModel.swift */; };
 		281A8FCB2387660200EEB242 /* ApiSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A8FCA2387660200EEB242 /* ApiSearchController.swift */; };
 		281A8FCE2387667200EEB242 /* UrlConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A8FCD2387667200EEB242 /* UrlConstants.swift */; };
+		26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8994F2386F091007542DE /* MapViewTabViewController.swift */; };
+		26F8995D238723BB007542DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995B238723BA007542DE /* LaunchScreen.storyboard */; };
+		26F8995E238723BB007542DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995C238723BA007542DE /* Main.storyboard */; };
 		28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28477F092385C48800C1CA16 /* GoogleService-Info.plist */; };
 		28E8DCEF238890DD00B1B620 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8DCEE238890DD00B1B620 /* User.swift */; };
 		28E8DCF9238C4EBE00B1B620 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8DCF8238C4EBE00B1B620 /* Comment.swift */; };
 		28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB525E2385C3CF00266868 /* AppDelegate.swift */; };
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
-		28FB52662385C3CF00266868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52642385C3CF00266868 /* Main.storyboard */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
-		28FB526B2385C3D000266868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52692385C3D000266868 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		281A8FC82387654E00EEB242 /* YelpApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YelpApiModel.swift; path = TourMore/Models/YelpApiModel.swift; sourceTree = SOURCE_ROOT; };
 		281A8FCA2387660200EEB242 /* ApiSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiSearchController.swift; path = TourMore/Controllers/ModelControllers/ApiSearchController.swift; sourceTree = SOURCE_ROOT; };
 		281A8FCD2387667200EEB242 /* UrlConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UrlConstants.swift; path = TourMore/Controllers/ModelControllers/URLConstants/UrlConstants.swift; sourceTree = SOURCE_ROOT; };
+		26F8994F2386F091007542DE /* MapViewTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewTabViewController.swift; sourceTree = "<group>"; };
+		26F8995B238723BA007542DE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.Iproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		26F8995C238723BA007542DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.Iproj/Main.storyboard; sourceTree = "<group>"; };
 		28477F092385C48800C1CA16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		28E8DCEE238890DD00B1B620 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = TourMore/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		28E8DCF8238C4EBE00B1B620 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -33,7 +37,6 @@
 		28FB52602385C3CF00266868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		28FB52652385C3CF00266868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28FB52672385C3D000266868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		28FB526A2385C3D000266868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28FB526C2385C3D000266868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B2427077D5ED5A64BBA444C /* Pods-TourMore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.release.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.release.xcconfig"; sourceTree = "<group>"; };
 		CEB1AA1DDD629C7992B98086 /* Pods-TourMore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.debug.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,46 +63,66 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		26D75CF12385D03000B285A4 /* SupportingFiles  */ = {
+		26CFDD5B238C5C9B0023444F /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
 				284B0C5223860F96009BBC56 /* Fonts */,
+				28FB525E2385C3CF00266868 /* AppDelegate.swift */,
+				28FB52602385C3CF00266868 /* SceneDelegate.swift */,
+				26CFDD5C238C5CC90023444F /* URLConstants */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		26CFDD5C238C5CC90023444F /* URLConstants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = URLConstants;
+			sourceTree = "<group>";
+		};
+		26D75CF32385D05000B285A4 /* Controllers */ = {
+		26CFDD5D238C5CDD0023444F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26CFDD5E238C5CEA0023444F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				26F8995B238723BA007542DE /* LaunchScreen.storyboard */,
+				26F8995C238723BA007542DE /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		26D75CF12385D03000B285A4 /* SupportingFiles  */ = {
+			isa = PBXGroup;
+			children = (
+				281A8FCA2387660200EEB242 /* ApiSearchController.swift */,
+				281A8FCC2387665000EEB242 /* URLConstants */,
 				28FB525E2385C3CF00266868 /* AppDelegate.swift */,
 				28FB52602385C3CF00266868 /* SceneDelegate.swift */,
 			);
 			path = "SupportingFiles ";
 			sourceTree = "<group>";
 		};
-		26D75CF32385D05000B285A4 /* Controllers */ = {
+		26F899522386F0BA007542DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				26D75CF52385D06E00B285A4 /* ViewControllers */,
-				26D75CF42385D05B00B285A4 /* ModelControllers */,
+				26F899532386F0C8007542DE /* ViewControllers */,
+				26CFDD5B238C5C9B0023444F /* ModelControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		26D75CF42385D05B00B285A4 /* ModelControllers */ = {
-			isa = PBXGroup;
-			children = (
-				281A8FCA2387660200EEB242 /* ApiSearchController.swift */,
-				281A8FCC2387665000EEB242 /* URLConstants */,
-			);
-			path = ModelControllers;
-			sourceTree = "<group>";
-		};
-		26D75CF52385D06E00B285A4 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		26D75CF62385D7AB00B285A4 /* Storyboards */ = {
+		26F899532386F0C8007542DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				28FB52642385C3CF00266868 /* Main.storyboard */,
-				28FB52692385C3D000266868 /* LaunchScreen.storyboard */,
+				26F8994F2386F091007542DE /* MapViewTabViewController.swift */,
 			);
 			name = Storyboards;
 			path = Storyboards/Base.lproj;
@@ -128,6 +151,7 @@
 				28E8DCF8238C4EBE00B1B620 /* Comment.swift */,
 			);
 			path = Models;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		28FB52522385C3CF00266868 = {
@@ -231,9 +255,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28FB526B2385C3D000266868 /* LaunchScreen.storyboard in Resources */,
 				28FB52682385C3D000266868 /* Assets.xcassets in Resources */,
-				28FB52662385C3CF00266868 /* Main.storyboard in Resources */,
+				26F8995E238723BB007542DE /* Main.storyboard in Resources */,
+				26F8995D238723BB007542DE /* LaunchScreen.storyboard in Resources */,
 				28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +312,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				281A8FCB2387660200EEB242 /* ApiSearchController.swift in Sources */,
+				26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */,
+
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
 				28E8DCF9238C4EBE00B1B620 /* Comment.swift in Sources */,
 				281A8FCE2387667200EEB242 /* UrlConstants.swift in Sources */,
@@ -298,7 +324,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
 /* Begin PBXVariantGroup section */
 		28FB52642385C3CF00266868 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -319,7 +344,6 @@
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		28FB526D2385C3D000266868 /* Debug */ = {
 			isa = XCBuildConfiguration;
