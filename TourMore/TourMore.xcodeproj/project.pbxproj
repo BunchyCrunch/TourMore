@@ -17,6 +17,9 @@
 		26F8995D238723BB007542DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995B238723BA007542DE /* LaunchScreen.storyboard */; };
 		26F8995E238723BB007542DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995C238723BA007542DE /* Main.storyboard */; };
 		28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28477F092385C48800C1CA16 /* GoogleService-Info.plist */; };
+		28BC10AA238C7F42009CE084 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BC10A9238C7F42009CE084 /* UserController.swift */; };
+		28BC10AC238C887D009CE084 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BC10AB238C887D009CE084 /* SignUp.storyboard */; };
+		28BC10AE238C89A2009CE084 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BC10AD238C89A2009CE084 /* SignUpViewController.swift */; };
 		28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB525E2385C3CF00266868 /* AppDelegate.swift */; };
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 		26F8995B238723BA007542DE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.Iproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26F8995C238723BA007542DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.Iproj/Main.storyboard; sourceTree = "<group>"; };
 		28477F092385C48800C1CA16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		28BC10A9238C7F42009CE084 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		28BC10AB238C887D009CE084 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		28BC10AD238C89A2009CE084 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		28FB525B2385C3CF00266868 /* TourMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FB525E2385C3CF00266868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28FB52602385C3CF00266868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,7 @@
 			children = (
 				26CFDD5C238C5CC90023444F /* URLConstants */,
 				26CFDD5F238C62ED0023444F /* APISearchController.swift */,
+				28BC10A9238C7F42009CE084 /* UserController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 			children = (
 				26F8995B238723BA007542DE /* LaunchScreen.storyboard */,
 				26F8995C238723BA007542DE /* Main.storyboard */,
+				28BC10AB238C887D009CE084 /* SignUp.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -120,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				26F8994F2386F091007542DE /* MapViewTabViewController.swift */,
+				28BC10AD238C89A2009CE084 /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -229,6 +238,7 @@
 				26F8995E238723BB007542DE /* Main.storyboard in Resources */,
 				26F8995D238723BB007542DE /* LaunchScreen.storyboard in Resources */,
 				28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */,
+				28BC10AC238C887D009CE084 /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,9 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28BC10AA238C7F42009CE084 /* UserController.swift in Sources */,
 				26CFDD64238C63680023444F /* YelpAPIModel.swift in Sources */,
 				26CFDD60238C62ED0023444F /* APISearchController.swift in Sources */,
 				26CFDD62238C63330023444F /* URLConstants.swift in Sources */,
+				28BC10AE238C89A2009CE084 /* SignUpViewController.swift in Sources */,
 				26CFDD68238C63C10023444F /* Comment.swift in Sources */,
 				26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */,
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up View Controller-->
+        <scene sceneID="QS4-fN-WBI">
+            <objects>
+                <viewController id="1JW-PR-Uvz" customClass="SignUpViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6PU-g7-E1A">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-8c-svp">
+                                <rect key="frame" x="0.0" y="396" width="414" height="114"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k4D-TJ-geC">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HtO-Vi-zeh">
+                                        <rect key="frame" x="0.0" y="42" width="414" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByH-X7-UP6">
+                                        <rect key="frame" x="0.0" y="84" width="414" height="30"/>
+                                        <state key="normal" title="SignUp"/>
+                                        <connections>
+                                            <action selector="signUpButtonTapped:" destination="1JW-PR-Uvz" eventType="touchUpInside" id="840-zR-ebe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dIr-8c-svp" firstAttribute="centerY" secondItem="SaM-Z0-QVB" secondAttribute="centerY" id="Obg-3Y-7b9"/>
+                            <constraint firstItem="dIr-8c-svp" firstAttribute="width" secondItem="SaM-Z0-QVB" secondAttribute="width" id="fFX-bB-aFI"/>
+                            <constraint firstItem="dIr-8c-svp" firstAttribute="centerX" secondItem="SaM-Z0-QVB" secondAttribute="centerX" id="hOS-8V-fVR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SaM-Z0-QVB"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="k4D-TJ-geC" id="svV-jc-y1a"/>
+                        <outlet property="passwordTextField" destination="HtO-Vi-zeh" id="Wyh-E6-4nA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ROv-ZL-G7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4" y="100"/>
+        </scene>
+    </scenes>
+</document>
