@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1EB265B726B70768034DDD5A /* Pods_TourMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA63E12E15E72558BB9B856 /* Pods_TourMore.framework */; };
+		26CFDD60238C62ED0023444F /* APISearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD5F238C62ED0023444F /* APISearchController.swift */; };
+		26CFDD62238C63330023444F /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD61238C63330023444F /* URLConstants.swift */; };
+		26CFDD64238C63680023444F /* YelpAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD63238C63680023444F /* YelpAPIModel.swift */; };
+		26CFDD66238C638E0023444F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD65238C638E0023444F /* User.swift */; };
+		26CFDD68238C63C10023444F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD67238C63C10023444F /* Comment.swift */; };
 		26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8994F2386F091007542DE /* MapViewTabViewController.swift */; };
 		26F8995D238723BB007542DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995B238723BA007542DE /* LaunchScreen.storyboard */; };
 		26F8995E238723BB007542DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995C238723BA007542DE /* Main.storyboard */; };
@@ -18,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26CFDD5F238C62ED0023444F /* APISearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISearchController.swift; sourceTree = "<group>"; };
+		26CFDD61238C63330023444F /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
+		26CFDD63238C63680023444F /* YelpAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAPIModel.swift; sourceTree = "<group>"; };
+		26CFDD65238C638E0023444F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		26CFDD67238C63C10023444F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		26F8994F2386F091007542DE /* MapViewTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewTabViewController.swift; sourceTree = "<group>"; };
 		26F8995B238723BA007542DE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.Iproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26F8995C238723BA007542DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.Iproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				26CFDD5C238C5CC90023444F /* URLConstants */,
+				26CFDD5F238C62ED0023444F /* APISearchController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -63,6 +74,7 @@
 		26CFDD5C238C5CC90023444F /* URLConstants */ = {
 			isa = PBXGroup;
 			children = (
+				26CFDD61238C63330023444F /* URLConstants.swift */,
 			);
 			path = URLConstants;
 			sourceTree = "<group>";
@@ -70,6 +82,9 @@
 		26CFDD5D238C5CDD0023444F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				26CFDD63238C63680023444F /* YelpAPIModel.swift */,
+				26CFDD65238C638E0023444F /* User.swift */,
+				26CFDD67238C63C10023444F /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,9 +281,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CFDD64238C63680023444F /* YelpAPIModel.swift in Sources */,
+				26CFDD60238C62ED0023444F /* APISearchController.swift in Sources */,
+				26CFDD62238C63330023444F /* URLConstants.swift in Sources */,
+				26CFDD68238C63C10023444F /* Comment.swift in Sources */,
 				26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */,
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
+				26CFDD66238C638E0023444F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
