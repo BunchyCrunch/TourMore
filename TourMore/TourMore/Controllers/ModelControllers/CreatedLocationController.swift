@@ -7,12 +7,22 @@
 //
 
 import Foundation
-
-
+import Firebase
 
 class CreatedLocationController {
-    func addNewLocation() {
+    
+    
+    
+    
+    // MARK: - CRUD
+    func addNewLocation(businessName: String, address1: String, address2: String, city: String, zipCode: String, completion: @escaping (CreatedLocation?, Error?) -> ()) {
         
+        reauthenticateUser(with: AuthCredential) { (authCredential, error) in
+            if let _ = error {
+                completion(nil, error)
+        }
+            guard let authCredential = authCredential else { completion(nil,nil) ; return}
+        }
     }
     
     func deleteLocation() {
@@ -22,4 +32,22 @@ class CreatedLocationController {
     func fetchLocation() {
         
     }
+    
+    // MARK: - methods
+    
+    private func reauthenticateUser(with credential: AuthCredential, completion: @escaping (AuthCredential?, Error?) -> Void ) {
+        let user = Auth.auth().currentUser
+        let credential: AuthCredential
+        user?.reauthenticate(with: credential, completion: { (credential, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(nil, error)
+            } else {
+                print("User is logged in")
+                completion(credential?.credential, nil)
+            }
+        })
+    }
 }
+
+

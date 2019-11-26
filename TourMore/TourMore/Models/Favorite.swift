@@ -13,7 +13,7 @@ import Firebase
 class Favorite {
     var businessID: String
     
-    init(businessID: String){
+    init(businessID: String) {
         self.businessID = businessID
     }
     
