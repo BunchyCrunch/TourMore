@@ -61,7 +61,17 @@ class UserController {
         completion(true)
     }
     
-    func updateUser(with name: String, completion: @escaping () -> Void) {
-        
+    func updateUser(with name: String, completion: @escaping (_ success: Bool) -> Void) {
+        guard let userID = currentUser?.uid else {return}
+        firebaseDB.collection("users").document(userID).setData([
+            "name" : name
+        ]) { (error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(false)
+            }
+            self.currentUser?.name = name
+            completion(true)
+        }
     }
 }
