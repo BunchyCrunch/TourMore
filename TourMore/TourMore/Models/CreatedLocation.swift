@@ -33,7 +33,7 @@ class CreatedLocation {
         ]
     }
     
-    init(businessName: String, address1: String, address2: String = "", city: String, country: String, zipCode: String, businessID: String = UUID().uuidString){
+    init(businessName: String, address1: String, address2: String = "", city: String, country: String, zipCode: String, businessID: String){
         self.businessName = businessName
         self.address1 = address1
         self.address2 = address2

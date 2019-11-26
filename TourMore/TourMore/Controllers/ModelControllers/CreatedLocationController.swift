@@ -7,47 +7,38 @@
 //
 
 import Foundation
+import FirebaseDatabase
 import Firebase
 
 class CreatedLocationController {
     
-    
+    var ref: DatabaseReference!
+    var databaseHandler: DatabaseHandle?
+  // ref = Database.database().reference()
     
     
     // MARK: - CRUD
-//    func addNewLocation(businessName: String, address1: String, address2: String, city: String, zipCode: String, completion: @escaping (CreatedLocation?, Error?) -> ()) {
-//
-//        reauthenticateUser() { (authCredential, error) in
-//            if let _ = error {
-//                completion(nil, error)
-//        }
-//            guard let authCredential = authCredential else { completion(nil,nil) ; return}
-//        }
-//    }
-//
-//    func deleteLocation() {
-//
-//    }
-//
-//    func fetchLocation() {
-//
-//    }
-//
-//    // MARK: - methods
-//    //with credential: AuthCredential,
-//    private func reauthenticateUser(completion: @escaping (AuthCredential?, Error?) -> ()) {
-//        let user = Auth.auth().currentUser
-//        let credential: AuthCredential
-//        user?.reauthenticate(with: credential, completion: { (credential, error) in
-//            if let error = error {
-//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-//                completion(nil, error)
-//            } else {
-//                print("User is logged in")
-//                completion(credential?.credential, nil)
-//            }
-//        })
-//    }
+    func addNewLocation(businessName: String, address1: String, address2: String, city: String, country: String, zipCode: String, completion: @escaping (CreatedLocation?, Error?) -> ()) {
+        if Auth.auth().currentUser != nil {
+            let uuid = UUID().uuidString
+            let location = CreatedLocation(businessName: businessName, address1: address1, address2: address2,  city: city, country: country, zipCode: zipCode, businessID: uuid)
+            ref = Database.database().reference()
+            ref.child("CreatedLocation").child(uuid).setValue(location.dictionary)
+        } else {
+            
+        }
+        
+        
+    }
+    func deleteLocation() {
+        ref = Database.database().reference()
+    }
+    
+    func fetchLocation() {
+        
+    }
+    
+    // MARK: - methods
 }
 
 
