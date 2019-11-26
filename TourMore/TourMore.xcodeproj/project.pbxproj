@@ -34,6 +34,7 @@
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
 		FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8A238D9E4800A0FB12 /* CommentController.swift */; };
 		FC79CF8D238D9FD300A0FB12 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */; };
+		FC79CF91238DE78000A0FB12 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC79CF90238DE78000A0FB12 /* Comment.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		DAA63E12E15E72558BB9B856 /* Pods_TourMore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourMore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC79CF8A238D9E4800A0FB12 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		FC79CF90238DE78000A0FB12 /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				26A6B8B0238DAE130099382F /* Map.storyboard */,
 				26A6B8AE238DAD300099382F /* Favorite.storyboard */,
 				28BC10AB238C887D009CE084 /* SignUp.storyboard */,
+				FC79CF90238DE78000A0FB12 /* Comment.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				26A6B8B1238DAE130099382F /* Map.storyboard in Resources */,
 				26F8995E238723BB007542DE /* Main.storyboard in Resources */,
 				26A6B8B5238DAE530099382F /* UserProfile.storyboard in Resources */,
+				FC79CF91238DE78000A0FB12 /* Comment.storyboard in Resources */,
 				26A6B8AF238DAD300099382F /* Favorite.storyboard in Resources */,
 				26F8995D238723BB007542DE /* LaunchScreen.storyboard in Resources */,
 				26A6B8B3238DAE3B0099382F /* CreateLocation.storyboard in Resources */,
