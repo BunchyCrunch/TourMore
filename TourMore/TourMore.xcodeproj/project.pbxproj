@@ -13,6 +13,10 @@
 		26A6B8A9238C82420099382F /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8A8238C82420099382F /* FavoriteController.swift */; };
 		26A6B8AB238C83BB0099382F /* CreatedLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8AA238C83BB0099382F /* CreatedLocationController.swift */; };
 		26A6B8AD238D94F80099382F /* CreateNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8AC238D94F80099382F /* CreateNewLocationViewController.swift */; };
+		26A6B8AF238DAD300099382F /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26A6B8AE238DAD300099382F /* Favorite.storyboard */; };
+		26A6B8B1238DAE130099382F /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26A6B8B0238DAE130099382F /* Map.storyboard */; };
+		26A6B8B3238DAE3B0099382F /* CreateLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26A6B8B2238DAE3B0099382F /* CreateLocation.storyboard */; };
+		26A6B8B5238DAE530099382F /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26A6B8B4238DAE530099382F /* UserProfile.storyboard */; };
 		26CFDD60238C62ED0023444F /* APISearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD5F238C62ED0023444F /* APISearchController.swift */; };
 		26CFDD62238C63330023444F /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD61238C63330023444F /* URLConstants.swift */; };
 		26CFDD64238C63680023444F /* YelpAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFDD63238C63680023444F /* YelpAPIModel.swift */; };
@@ -36,6 +40,10 @@
 		26A6B8A8238C82420099382F /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		26A6B8AA238C83BB0099382F /* CreatedLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedLocationController.swift; sourceTree = "<group>"; };
 		26A6B8AC238D94F80099382F /* CreateNewLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewLocationViewController.swift; sourceTree = "<group>"; };
+		26A6B8AE238DAD300099382F /* Favorite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Favorite.storyboard; path = Base.Iproj/Favorite.storyboard; sourceTree = "<group>"; };
+		26A6B8B0238DAE130099382F /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		26A6B8B2238DAE3B0099382F /* CreateLocation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateLocation.storyboard; path = Base.Iproj/CreateLocation.storyboard; sourceTree = "<group>"; };
+		26A6B8B4238DAE530099382F /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		26CFDD5F238C62ED0023444F /* APISearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISearchController.swift; sourceTree = "<group>"; };
 		26CFDD61238C63330023444F /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		26CFDD63238C63680023444F /* YelpAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAPIModel.swift; sourceTree = "<group>"; };
@@ -115,6 +123,10 @@
 			children = (
 				26F8995B238723BA007542DE /* LaunchScreen.storyboard */,
 				26F8995C238723BA007542DE /* Main.storyboard */,
+				26A6B8B4238DAE530099382F /* UserProfile.storyboard */,
+				26A6B8B2238DAE3B0099382F /* CreateLocation.storyboard */,
+				26A6B8B0238DAE130099382F /* Map.storyboard */,
+				26A6B8AE238DAD300099382F /* Favorite.storyboard */,
 				28BC10AB238C887D009CE084 /* SignUp.storyboard */,
 			);
 			path = Storyboards;
@@ -250,8 +262,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				28FB52682385C3D000266868 /* Assets.xcassets in Resources */,
+				26A6B8B1238DAE130099382F /* Map.storyboard in Resources */,
 				26F8995E238723BB007542DE /* Main.storyboard in Resources */,
+				26A6B8B5238DAE530099382F /* UserProfile.storyboard in Resources */,
+				26A6B8AF238DAD300099382F /* Favorite.storyboard in Resources */,
 				26F8995D238723BB007542DE /* LaunchScreen.storyboard in Resources */,
+				26A6B8B3238DAE3B0099382F /* CreateLocation.storyboard in Resources */,
 				28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */,
 				28BC10AC238C887D009CE084 /* SignUp.storyboard in Resources */,
 			);
