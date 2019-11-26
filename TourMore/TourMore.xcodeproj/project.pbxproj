@@ -25,7 +25,10 @@
 		26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8994F2386F091007542DE /* MapViewTabViewController.swift */; };
 		26F8995D238723BB007542DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995B238723BA007542DE /* LaunchScreen.storyboard */; };
 		26F8995E238723BB007542DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995C238723BA007542DE /* Main.storyboard */; };
+		281E8ABA238DE27E007EB045 /* WelcomeBack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281E8AB9238DE27E007EB045 /* WelcomeBack.storyboard */; };
+		281E8ABC238DE53C007EB045 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281E8ABB238DE53C007EB045 /* Onboarding.storyboard */; };
 		28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28477F092385C48800C1CA16 /* GoogleService-Info.plist */; };
+		2891A245238DC56400EF795B /* UploadProfilePic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2891A244238DC56400EF795B /* UploadProfilePic.storyboard */; };
 		28BC10AA238C7F42009CE084 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BC10A9238C7F42009CE084 /* UserController.swift */; };
 		28BC10AC238C887D009CE084 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BC10AB238C887D009CE084 /* SignUp.storyboard */; };
 		28BC10AE238C89A2009CE084 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BC10AD238C89A2009CE084 /* SignUpViewController.swift */; };
@@ -55,7 +58,10 @@
 		26F8994F2386F091007542DE /* MapViewTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewTabViewController.swift; sourceTree = "<group>"; };
 		26F8995B238723BA007542DE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.Iproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26F8995C238723BA007542DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.Iproj/Main.storyboard; sourceTree = "<group>"; };
+		281E8AB9238DE27E007EB045 /* WelcomeBack.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomeBack.storyboard; sourceTree = "<group>"; };
+		281E8ABB238DE53C007EB045 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		28477F092385C48800C1CA16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2891A244238DC56400EF795B /* UploadProfilePic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadProfilePic.storyboard; sourceTree = "<group>"; };
 		28BC10A9238C7F42009CE084 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		28BC10AB238C887D009CE084 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		28BC10AD238C89A2009CE084 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 				26A6B8B0238DAE130099382F /* Map.storyboard */,
 				26A6B8AE238DAD300099382F /* Favorite.storyboard */,
 				28BC10AB238C887D009CE084 /* SignUp.storyboard */,
+				281E8AB9238DE27E007EB045 /* WelcomeBack.storyboard */,
+				2891A244238DC56400EF795B /* UploadProfilePic.storyboard */,
+				281E8ABB238DE53C007EB045 /* Onboarding.storyboard */,
 				FC79CF90238DE78000A0FB12 /* Comment.storyboard */,
 			);
 			path = Storyboards;
@@ -270,7 +279,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2891A245238DC56400EF795B /* UploadProfilePic.storyboard in Resources */,
 				28FB52682385C3D000266868 /* Assets.xcassets in Resources */,
+				281E8ABA238DE27E007EB045 /* WelcomeBack.storyboard in Resources */,
+				281E8ABC238DE53C007EB045 /* Onboarding.storyboard in Resources */,
 				26A6B8B1238DAE130099382F /* Map.storyboard in Resources */,
 				26F8995E238723BB007542DE /* Main.storyboard in Resources */,
 				26A6B8B5238DAE530099382F /* UserProfile.storyboard in Resources */,
