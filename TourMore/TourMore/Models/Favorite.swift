@@ -13,12 +13,14 @@ import Firebase
 class Favorite {
     var businessID: String
     
-    init(businessID: String){
+    init(businessID: String) {
         self.businessID = businessID
     }
     
-//    init(snapshot: DataSnapshot) {
-//    let snapshotValue = snapshot.value as? [String : AnyObject],
-//    businessID = snapshotValue["businessID"] as? String
-//    }
+    convenience init?(snapshot: DataSnapshot) {
+        guard let snapshotValue = snapshot.value as? [String : Any],
+            let businessID = snapshotValue["businessID"] as? String
+            else {return nil}
+        self.init(businessID: businessID)
+    }
 }
