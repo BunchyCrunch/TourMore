@@ -27,6 +27,8 @@
 		28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB525E2385C3CF00266868 /* AppDelegate.swift */; };
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
+		FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8A238D9E4800A0FB12 /* CommentController.swift */; };
+		FC79CF8D238D9FD300A0FB12 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		4B2427077D5ED5A64BBA444C /* Pods-TourMore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.release.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.release.xcconfig"; sourceTree = "<group>"; };
 		CEB1AA1DDD629C7992B98086 /* Pods-TourMore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.debug.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.debug.xcconfig"; sourceTree = "<group>"; };
 		DAA63E12E15E72558BB9B856 /* Pods_TourMore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourMore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC79CF8A238D9E4800A0FB12 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
+		FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 				26A6B8A8238C82420099382F /* FavoriteController.swift */,
 				26A6B8AA238C83BB0099382F /* CreatedLocationController.swift */,
 				28BC10A9238C7F42009CE084 /* UserController.swift */,
+				FC79CF8A238D9E4800A0FB12 /* CommentController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			children = (
 				26F8994F2386F091007542DE /* MapViewTabViewController.swift */,
 				28BC10AD238C89A2009CE084 /* SignUpViewController.swift */,
+				FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -311,9 +317,11 @@
 				28BC10AE238C89A2009CE084 /* SignUpViewController.swift in Sources */,
 				26CFDD68238C63C10023444F /* Comment.swift in Sources */,
 				26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */,
+				FC79CF8D238D9FD300A0FB12 /* CommentViewController.swift in Sources */,
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
 				26A6B8AB238C83BB0099382F /* CreatedLocationController.swift in Sources */,
 				26A6B8A5238C78A30099382F /* Favorite.swift in Sources */,
+				FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
 				26CFDD66238C638E0023444F /* User.swift in Sources */,
 				26A6B8A9238C82420099382F /* FavoriteController.swift in Sources */,
