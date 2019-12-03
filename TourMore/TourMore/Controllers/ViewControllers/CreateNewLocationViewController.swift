@@ -11,7 +11,7 @@ import FirebaseAuth
 import CoreLocation
 
 class CreateNewLocationViewController: UITableViewController, CLLocationManagerDelegate, UITextViewDelegate {
-    
+    var image: UIImage?
     // MARK: - Outlets
 
     @IBOutlet weak var businessNameTextField: UITextField!
@@ -23,6 +23,9 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
     @IBOutlet weak var locationDiscriptionTextView: UITextView!
     @IBOutlet weak var categoriesTextView: UITextView!
     @IBOutlet weak var comment: UITextView!
+    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+
     
     var locationServiceManager = CLLocationManager()
     var location = CLLocation()
@@ -31,9 +34,10 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.titleVerticalPositionAdjustment(for: UIBarMetrics(rawValue: -5)!)
+//        self.navigationController?.navigationBar.titleVerticalPositionAdjustment(for: UIBarMetrics(rawValue: -5)!)
         self.navigationItem.title = "Add New Location"
         setupPlaceHolderText()
+        setupButtons()
     }
     
     // MARK: - Actions
@@ -54,6 +58,13 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
     
     
     // MARK: - Methods
+    func setupButtons() {
+        locationButton.layer.cornerRadius = 5
+        locationButton.frame.size = CGSize(width: 190,height: 47)
+        saveButton.layer.cornerRadius = 5
+        saveButton.frame.size = CGSize(width: 190, height: 47)
+    }
+    
     func doesUserExist(){
         guard let name = businessNameTextField.text,
         !name.isEmpty  else {
@@ -122,6 +133,9 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         guard let search = BusinessSearchController.sharedInstance.getSearchTermQueryItem(for: name) else {return}
         BusinessSearchController.sharedInstance.getSearch(location: "\(location)", queryItems: [search]) { (businesses) in
             DispatchQueue.main.async {
+                if businesses.count == 0 {
+                    self.addNewLocation()
+                }
                 guard let businesses = businesses.first,
                     let addressUserInput = self.zipCodeTextField.text?.lowercased() else { return }
                 if businesses.name.lowercased() == name.lowercased() &&
@@ -154,11 +168,13 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
                 return
         }
         let address2 = address2TextField.text ?? ""
-        CreatedLocationController.addNewLocation(businessName: businessName, address1: address1, address2: address2, city: city, country: country, zipCode: zipCode, locationDiscription: locationDiscription, categories: categories) { (success, error ) in
+        CreatedLocationController.addNewLocation(businessName: businessName, address1: address1, address2: address2, city: city, country: country, zipCode: zipCode, locationDiscription: locationDiscription, categories: categories) { (business, error ) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 return
             }
+            guard let business = business else {return}
+            self.addNewLocationPicture(for: business)
         }
         locationCreated()
         return
@@ -199,6 +215,15 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         alert.addAction(okayButton)
         DispatchQueue.main.async {
             self.present(alert, animated: true)
+        }
+    }
+    
+    func addNewLocationPicture(for bussiness: CreatedLocation) {
+        guard let image = image else {return}
+        CreatedLocationController.createLocationPicture(businessID: bussiness.businessID, image: image) { (success) in
+            if success {
+                print("picture uploaded")
+            }
         }
     }
     

@@ -28,35 +28,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BOE-Ry-Krj">
-                                <rect key="frame" x="29" y="692.5" width="356" height="85.5"/>
+                                <rect key="frame" x="29" y="692.5" width="320" height="85.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="SZi-xd-Tqm">
-                                        <rect key="frame" x="0.0" y="0.0" width="356" height="65"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ad-ib-La4">
-                                                <rect key="frame" x="0.0" y="0.0" width="71" height="65"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="65"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="65" id="UvQ-yU-LQ4"/>
                                                     <constraint firstAttribute="height" constant="65" id="Xcc-ON-Xe9"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeU-Nr-Cq4">
-                                                <rect key="frame" x="95" y="0.0" width="71" height="65"/>
+                                                <rect key="frame" x="86" y="0.0" width="62" height="65"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdQ-k7-PqM">
-                                                <rect key="frame" x="190" y="0.0" width="71" height="65"/>
+                                                <rect key="frame" x="172" y="0.0" width="62" height="65"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJE-N8-gO8">
-                                                <rect key="frame" x="285" y="0.0" width="71" height="65"/>
+                                                <rect key="frame" x="258" y="0.0" width="62" height="65"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tks-iV-TdP">
-                                        <rect key="frame" x="0.0" y="65" width="356" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="65" width="320" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeW-Eu-E79">
-                                                <rect key="frame" x="0.0" y="0.0" width="74" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="65" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="65" id="tzv-Bd-758"/>
                                                 </constraints>
@@ -65,7 +64,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLb-zY-fvC">
-                                                <rect key="frame" x="94" y="0.0" width="74" height="20.5"/>
+                                                <rect key="frame" x="85" y="0.0" width="65" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="65" id="EnH-Lb-x2s"/>
                                                 </constraints>
@@ -74,7 +73,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p88-dk-fxU">
-                                                <rect key="frame" x="188" y="0.0" width="74" height="20.5"/>
+                                                <rect key="frame" x="170" y="0.0" width="65" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="65" id="TDZ-OR-Boh"/>
                                                 </constraints>
@@ -83,7 +82,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2O-RD-eU6">
-                                                <rect key="frame" x="282" y="0.0" width="74" height="20.5"/>
+                                                <rect key="frame" x="255" y="0.0" width="65" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="65" id="2zJ-aP-X4z"/>
                                                 </constraints>
@@ -96,7 +95,7 @@
                                 </subviews>
                             </stackView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-m4-Qdh">
-                                <rect key="frame" x="44" y="44" width="326" height="56"/>
+                                <rect key="frame" x="44" y="70" width="326" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -110,8 +109,7 @@
                             <constraint firstItem="NRn-Lw-Vxc" firstAttribute="leading" secondItem="tYb-Sd-5bf" secondAttribute="leading" constant="74" id="Y7V-18-mUo"/>
                             <constraint firstItem="koj-U8-WqC" firstAttribute="leading" secondItem="tYb-Sd-5bf" secondAttribute="leading" id="etK-7y-o39"/>
                             <constraint firstItem="tYb-Sd-5bf" firstAttribute="trailing" secondItem="koj-U8-WqC" secondAttribute="trailing" id="giy-B2-gId"/>
-                            <constraint firstItem="tYb-Sd-5bf" firstAttribute="trailing" secondItem="BOE-Ry-Krj" secondAttribute="trailing" constant="29" id="hdz-9i-cZq"/>
-                            <constraint firstItem="2EU-m4-Qdh" firstAttribute="top" secondItem="rAd-ci-5S9" secondAttribute="top" constant="44" id="hwg-Ge-pI3"/>
+                            <constraint firstItem="2EU-m4-Qdh" firstAttribute="top" secondItem="rAd-ci-5S9" secondAttribute="top" constant="70" id="hwg-Ge-pI3"/>
                             <constraint firstItem="2EU-m4-Qdh" firstAttribute="leading" secondItem="tYb-Sd-5bf" secondAttribute="leading" constant="44" id="pXg-3H-kij"/>
                             <constraint firstItem="tYb-Sd-5bf" firstAttribute="trailing" secondItem="2EU-m4-Qdh" secondAttribute="trailing" constant="44" id="qzv-yz-aF7"/>
                         </constraints>

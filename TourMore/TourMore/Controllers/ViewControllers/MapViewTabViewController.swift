@@ -8,8 +8,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewTabViewController: UIViewController {
+class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     
     // MARK: - Outlets
@@ -21,16 +22,27 @@ class MapViewTabViewController: UIViewController {
     @IBOutlet weak var dinnerButton: UIButton!
     @IBOutlet weak var locationSearchBar: UISearchBar!
     
+    var locationManager: CLLocationManager!
+    private var scaleView: MKScaleView!
+    private var userTrackingButton: MKUserTrackingButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScreen()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        locationManager.stopUpdatingLocation()
+    }
+    
+    // MARK: - Views Setup
     func setupScreen() {
         setupLabel()
         setupButtons()
         setupSearchBar()
         setupNavagationBar()
+        deterimeLocation()
     }
     
     func setupNavagationBar() {
@@ -60,6 +72,61 @@ class MapViewTabViewController: UIViewController {
         locationSearchBar.placeholder = "Search"
 
     }
+    
+    func mapSettings() {
+        setupUserTrackingAndScaleView()
+        mapView.showsUserLocation = true
+        mapView.showsBuildings = false
+        mapView.showsTraffic = false
+        mapView.mapType = .standard
+        mapView.showsCompass = true
+    }
+    
+    private func setupUserTrackingAndScaleView() {
+        scaleView = MKScaleView(mapView: mapView)
+        scaleView.scaleVisibility = .adaptive
+        scaleView.legendAlignment = .trailing
+        view.addSubview(scaleView)
+        
+        userTrackingButton = MKUserTrackingButton(mapView: mapView)
+        userTrackingButton.layer.backgroundColor = UIColor.white.cgColor
+        userTrackingButton.layer.borderColor = UIColor.white.cgColor
+        userTrackingButton.layer.borderWidth = 1
+        userTrackingButton.layer.cornerRadius = 5
+        view.addSubview(userTrackingButton)
+        
+        let stackView = UIStackView(arrangedSubviews: [scaleView, userTrackingButton])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 10
+        view.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([stackView.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -10),
+                                     stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)])
+        
+    }
+    // MARK: - Methods
+    func deterimeLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            mapSettings()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation: CLLocation = locations[0] as CLLocation
+        let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        mapView.setRegion(region, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
