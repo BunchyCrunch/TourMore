@@ -18,9 +18,10 @@ class CreatedLocation {
     var address2: String
     var city: String
     var country: String
-    // zip code is string since some countries have letters in the zip code IE Canada
     var zipCode: String
     var businessID: String
+    var locationDiscription: String
+    var categories: String
     var dictionary: [String : Any] {
         return [
             "businessName" : businessName,
@@ -29,11 +30,13 @@ class CreatedLocation {
             "city" : city,
             "country" : country,
             "zipCode" : zipCode,
-            "businessID" : businessID
+            "businessID" : businessID,
+            "categories" : categories,
+            "locationDiscription" : locationDiscription
         ]
     }
     
-    init(businessName: String, address1: String, address2: String = "", city: String, country: String, zipCode: String, businessID: String){
+    init(businessName: String, address1: String, address2: String = "", city: String, country: String, zipCode: String, businessID: String, locationDiscription: String, categories: String ){
         self.businessName = businessName
         self.address1 = address1
         self.address2 = address2
@@ -41,6 +44,8 @@ class CreatedLocation {
         self.country = country
         self.zipCode = zipCode
         self.businessID = businessID
+        self.locationDiscription = locationDiscription
+        self.categories = categories
     }
     
     convenience init?(snapshot: DataSnapshot) {
@@ -51,10 +56,12 @@ class CreatedLocation {
             let city = snapshotValue["city"] as? String,
             let country = snapshotValue["country"] as? String,
             let zipCode = snapshotValue["zipCode"] as? String,
-            let businessID = snapshotValue["businessID"] as? String
+            let businessID = snapshotValue["businessID"] as? String,
+            let locationDiscription = snapshotValue["locationDiscription"] as? String,
+            let categories = snapshotValue["categories"] as? String
             else {return nil}
         
-        self.init(businessName: businessName, address1: address1, address2: address2, city: city, country: country, zipCode: zipCode, businessID: businessID)
+        self.init(businessName: businessName, address1: address1, address2: address2, city: city, country: country, zipCode: zipCode, businessID: businessID, locationDiscription: locationDiscription, categories: categories)
     }
 }
 
