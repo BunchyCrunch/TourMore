@@ -19,23 +19,47 @@ class MapViewTabViewController: UIViewController {
     @IBOutlet weak var breakfastButton: UIButton!
     @IBOutlet weak var lunchButton: UIButton!
     @IBOutlet weak var dinnerButton: UIButton!
+    @IBOutlet weak var locationSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupScreen()
+    }
+    
+    func setupScreen() {
+        setupLabel()
+        setupButtons()
+        setupSearchBar()
+        setupNavagationBar()
+    }
+    
+    func setupNavagationBar() {
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.isTranslucent = true
+    // navigationController?.navigationBar.barStyle = .black
+    // navigationController?.navigationBar.barStyle = .blackTranslucent
     }
     
     func setupLabel() {
-        //    let labelBold = NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)
-        //    exploreLabel.attributedText =  labelBold
+      //  let labelBold = NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)
+      //      exploreLabel.attributedText =  labelBold
+        exploreLabel.text = "EXPLORE NEARBY CUISINE"
+        exploreLabel.textAlignment = .center
+        
     }
     func setupButtons () {
-        popularButton.setImage(UIImage(named: ""), for: .normal)
-        breakfastButton.setImage(UIImage(named: ""), for: .normal)
-        lunchButton.setImage(UIImage(named: ""), for: .normal)
-        dinnerButton.setImage(UIImage(named: ""), for: .normal)
+        popularButton.setBackgroundImage(UIImage(named: "Star"), for: .normal)
+        breakfastButton.setBackgroundImage(UIImage(named: "Breakfast"), for: .normal)
+        lunchButton.setBackgroundImage(UIImage(named: "Lunch"), for: .normal)
+        dinnerButton.setBackgroundImage(UIImage(named: "Dinner"), for: .normal)
     }
 
+    func setupSearchBar() {
+        locationSearchBar.searchBarStyle = .minimal
+        locationSearchBar.placeholder = "Search"
+
+    }
     /*
     // MARK: - Navigation
 

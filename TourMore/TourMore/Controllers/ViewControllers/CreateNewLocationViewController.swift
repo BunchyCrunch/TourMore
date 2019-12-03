@@ -40,7 +40,12 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
     @IBAction func saveButtonTapped(_ sender: Any){
     // change over when user can log in
       //  doesUserExist()
-        addNewLocation()
+      //  addNewLocation()
+        guard let name = businessNameTextField.text,
+        !name.isEmpty  else {
+            needToFillInAllFields()
+            return }
+        doesLocationExist(name: name)
     }
     @IBAction func useCurrentLocationButtonTapped(_ sender: Any) {
         startLocating()
@@ -50,10 +55,12 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
     
     // MARK: - Methods
     func doesUserExist(){
+        guard let name = businessNameTextField.text,
+        !name.isEmpty  else {
+            needToFillInAllFields()
+            return }
         if Auth.auth().currentUser != nil {
-            // change when func completed
-          //  doesLocationExist()
-            addNewLocation()
+            doesLocationExist(name: name)
         } else {
             needToLogInAlert()
         }
@@ -97,19 +104,33 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         }
     }
     
+    func getLocationCheck () {
+        if locationCheck != "" {
+            return
+        } else {
+            guard let address = address1TextField.text,
+                let city = cityTextField.text,
+                let zipcode = zipCodeTextField.text
+                else { return }
+            self.locationCheck = "\(address), \(city), \(zipcode)"
+        }
+    }
+    
     func doesLocationExist(name: String){
-        getLocation()
-        guard let name = businessNameTextField.text,
-            !name.isEmpty  else {
-                needToFillInAllFields()
-                return }
+        getLocationCheck()
         let location = self.locationCheck
         guard let search = BusinessSearchController.sharedInstance.getSearchTermQueryItem(for: name) else {return}
-        BusinessSearchController.sharedInstance.getSearch(location: "\(location)", queryItems: [search]) { (business) in
-            if  {
+        BusinessSearchController.sharedInstance.getSearch(location: "\(location)", queryItems: [search]) { (businesses) in
+            DispatchQueue.main.async {
+                guard let businesses = businesses.first,
+                    let addressUserInput = self.zipCodeTextField.text?.lowercased() else { return }
+                if businesses.name.lowercased() == name.lowercased() &&
+                businesses.location.zipCode.lowercased() == addressUserInput {
+                    self.locationHasAlreadyBeenCreated()
+                } else {
+                    self.addNewLocation()
+                }
             }
-        } else {
-            addNewLocation()
         }
     }
     
@@ -176,7 +197,9 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         let alert = UIAlertController(title: "This location already exists", message: nil, preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "OKAY", style: .destructive, handler: nil)
         alert.addAction(okayButton)
-        self.present(alert, animated: true)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
     }
     
     // MARK: - Location Methods
@@ -199,6 +222,9 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         let locationArray = locations as NSArray
         let locationObj = locationArray.lastObject as! CLLocation
         let lastLocation = locationObj
+     //   let coord = locationObj.coordinate
+     //   let lat = coord.latitude
+        
         convertlocation(location: lastLocation) { (_, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")

@@ -177,11 +177,11 @@
             </objects>
             <point key="canvasLocation" x="-565.21739130434787" y="154.6875"/>
         </scene>
-        <!--Item-->
+        <!--Create Location-->
         <scene sceneID="uJL-lK-zHs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D9Y-Jr-uOF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="plus" catalog="system" id="hfu-Q0-PNi"/>
+                    <tabBarItem key="tabBarItem" title="Create Location" image="plus" catalog="system" id="hfu-Q0-PNi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vEh-7n-y17">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

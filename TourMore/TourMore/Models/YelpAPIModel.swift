@@ -65,3 +65,9 @@ struct Location: Decodable {
         case displayAddress = "display_address"
     }
 }
+
+extension Location: Equatable {
+    static func == (lhs: Location, rhs: Location) -> Bool {
+        return lhs == rhs
+    }
+}
