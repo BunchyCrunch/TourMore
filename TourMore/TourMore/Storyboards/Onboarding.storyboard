@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="040-BT-koS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Swiping Controller-->
+        <scene sceneID="IYL-Rz-fv5">
+            <objects>
+                <collectionViewController id="040-BT-koS" customClass="SwipingController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="yz1-Dp-YgM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nes-K7-ByV">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="R8f-Pj-99J">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="j6i-dH-H2A">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="040-BT-koS" id="mVs-Pj-J0T"/>
+                            <outlet property="delegate" destination="040-BT-koS" id="qpc-Ce-b2H"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tua-d1-hmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-413" y="-508"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="VvU-jl-LhH">
             <objects>
@@ -14,7 +49,89 @@
                     <view key="view" contentMode="scaleToFill" id="jxs-tt-28o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icon Copy 2" translatesAutoresizingMaskIntoConstraints="NO" id="Js0-zC-hqw">
+                                <rect key="frame" x="20" y="100" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="w4b-Et-wQV"/>
+                                    <constraint firstAttribute="width" secondItem="Js0-zC-hqw" secondAttribute="height" multiplier="1:1" id="yjR-Ga-FAI"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lunch hunt Copy" translatesAutoresizingMaskIntoConstraints="NO" id="mtH-GQ-wuG">
+                                <rect key="frame" x="20" y="201" width="142" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mtH-GQ-wuG" secondAttribute="height" multiplier="211:128" id="EWk-nz-Qvn"/>
+                                    <constraint firstAttribute="height" constant="86" id="aV5-Xr-XeE"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abD-ym-Kx7">
+                                <rect key="frame" x="308" y="266" width="74" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="hdz-Sj-wgI"/>
+                                    <constraint firstAttribute="width" secondItem="abD-ym-Kx7" secondAttribute="height" multiplier="53:15" id="yYw-Zz-Ugm"/>
+                                </constraints>
+                                <state key="normal" image="SKIP Copy"/>
+                                <connections>
+                                    <segue destination="ioT-Lf-wiy" kind="show" id="175-88-DoF"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nPb-O3-qto">
+                                <rect key="frame" x="20" y="401.5" width="302.5" height="103"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISCOVER UNIQUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2A-MM-Ciq">
+                                        <rect key="frame" x="0.0" y="0.0" width="302.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                        <color key="textColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLACES TO EAT IN CITIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtM-el-vF9">
+                                        <rect key="frame" x="0.0" y="37" width="302.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                        <color key="textColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALL AROUND THE WORLD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4e-cG-gpa">
+                                        <rect key="frame" x="0.0" y="74" width="302.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                        <color key="textColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVb-9z-dWB">
+                                <rect key="frame" x="286.5" y="684" width="82" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="3IR-ug-zlw"/>
+                                    <constraint firstAttribute="width" secondItem="GVb-9z-dWB" secondAttribute="height" multiplier="1:1" id="Etf-pe-vRE"/>
+                                </constraints>
+                                <state key="normal" image="Next Button Copy-1"/>
+                                <connections>
+                                    <segue destination="IKD-D5-awZ" kind="presentation" modalPresentationStyle="fullScreen" id="pSX-88-obP"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Progress Bar Copy-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ysk-xK-efZ">
+                                <rect key="frame" x="163" y="792" width="88" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ysk-xK-efZ" secondAttribute="height" multiplier="15:8" id="t5q-Nl-MIH"/>
+                                    <constraint firstAttribute="width" constant="88" id="xl0-Wd-Dao"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.41568627450000001" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gOc-57-1cz" firstAttribute="trailing" secondItem="abD-ym-Kx7" secondAttribute="trailing" constant="32" id="3Vl-r0-yja"/>
+                            <constraint firstItem="Js0-zC-hqw" firstAttribute="leading" secondItem="gOc-57-1cz" secondAttribute="leading" constant="20" id="5E4-Cu-WYQ"/>
+                            <constraint firstItem="GVb-9z-dWB" firstAttribute="centerX" secondItem="abD-ym-Kx7" secondAttribute="centerX" multiplier="0.95" id="8JT-cf-MXr"/>
+                            <constraint firstItem="nPb-O3-qto" firstAttribute="leading" secondItem="mtH-GQ-wuG" secondAttribute="leading" id="Avd-bd-P12"/>
+                            <constraint firstItem="GVb-9z-dWB" firstAttribute="centerY" secondItem="gOc-57-1cz" secondAttribute="centerY" multiplier="1.6" id="B70-Y8-6zI"/>
+                            <constraint firstItem="Ysk-xK-efZ" firstAttribute="centerY" secondItem="gOc-57-1cz" secondAttribute="centerY" multiplier="1.8" id="CLN-CV-FYB"/>
+                            <constraint firstItem="abD-ym-Kx7" firstAttribute="bottom" secondItem="mtH-GQ-wuG" secondAttribute="bottom" id="CYs-EI-gKV"/>
+                            <constraint firstItem="mtH-GQ-wuG" firstAttribute="top" secondItem="Js0-zC-hqw" secondAttribute="bottom" constant="16" id="MLG-Pj-LrH"/>
+                            <constraint firstItem="Ysk-xK-efZ" firstAttribute="centerX" secondItem="gOc-57-1cz" secondAttribute="centerX" id="OnT-eF-oe9"/>
+                            <constraint firstItem="nPb-O3-qto" firstAttribute="centerY" secondItem="gOc-57-1cz" secondAttribute="centerY" id="Pfs-N0-3ex"/>
+                            <constraint firstItem="Js0-zC-hqw" firstAttribute="top" secondItem="gOc-57-1cz" secondAttribute="top" constant="56" id="VTf-CZ-w7s"/>
+                            <constraint firstItem="mtH-GQ-wuG" firstAttribute="leading" secondItem="Js0-zC-hqw" secondAttribute="leading" id="f9y-LU-uxn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gOc-57-1cz"/>
                     </view>
                 </viewController>
@@ -22,5 +139,38 @@
             </objects>
             <point key="canvasLocation" x="-413.04347826086962" y="196.875"/>
         </scene>
+        <!--SignUp-->
+        <scene sceneID="3et-oJ-uWd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUp" id="ioT-Lf-wiy" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GX2-Nr-IdL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qB1-si-HqL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="-94"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gfn-U6-xMc">
+            <objects>
+                <viewController id="IKD-D5-awZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2mK-RE-EKq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.41568627450000001" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="rz2-zp-cs3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lgo-pl-ugV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BKG-DX-83f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="474" y="197"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="App Icon Copy 2" width="170" height="170"/>
+        <image name="Lunch hunt Copy" width="230" height="138"/>
+        <image name="Next Button Copy-1" width="172" height="172"/>
+        <image name="Progress Bar Copy-1" width="176" height="20"/>
+        <image name="SKIP Copy" width="106" height="30"/>
+    </resources>
 </document>
