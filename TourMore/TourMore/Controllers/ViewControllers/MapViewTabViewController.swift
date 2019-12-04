@@ -25,6 +25,7 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var locationManager: CLLocationManager!
     private var scaleView: MKScaleView!
     private var userTrackingButton: MKUserTrackingButton!
+    var userLoc = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,24 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         locationManager.stopUpdatingLocation()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func popularButtonTapped(_ sender: Any){
+        searchByCatogory(term: "Popular")
+    }
+    
+    @IBAction func breakfastButtonTapped(_ sender: Any){
+        searchByCatogory(term: "Breakfast")
+    }
+    
+    @IBAction func lunchButtonTapped(_ sender: Any){
+        searchByCatogory(term: "Lunch")
+    }
+    
+    @IBAction func dinnerButtonTapped(_ sender: Any){
+        searchByCatogory(term: "Dinner")
     }
     
     // MARK: - Views Setup
@@ -122,10 +141,22 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation: CLLocation = locations[0] as CLLocation
         let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        self.userLoc = "\(center)"
+        print(userLoc)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         mapView.setRegion(region, animated: true)
     }
+    
+    func searchByCatogory(term: String) {
+//      //  guard let userLocation = userLoc else { return }
+//        guard  let search = BusinessSearchController.sharedInstance.getCatogoryQueryItem(for: term) else { return }
+//        BusinessSearchController.sharedInstance.getSearch(location: <#T##String#>, queryItems: term) { (<#[Business]#>) in
+//            <#code#>
+//        }
+    }
+    
+    
     
     /*
     // MARK: - Navigation

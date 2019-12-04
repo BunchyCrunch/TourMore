@@ -56,6 +56,7 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         getLocation()
     }
     
+
     
     // MARK: - Methods
     func setupButtons() {
@@ -85,7 +86,7 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         locationDiscriptionTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
         locationDiscriptionTextView.layer.cornerRadius = 5
         categoriesTextView.delegate = self
-        categoriesTextView.text = "Categories"
+        categoriesTextView.text = "Tags ie (Cheap Food, Kid Friendly, Quick)"
         categoriesTextView.textColor = .lightGray
         categoriesTextView.layer.borderWidth = 0.7
         categoriesTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
@@ -107,10 +108,10 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if locationDiscriptionTextView.text.isEmpty {
-            locationDiscriptionTextView.text = "Placeholder"
+            locationDiscriptionTextView.text = "Discription"
             locationDiscriptionTextView.textColor = .lightGray
         } else if categoriesTextView.text.isEmpty {
-            categoriesTextView.text = "Categories"
+            categoriesTextView.text = "Tags ie (Cheap Food, Kid Friendly, Quick)"
             categoriesTextView.textColor = .lightGray
         }
     }
@@ -162,7 +163,7 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
             let locationDiscription = locationDiscriptionTextView.text,
             locationDiscriptionTextView.text != "Discription",
             let categories = categoriesTextView.text,
-            categoriesTextView.text != "Categories"
+            categoriesTextView.text != "Tags ie (Cheap Food, Kid Friendly, Quick)"
             else {
                 self.needToFillInAllFields()
                 return

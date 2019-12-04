@@ -28,31 +28,43 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BOE-Ry-Krj">
-                                <rect key="frame" x="29" y="692.5" width="320" height="85.5"/>
+                                <rect key="frame" x="24.5" y="692.5" width="365" height="85.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="SZi-xd-Tqm">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="SZi-xd-Tqm">
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="65"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ad-ib-La4">
-                                                <rect key="frame" x="0.0" y="0.0" width="62" height="65"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="65"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="65" id="Xcc-ON-Xe9"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="popularButtonTapped:" destination="JPJ-7u-nQy" eventType="touchUpInside" id="PKT-Np-PZw"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeU-Nr-Cq4">
-                                                <rect key="frame" x="86" y="0.0" width="62" height="65"/>
+                                                <rect key="frame" x="98.5" y="0.0" width="70" height="65"/>
+                                                <connections>
+                                                    <action selector="breakfastButtonTapped:" destination="JPJ-7u-nQy" eventType="touchUpInside" id="jsp-hn-bdE"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdQ-k7-PqM">
-                                                <rect key="frame" x="172" y="0.0" width="62" height="65"/>
+                                                <rect key="frame" x="196.5" y="0.0" width="70.5" height="65"/>
+                                                <connections>
+                                                    <action selector="lunchButtonTapped:" destination="JPJ-7u-nQy" eventType="touchUpInside" id="YM6-ta-QXD"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJE-N8-gO8">
-                                                <rect key="frame" x="258" y="0.0" width="62" height="65"/>
+                                                <rect key="frame" x="295" y="0.0" width="70" height="65"/>
+                                                <connections>
+                                                    <action selector="dinnerButtonTapped:" destination="JPJ-7u-nQy" eventType="touchUpInside" id="2LU-y9-J1z"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tks-iV-TdP">
-                                        <rect key="frame" x="0.0" y="65" width="320" height="20.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="tks-iV-TdP">
+                                        <rect key="frame" x="0.0" y="65" width="365" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeW-Eu-E79">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="20.5"/>
@@ -64,7 +76,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLb-zY-fvC">
-                                                <rect key="frame" x="85" y="0.0" width="65" height="20.5"/>
+                                                <rect key="frame" x="100" y="0.0" width="65" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="65" id="EnH-Lb-x2s"/>
                                                 </constraints>
@@ -73,7 +85,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p88-dk-fxU">
-                                                <rect key="frame" x="170" y="0.0" width="65" height="20.5"/>
+                                                <rect key="frame" x="200" y="0.0" width="65" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="65" id="TDZ-OR-Boh"/>
                                                 </constraints>
@@ -82,7 +94,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2O-RD-eU6">
-                                                <rect key="frame" x="255" y="0.0" width="65" height="20.5"/>
+                                                <rect key="frame" x="300" y="0.0" width="65" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="65" id="2zJ-aP-X4z"/>
                                                 </constraints>
@@ -104,12 +116,12 @@
                             <constraint firstItem="BOE-Ry-Krj" firstAttribute="top" secondItem="NRn-Lw-Vxc" secondAttribute="bottom" constant="8" id="0BT-Ds-YNX"/>
                             <constraint firstItem="NRn-Lw-Vxc" firstAttribute="top" secondItem="koj-U8-WqC" secondAttribute="bottom" constant="24" id="9Z0-0D-Qsw"/>
                             <constraint firstItem="koj-U8-WqC" firstAttribute="top" secondItem="rAd-ci-5S9" secondAttribute="top" id="A3E-Tl-KPh"/>
-                            <constraint firstItem="BOE-Ry-Krj" firstAttribute="leading" secondItem="tYb-Sd-5bf" secondAttribute="leading" constant="29" id="P5J-2U-NoR"/>
                             <constraint firstItem="tYb-Sd-5bf" firstAttribute="trailing" secondItem="NRn-Lw-Vxc" secondAttribute="trailing" constant="74" id="UVv-6A-9Xn"/>
                             <constraint firstItem="NRn-Lw-Vxc" firstAttribute="leading" secondItem="tYb-Sd-5bf" secondAttribute="leading" constant="74" id="Y7V-18-mUo"/>
                             <constraint firstItem="koj-U8-WqC" firstAttribute="leading" secondItem="tYb-Sd-5bf" secondAttribute="leading" id="etK-7y-o39"/>
                             <constraint firstItem="tYb-Sd-5bf" firstAttribute="trailing" secondItem="koj-U8-WqC" secondAttribute="trailing" id="giy-B2-gId"/>
                             <constraint firstItem="2EU-m4-Qdh" firstAttribute="top" secondItem="rAd-ci-5S9" secondAttribute="top" constant="70" id="hwg-Ge-pI3"/>
+                            <constraint firstItem="BOE-Ry-Krj" firstAttribute="centerX" secondItem="rAd-ci-5S9" secondAttribute="centerX" id="jgK-S7-F22"/>
                             <constraint firstItem="2EU-m4-Qdh" firstAttribute="leading" secondItem="tYb-Sd-5bf" secondAttribute="leading" constant="44" id="pXg-3H-kij"/>
                             <constraint firstItem="tYb-Sd-5bf" firstAttribute="trailing" secondItem="2EU-m4-Qdh" secondAttribute="trailing" constant="44" id="qzv-yz-aF7"/>
                         </constraints>
