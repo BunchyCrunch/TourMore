@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sMJ-eC-uPH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo Picker View Controller-->
+        <scene sceneID="JH2-Os-XwX">
+            <objects>
+                <viewController id="sMJ-eC-uPH" customClass="PhotoPickerViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kHu-AM-Lhz">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9UM-eP-Ncg">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vI-eq-tp8">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                <connections>
+                                    <action selector="selectImageButtonTapped:" destination="sMJ-eC-uPH" eventType="touchUpInside" id="mkM-YU-Rp0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2vI-eq-tp8" firstAttribute="centerY" secondItem="9UM-eP-Ncg" secondAttribute="centerY" id="4T5-Fw-upz"/>
+                            <constraint firstItem="2vI-eq-tp8" firstAttribute="height" secondItem="9UM-eP-Ncg" secondAttribute="height" id="4bV-83-Ev3"/>
+                            <constraint firstItem="9UM-eP-Ncg" firstAttribute="height" secondItem="kHu-AM-Lhz" secondAttribute="height" id="BEI-hB-Z1F"/>
+                            <constraint firstItem="9UM-eP-Ncg" firstAttribute="centerX" secondItem="kHu-AM-Lhz" secondAttribute="centerX" id="BFl-Fm-rFh"/>
+                            <constraint firstItem="2vI-eq-tp8" firstAttribute="width" secondItem="9UM-eP-Ncg" secondAttribute="width" id="Gjy-k9-BLA"/>
+                            <constraint firstItem="2vI-eq-tp8" firstAttribute="centerX" secondItem="9UM-eP-Ncg" secondAttribute="centerX" id="Seg-L7-aQR"/>
+                            <constraint firstItem="9UM-eP-Ncg" firstAttribute="centerY" secondItem="kHu-AM-Lhz" secondAttribute="centerY" id="gJS-1D-PAz"/>
+                            <constraint firstItem="9UM-eP-Ncg" firstAttribute="width" secondItem="kHu-AM-Lhz" secondAttribute="width" id="nMu-eS-6DV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w6Q-8e-SpU"/>
+                    </view>
+                    <size key="freeformSize" width="400" height="400"/>
+                    <connections>
+                        <outlet property="profilePhotoImageView" destination="9UM-eP-Ncg" id="Lis-DD-hGb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWw-aJ-UC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="768" y="313"/>
+        </scene>
+    </scenes>
+</document>
