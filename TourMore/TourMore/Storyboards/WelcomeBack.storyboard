@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign Up View Controller-->
+        <!--Welcome Back View Controller-->
         <scene sceneID="czS-qN-lYI">
             <objects>
-                <viewController id="EwD-OE-uSl" customClass="SignUpViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EwD-OE-uSl" customClass="WelcomeBackViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JWE-qF-Tgn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,19 +19,18 @@
                                 <rect key="frame" x="0.0" y="296.5" width="414" height="599.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lyw-D8-GCl">
-                                        <rect key="frame" x="32" y="32" width="350" height="116"/>
+                                        <rect key="frame" x="32" y="65" width="350" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0q-Nh-3T6">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ap6-Zq-m5g" customClass="ASAuthorizationAppleIDButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="eoM-e6-RQK"/>
-                                                    <constraint firstAttribute="width" secondItem="e0q-Nh-3T6" secondAttribute="height" multiplier="7:1" id="tdl-Oq-Wvx"/>
+                                                    <constraint firstAttribute="width" secondItem="Ap6-Zq-m5g" secondAttribute="height" multiplier="7:1" id="0pp-6G-pSa"/>
+                                                    <constraint firstAttribute="height" constant="50" id="1Ar-Jv-V3X"/>
                                                 </constraints>
-                                                <state key="normal" image="Google Button Copy"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ap6-Zq-m5g">
-                                                <rect key="frame" x="0.0" y="66" width="350" height="50"/>
                                                 <state key="normal" image="Facebook Button Copy-2"/>
+                                                <connections>
+                                                    <action selector="continueWithAppleSignIn:" destination="EwD-OE-uSl" eventType="touchUpInside" id="dC2-vH-TB8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -183,7 +182,6 @@
     </scenes>
     <resources>
         <image name="Facebook Button Copy-2" width="700" height="100"/>
-        <image name="Google Button Copy" width="700" height="100"/>
         <image name="Next Button Copy-2" width="700" height="100"/>
         <image name="multiply" catalog="system" width="64" height="56"/>
     </resources>

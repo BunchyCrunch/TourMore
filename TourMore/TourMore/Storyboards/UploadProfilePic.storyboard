@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Upload Profile Picture View Controller-->
         <scene sceneID="4lJ-Pl-h0X">
             <objects>
-                <viewController id="2dH-aL-1fB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="uploadProfilePic" id="2dH-aL-1fB" customClass="UploadProfilePictureViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4h4-5b-zhW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,6 +33,9 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTy-HT-nWc">
                                         <rect key="frame" x="117" y="209.5" width="180" height="180"/>
+                                        <connections>
+                                            <action selector="profilePictureButtonTapped:" destination="2dH-aL-1fB" eventType="touchUpInside" id="opl-Uj-gtF"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h48-5u-4lC">
                                         <rect key="frame" x="31" y="75.5" width="352" height="58.5"/>
@@ -67,6 +70,9 @@
                                                     <constraint firstAttribute="width" secondItem="iD8-ac-VsC" secondAttribute="height" multiplier="7:1" id="T56-TL-WXq"/>
                                                 </constraints>
                                                 <state key="normal" image="Start Exploring Button Copy"/>
+                                                <connections>
+                                                    <action selector="startExploringButtonTapped:" destination="2dH-aL-1fB" eventType="touchUpInside" id="bSs-dA-BEA"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="BCL-fo-Phj">
                                                 <rect key="frame" x="69" y="57" width="212.5" height="29"/>
@@ -131,6 +137,12 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZ4-uf-8X3">
+                                <rect key="frame" x="117" y="506" width="180" height="180"/>
+                                <connections>
+                                    <segue destination="Tle-xT-mqi" kind="embed" identifier="profilePicturePicker" id="cDF-O0-c05"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.41568627450980389" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -138,17 +150,32 @@
                             <constraint firstAttribute="bottom" secondItem="nWo-Pn-6h9" secondAttribute="bottom" id="7AS-hG-O3V"/>
                             <constraint firstItem="6FF-5g-HRs" firstAttribute="leading" secondItem="n6R-84-npz" secondAttribute="leading" id="7aB-pa-UZE"/>
                             <constraint firstItem="nWo-Pn-6h9" firstAttribute="width" secondItem="hw0-Pg-tFI" secondAttribute="width" id="BiA-S0-VRx"/>
+                            <constraint firstItem="bZ4-uf-8X3" firstAttribute="width" secondItem="MTy-HT-nWc" secondAttribute="width" id="BuL-NP-pxj"/>
                             <constraint firstItem="n6R-84-npz" firstAttribute="centerX" secondItem="hw0-Pg-tFI" secondAttribute="centerX" multiplier="0.822" id="H7o-yh-Wlc"/>
+                            <constraint firstItem="bZ4-uf-8X3" firstAttribute="height" secondItem="MTy-HT-nWc" secondAttribute="height" id="OcT-Vy-a3N"/>
+                            <constraint firstItem="bZ4-uf-8X3" firstAttribute="centerY" secondItem="MTy-HT-nWc" secondAttribute="centerY" id="RGc-m7-fsp"/>
+                            <constraint firstItem="bZ4-uf-8X3" firstAttribute="centerX" secondItem="MTy-HT-nWc" secondAttribute="centerX" id="UZD-af-cnw"/>
                             <constraint firstItem="nWo-Pn-6h9" firstAttribute="centerX" secondItem="hw0-Pg-tFI" secondAttribute="centerX" id="sgc-V4-k24"/>
                             <constraint firstItem="n6R-84-npz" firstAttribute="centerY" secondItem="hw0-Pg-tFI" secondAttribute="centerY" multiplier="0.469" id="uRk-gK-XUD"/>
                             <constraint firstItem="6FF-5g-HRs" firstAttribute="centerY" secondItem="nWo-Pn-6h9" secondAttribute="centerY" multiplier="0.2" id="zpJ-A2-8ga"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hw0-Pg-tFI"/>
                     </view>
+                    <connections>
+                        <outlet property="profilePictureView" destination="bZ4-uf-8X3" id="Mbu-Do-hLT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8N-nW-Hnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="158.70535714285714"/>
+        </scene>
+        <!--PhotoPicker-->
+        <scene sceneID="hjO-Uu-vdc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PhotoPicker" id="Tle-xT-mqi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n3E-3Z-pw2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="681" y="339"/>
         </scene>
     </scenes>
     <resources>
