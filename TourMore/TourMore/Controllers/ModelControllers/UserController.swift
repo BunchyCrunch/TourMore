@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class UserController {
     
@@ -15,7 +16,7 @@ class UserController {
     var currentUser: User?
     let firebaseDB = Firestore.firestore()
     
-    
+    //MARK: CREATE USER
     func createUser(email: String, password: String, completion: @escaping (_ success: Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
@@ -29,6 +30,23 @@ class UserController {
         }
     }
     
+    func signInWithApple(credential: OAuthCredential, completion: @escaping (Bool) -> Void) {
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
+            
+            guard authResult != nil ,
+                let uuid = credential.accessToken
+                else { completion(false) ; return }
+            
+            let user = User(uid: uuid)
+            self.currentUser = user
+            completion(true)
+        }
+    }
+    
+    //MARK: FETCH FUNCTIONS
     func fetchUser(with email: String, password: String, completion: @escaping(_ successl: Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
@@ -51,17 +69,56 @@ class UserController {
         }
     }
     
-    func signOutUser(user: User, completion: @escaping (_ success: Bool) -> Void) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch _ as NSError {
-            print("Error signing out: %@")
+    func fetchProfilePicture(completion: @escaping (_ success: Bool) -> Void) {
+        guard let currentUser = currentUser else { return }
+        let storageRef = Storage.storage().reference(withPath: "profilepictures/\(currentUser.uid).jpg")
+        storageRef.getData(maxSize: 4 * 1024 * 1024) { (data, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(false)
+            }
+            if let data = data {
+                let downloadedImage = UIImage(data: data)
+                currentUser.profilePicture = downloadedImage
+                print("Successfully fetched user's profile picture")
+                completion(true)
+            }
         }
-        completion(true)
     }
     
-    func updateUser(with name: String, completion: @escaping (_ success: Bool) -> Void) {
+    func fetchUserSkipSignIn() {
+        guard let authUser = Auth.auth().currentUser else {return}
+        let signInUser = User(uid: authUser.uid)
+        self.currentUser = signInUser
+        let ref = self.firebaseDB.collection("users").document(signInUser.uid)
+        ref.getDocument { (snapshot, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
+            let name = snapshot?.get("name") as! String
+            self.currentUser?.name = name
+        }
+        
+    }
+    
+    //MARK: UPDATE FUNCTIONS
+    func updateProfilePic(image: UIImage, completion: @escaping (_ success: Bool) -> Void) {
+        guard let currentUser = currentUser else {completion(false);return}
+        let uploadRef = Storage.storage().reference(withPath: "profilePicture/\(currentUser.uid).jpg")
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {completion(false);return}
+        let uploadMetaData = StorageMetadata.init()
+        uploadMetaData.contentType = "image/jpeg"
+        uploadRef.putData(imageData, metadata: uploadMetaData) { (downloadMetadata, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(false)
+            }
+            currentUser.profilePicture = image
+            completion(true)
+        }
+    }
+    
+    func updateUser(name: String, completion: @escaping (_ success: Bool) -> Void) {
         guard let userID = currentUser?.uid else {return}
         firebaseDB.collection("users").document(userID).setData([
             "name" : name
@@ -73,5 +130,15 @@ class UserController {
             self.currentUser?.name = name
             completion(true)
         }
+    }
+    
+    func signOutUser(user: User, completion: @escaping (_ success: Bool) -> Void) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch _ as NSError {
+            print("Error signing out: %@")
+        }
+        completion(true)
     }
 }
