@@ -10,12 +10,14 @@ import Foundation
 
 class Comment {
     let text: String
-    let timestamp: Date
+    let rating: Int
+    let businessID: String
     let commentUID: String
     
-    init(text: String, timestamp: Date = Date(), commentUID: String) {
+    init(text: String, rating: Int, businessID: String, uuid: String = UUID().uuidString) {
         self.text = text
-        self.timestamp = timestamp
-        self.commentUID = commentUID
+        self.rating = rating
+        self.businessID = businessID
+        self.commentUID = uuid
     }
 }

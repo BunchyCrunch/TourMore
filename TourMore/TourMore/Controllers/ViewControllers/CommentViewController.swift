@@ -9,36 +9,52 @@
 import UIKit
 import FirebaseDatabase
 
-class CommentViewController: UIViewController {
-    
+class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var enterCommentTextView: UITextView!
     
     @IBOutlet weak var commentListTableView: UITableView!
     
-    var ref: DatabaseReference?
+    @IBOutlet weak var saveButton: UIButton!
     
-    var commentData = [String]()
+    var ref: DatabaseReference?
+   
+    
+    var businessID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-//        commentListTableView.delegate = self
-//        commentListTableView.dataSource = self
-//
+
+        commentListTableView.delegate = self
+        commentListTableView.dataSource = self
+
         // Set the firebase reference
         ref = Database.database().reference()
-        
-        // Retrieve the comments and listen for changes
-        ref?.child("comment").child("text").observe(.childAdded, with: { (snapshot) in
-            // Code to execute when a child is added under "Comment"
-            
-        })
     }
     
-    @IBAction func addComment(_ sender: Any) {
+    @IBAction func saveComment(_ sender: Any) {
         // Post the data to firebase
-        ref?.child("comment").child("text").childByAutoId().setValue(enterCommentTextView.text)
+        guard let text = enterCommentTextView.text, let businessID = businessID else { return }
+        let rating = 0
+        CommentController.shared.addComment(to: businessID, text: text, rating: rating) { (success) in
+            if success {
+                // reload table
+                self.commentListTableView.reloadData()
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        CommentController.shared.comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = commentListTableView.dequeueReusableCell(withIdentifier: "commentCell") as? CommentTableViewCell else { return UITableViewCell()}
+        
+        let comment = CommentController.shared.comments[indexPath.row]
+        cell.comment = comment
+        
+        return cell
     }
     
     /*
@@ -52,16 +68,3 @@ class CommentViewController: UIViewController {
      */
     
 }
-
-//
-//extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        commentData.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//
-//
-//}
