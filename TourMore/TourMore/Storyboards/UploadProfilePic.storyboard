@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2dH-aL-1fB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2dH-aL-1fB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,6 +72,7 @@
                                                 <state key="normal" image="Start Exploring Button Copy"/>
                                                 <connections>
                                                     <action selector="startExploringButtonTapped:" destination="2dH-aL-1fB" eventType="touchUpInside" id="bSs-dA-BEA"/>
+                                                    <segue destination="i6S-wK-mQE" kind="presentation" modalPresentationStyle="fullScreen" id="yZN-oZ-cvA"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="BCL-fo-Phj">
@@ -175,7 +176,15 @@
                 <viewControllerPlaceholder storyboardName="PhotoPicker" id="Tle-xT-mqi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3E-3Z-pw2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="681" y="339"/>
+            <point key="canvasLocation" x="672" y="246"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="irK-6Q-7xn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="i6S-wK-mQE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocF-qy-8Zz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="382"/>
         </scene>
     </scenes>
     <resources>
