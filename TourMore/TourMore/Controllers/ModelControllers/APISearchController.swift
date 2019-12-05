@@ -39,8 +39,7 @@ class BusinessSearchController {
                 completion([]); return
             }
             let jsonDecoder = JSONDecoder()
-            do {
-                let searchDecoder = try jsonDecoder.decode(TopLevelJSON.self, from: data)
+            do {                let searchDecoder = try jsonDecoder.decode(TopLevelJSON.self, from: data)
                 completion(searchDecoder.businesses)
             } catch {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")

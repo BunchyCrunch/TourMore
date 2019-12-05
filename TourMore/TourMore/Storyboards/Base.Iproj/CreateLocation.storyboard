@@ -24,6 +24,22 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ld2-cz-6Tc" id="Yl5-Ji-QD4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjC-Xc-YSY">
+                                                    <rect key="frame" x="20" y="11" width="374" height="305"/>
+                                                    <connections>
+                                                        <segue destination="4Cu-ez-fSo" kind="embed" identifier="toCreatedLocationPhotoPicker" id="HPL-pa-gfS"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OjC-Xc-YSY" firstAttribute="centerX" secondItem="Yl5-Ji-QD4" secondAttribute="centerX" id="Iz2-Ja-qZ3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="OjC-Xc-YSY" secondAttribute="bottom" id="JKA-sU-e9B"/>
+                                                <constraint firstItem="OjC-Xc-YSY" firstAttribute="leading" secondItem="Yl5-Ji-QD4" secondAttribute="leadingMargin" id="Tqr-Ae-Cbp"/>
+                                                <constraint firstItem="OjC-Xc-YSY" firstAttribute="centerY" secondItem="Yl5-Ji-QD4" secondAttribute="centerY" id="emX-Wa-MV7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="OjC-Xc-YSY" secondAttribute="trailing" id="fLs-Xn-BWa"/>
+                                                <constraint firstItem="OjC-Xc-YSY" firstAttribute="top" secondItem="Yl5-Ji-QD4" secondAttribute="topMargin" id="jXE-un-DHz"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="279" id="5ow-Km-rMC">
@@ -184,6 +200,7 @@
                         <outlet property="cityTextField" destination="yWm-Vl-txv" id="Nnf-FP-CFY"/>
                         <outlet property="comment" destination="DSR-vj-bHv" id="1Ai-Hm-pn4"/>
                         <outlet property="countryTextField" destination="9rb-79-Cvb" id="Ja3-kL-CKn"/>
+                        <outlet property="imageView" destination="OjC-Xc-YSY" id="LNU-Gn-wPo"/>
                         <outlet property="locationButton" destination="wE2-fF-Qix" id="MUU-gp-sba"/>
                         <outlet property="locationDiscriptionTextView" destination="Csa-rf-0MQ" id="wOK-y1-jLw"/>
                         <outlet property="saveButton" destination="e4M-G2-S49" id="yKc-ex-6sX"/>
@@ -193,6 +210,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Uv-Ws-lzH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-565.21739130434787" y="154.6875"/>
+        </scene>
+        <!--PhotoPicker-->
+        <scene sceneID="H2D-pB-NiW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PhotoPicker" id="4Cu-ez-fSo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kr9-hB-cCs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16" y="-33"/>
         </scene>
         <!--Create Location-->
         <scene sceneID="uJL-lK-zHs">

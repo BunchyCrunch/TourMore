@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate {
 
     
     // MARK: - Outlets
@@ -25,11 +25,13 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var locationManager: CLLocationManager!
     private var scaleView: MKScaleView!
     private var userTrackingButton: MKUserTrackingButton!
-    var userLoc = ""
+    var userLocationForSearch: String?
+    var businessArray: [Business] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScreen()
+        locationSearchBar.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -79,6 +81,7 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
         exploreLabel.textAlignment = .center
         
     }
+    
     func setupButtons () {
         popularButton.setBackgroundImage(UIImage(named: "Star"), for: .normal)
         breakfastButton.setBackgroundImage(UIImage(named: "Breakfast"), for: .normal)
@@ -141,31 +144,49 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation: CLLocation = locations[0] as CLLocation
         let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        self.userLoc = "\(center)"
-        print(userLoc)
+        self.userLocationForSearch = "\(center.latitude), \(center.longitude)"
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         mapView.setRegion(region, animated: true)
     }
     
     func searchByCatogory(term: String) {
-//      //  guard let userLocation = userLoc else { return }
-//        guard  let search = BusinessSearchController.sharedInstance.getCatogoryQueryItem(for: term) else { return }
-//        BusinessSearchController.sharedInstance.getSearch(location: <#T##String#>, queryItems: term) { (<#[Business]#>) in
-//            <#code#>
-//        }
+        guard let userLocation = userLocationForSearch,
+        let search = BusinessSearchController.sharedInstance.getCatogoryQueryItem(for: term) else { return }
+        BusinessSearchController.sharedInstance.getSearch(location: userLocation, queryItems: [search]) { (businesses) in
+            self.businessArray = businesses
+            self.toCollectionView()
+        }
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let userlocation = userLocationForSearch,
+            let searchBar = searchBar.text,
+            let search = BusinessSearchController.sharedInstance.getSearchTermQueryItem(for: searchBar) else { return }
+        print(searchBar)
+        BusinessSearchController.sharedInstance.getSearch(location: userlocation, queryItems: [search]) { (businesses) in
+            if businesses.count == 0 {
+                // search fireBase
+                self.toCollectionView()
+            } else {
+                self.businessArray = businesses
+                self.toCollectionView()
+            }
+        }
+    }
+
     
-    
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func toCollectionView() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toCollectionView", sender: self)
+        }
     }
-    */
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCollectionView" {
+ //           guard let destenationVC = segue.destination as? LocationViewController else {return}
+ //           destenationVC.locations = businessArray
+        }
+    }
 }

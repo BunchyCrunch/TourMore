@@ -31,7 +31,7 @@ class UploadProfilePictureViewController: UIViewController {
         guard let image = image else {return}
         UserController.shared.updateProfilePic(image: image) { (success) in
             if success {
-                //Move to home
+                
             }
         }
     }
@@ -43,7 +43,7 @@ class UploadProfilePictureViewController: UIViewController {
             destinationVC?.delegate = self
             self.photoPickerVC = destinationVC
             destinationVC?.loadViewIfNeeded()
-            destinationVC?.profilePhotoImageView.image = #imageLiteral(resourceName: "Upload Image Button Copy.png")
+            destinationVC?.pickedPhotoImageView.image = #imageLiteral(resourceName: "Upload Image Button Copy.png")
         }
     }
 }
