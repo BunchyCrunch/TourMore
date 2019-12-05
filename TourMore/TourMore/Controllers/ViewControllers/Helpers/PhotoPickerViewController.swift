@@ -19,7 +19,7 @@ class PhotoPickerViewController: UIViewController {
     weak var delegate: PhotoSelectorDelegate?
     
     
-    @IBOutlet weak var profilePhotoImageView: UIImageView!
+    @IBOutlet weak var pickedPhotoImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class PhotoPickerViewController: UIViewController {
     func updateViews() {
         DispatchQueue.main.async {
             guard let user = UserController.shared.currentUser else {return}
-            self.profilePhotoImageView.image = user.profilePicture
+            self.pickedPhotoImageView.image = user.profilePicture
         }
     }
 }
@@ -94,7 +94,7 @@ extension PhotoPickerViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedimage = info[.originalImage] as? UIImage {
             delegate?.photoSelectorDidSelect(pickedimage)
-            profilePhotoImageView.image = pickedimage
+            pickedPhotoImageView.image = pickedimage
         }
         picker.dismiss(animated: true, completion: nil)
     }

@@ -26,6 +26,7 @@ class CreatedLocationController {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(nil, error)
             }
+                completion(location, nil)
         }
     }
     
@@ -39,13 +40,10 @@ class CreatedLocationController {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(false)
             }
-           // createdBusiness?.businessID = image
             completion(true)
             print("photo uploaded")
         }
     }
-    
-    // MARK: - methods
 }
 
 

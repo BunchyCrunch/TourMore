@@ -12,6 +12,7 @@ import CoreLocation
 
 class CreateNewLocationViewController: UITableViewController, CLLocationManagerDelegate, UITextViewDelegate {
     var image: UIImage?
+    weak var photoPickerVC: PhotoPickerViewController?
     // MARK: - Outlets
 
     @IBOutlet weak var businessNameTextField: UITextField!
@@ -25,7 +26,7 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
     @IBOutlet weak var comment: UITextView!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
-
+    @IBOutlet weak var imageView: UIView!
     
     var locationServiceManager = CLLocationManager()
     var location = CLLocation()
@@ -51,6 +52,7 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
             return }
         doesLocationExist(name: name)
     }
+    
     @IBAction func useCurrentLocationButtonTapped(_ sender: Any) {
         startLocating()
         getLocation()
@@ -170,15 +172,14 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         }
         let address2 = address2TextField.text ?? ""
         CreatedLocationController.addNewLocation(businessName: businessName, address1: address1, address2: address2, city: city, country: country, zipCode: zipCode, locationDiscription: locationDiscription, categories: categories) { (business, error ) in
+            guard let business = business else {return}
+            self.addNewLocationPicture(for: business)
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 return
             }
-            guard let business = business else {return}
-            self.addNewLocationPicture(for: business)
         }
         locationCreated()
-        return
     }
     
     // MARK: - Alert Controllers Methods
@@ -284,15 +285,24 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         locationServiceManager.startUpdatingLocation()
     }
 
-    /*
+    
      // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCreatedLocationPhotoPicker" {
+            let destenationVC = segue.destination as? PhotoPickerViewController
+            destenationVC?.delegate = self
+            self.photoPickerVC = destenationVC
+            destenationVC?.loadViewIfNeeded()
+            destenationVC?.pickedPhotoImageView.image = #imageLiteral(resourceName: "Upload Image Button Copy.png")
+        }
+    }
 }
 
+extension CreateNewLocationViewController: PhotoSelectorDelegate {
+    func photoSelectorDidSelect(_ photo: UIImage) {
+        self.image = photo
+    }
+    
+    
+}
