@@ -42,6 +42,7 @@
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
 		EAEB505AC5E0B6BF897C0AB3 /* Pods_TourMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCDA6513E6052A7B7004EFA /* Pods_TourMore.framework */; };
+		FC180F12239833B300DE507E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC180F11239833B300DE507E /* CommentTableViewCell.swift */; };
 		FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8A238D9E4800A0FB12 /* CommentController.swift */; };
 		FC79CF8D238D9FD300A0FB12 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */; };
 		FC79CF91238DE78000A0FB12 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC79CF90238DE78000A0FB12 /* Comment.storyboard */; };
@@ -87,6 +88,7 @@
 		28FB52672385C3D000266868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28FB526C2385C3D000266868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EBB7F49997E8BC0FBBE2AA3 /* Pods-TourMore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.release.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.release.xcconfig"; sourceTree = "<group>"; };
+		FC180F11239833B300DE507E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		FC79CF8A238D9E4800A0FB12 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		FC79CF90238DE78000A0FB12 /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				288EB3702397205600B4AE4C /* OnboardingPageCell.swift */,
+				FC180F11239833B300DE507E /* CommentTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				26A6B8A5238C78A30099382F /* Favorite.swift in Sources */,
 				FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */,
 				288EB36F23971B7000B4AE4C /* SwipingController.swift in Sources */,
+				FC180F12239833B300DE507E /* CommentTableViewCell.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
 				26CFDD66238C638E0023444F /* User.swift in Sources */,
 				26A6B8AD238D94F80099382F /* CreateNewLocationViewController.swift in Sources */,
