@@ -185,8 +185,9 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCollectionView" {
- //           guard let destenationVC = segue.destination as? LocationViewController else {return}
- //           destenationVC.locations = businessArray
+            guard let destenationVC = segue.destination as? locationDisplayViewController else {return}
+            destenationVC.locations = businessArray
+            destenationVC.userLocationForSearch = userLocationForSearch
         }
     }
 }
