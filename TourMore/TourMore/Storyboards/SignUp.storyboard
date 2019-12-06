@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1JW-PR-Uvz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1JW-PR-Uvz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -187,6 +187,7 @@
                         <outlet property="emailTextField" destination="k4D-TJ-geC" id="svV-jc-y1a"/>
                         <outlet property="nameTextField" destination="TkY-NL-GWt" id="YJd-d0-sxt"/>
                         <outlet property="passwordTextField" destination="HtO-Vi-zeh" id="Wyh-E6-4nA"/>
+                        <segue destination="Wv7-od-DL8" kind="show" identifier="skipToMainTabView" animates="NO" id="nKZ-9n-4p3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROv-ZL-G7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -211,10 +212,20 @@
             </objects>
             <point key="canvasLocation" x="1470" y="374"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="0xp-xY-c1U">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="Wv7-od-DL8" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="75a-cc-1Ej"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JqI-s8-raS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1520" y="322"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Facebook Button Copy-2" width="700" height="100"/>
         <image name="Next Button Copy-2" width="700" height="100"/>
-        <image name="multiply" catalog="system" width="64" height="56"/>
+        <image name="multiply" catalog="system" width="64" height="54"/>
     </resources>
 </document>

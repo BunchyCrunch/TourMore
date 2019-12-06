@@ -40,6 +40,7 @@
 		28BCD40823957DCD006898D1 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BCD40723957DCD006898D1 /* PhotoPickerViewController.swift */; };
 		28BCD40A23957E0D006898D1 /* PhotoPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BCD40923957E0D006898D1 /* PhotoPicker.storyboard */; };
 		28BCD40F2395BCFB006898D1 /* WelcomeBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BCD40E2395BCFB006898D1 /* WelcomeBackViewController.swift */; };
+		28DDA7D4239981C600E12A8A /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DDA7D3239981C600E12A8A /* UserProfileViewController.swift */; };
 		28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB525E2385C3CF00266868 /* AppDelegate.swift */; };
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		28BCD40923957E0D006898D1 /* PhotoPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoPicker.storyboard; sourceTree = "<group>"; };
 		28BCD40B23959B64006898D1 /* TourMore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TourMore.entitlements; sourceTree = "<group>"; };
 		28BCD40E2395BCFB006898D1 /* WelcomeBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackViewController.swift; sourceTree = "<group>"; };
+		28DDA7D3239981C600E12A8A /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		28FB525B2385C3CF00266868 /* TourMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FB525E2385C3CF00266868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28FB52602385C3CF00266868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */,
 				26A6B8AC238D94F80099382F /* CreateNewLocationViewController.swift */,
 				280D801F238F5FC0001704CC /* UploadProfilePictureViewController.swift */,
+				28DDA7D3239981C600E12A8A /* UserProfileViewController.swift */,
 				280D801C238F5AB9001704CC /* Helpers */,
 				267CC5B92399586A00CEFB70 /* locationDisplayViewController.swift */,
 				267CC5BB23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift */,
@@ -409,6 +412,7 @@
 				26CFDD68238C63C10023444F /* Comment.swift in Sources */,
 				FC79CF8D238D9FD300A0FB12 /* CommentViewController.swift in Sources */,
 				26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */,
+				28DDA7D4239981C600E12A8A /* UserProfileViewController.swift in Sources */,
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
 				26A6B8AB238C83BB0099382F /* CreatedLocationController.swift in Sources */,
 				26A6B8A5238C78A30099382F /* Favorite.swift in Sources */,
