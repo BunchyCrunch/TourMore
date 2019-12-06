@@ -8,8 +8,11 @@
 
 import UIKit
 class BusinessSearchController {
-    //SOT
+    
+    //MARK:- Shared instance
     static let sharedInstance = BusinessSearchController()
+    
+    //MARK:- Fetch Business
     func getSearch(location: String, queryItems: [URLQueryItem], completion: @escaping ([Business]) -> Void) {
         guard var url = URL(string: URLConstants.baseURL) else {
             completion([]); return
@@ -46,6 +49,8 @@ class BusinessSearchController {
             }
         }.resume()
     }
+    
+    //MARK:- Query Item
     func getPriceQueryItem(for price: String? = nil) -> URLQueryItem? {
         if let price = price {
             let queryItem = URLQueryItem(name: "price", value: price)
@@ -80,6 +85,8 @@ class BusinessSearchController {
 //            return queryItem
 //        }
 //    }
+    
+    //MARK:- Fetch Image
     func fetchImage(businessImage: Business, completion: @escaping (UIImage?) -> Void) {
         guard let imageString = businessImage.imageUrl else {return}
         guard let imageURL = URL(string: imageString) else {

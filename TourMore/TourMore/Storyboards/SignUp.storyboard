@@ -91,7 +91,6 @@
                                                 <state key="normal" image="Next Button Copy-2"/>
                                                 <connections>
                                                     <action selector="signUpButtonTapped:" destination="1JW-PR-Uvz" eventType="touchUpInside" id="840-zR-ebe"/>
-                                                    <segue destination="ZM6-M0-X49" kind="show" identifier="toUploadProfilePicVC" id="fSk-0l-dZJ"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="iab-oU-mVK">
@@ -110,7 +109,7 @@
                                                             <color key="titleColor" red="0.9114134908" green="0.43034744260000002" blue="0.17636850479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="HZT-so-x9P" kind="showDetail" id="R74-hY-UFM"/>
+                                                            <action selector="signInButtonTapped:" destination="1JW-PR-Uvz" eventType="touchUpInside" id="nuS-zG-Ngt"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -157,15 +156,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSF-IB-LTO">
-                                <rect key="frame" x="32" y="77" width="27" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="qSF-IB-LTO" secondAttribute="height" multiplier="1:1" id="46R-SV-ljE"/>
-                                    <constraint firstAttribute="height" constant="27" id="dJr-P8-dSE"/>
-                                </constraints>
-                                <color key="tintColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" image="multiply" catalog="system"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.41568627450980389" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -174,8 +164,6 @@
                             <constraint firstItem="Tss-T9-bn8" firstAttribute="height" secondItem="SaM-Z0-QVB" secondAttribute="height" multiplier="0.733" id="Nca-2a-Von"/>
                             <constraint firstItem="Tss-T9-bn8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2Hu-2u-v9O" secondAttribute="bottom" constant="1" id="R0Z-49-zTc"/>
                             <constraint firstAttribute="bottom" secondItem="Tss-T9-bn8" secondAttribute="bottom" id="bbJ-BU-rJB"/>
-                            <constraint firstItem="qSF-IB-LTO" firstAttribute="leading" secondItem="2Hu-2u-v9O" secondAttribute="leading" id="n3r-rR-wUr"/>
-                            <constraint firstItem="qSF-IB-LTO" firstAttribute="centerY" secondItem="SaM-Z0-QVB" secondAttribute="centerY" multiplier="0.2" id="ulA-QC-4sH"/>
                             <constraint firstItem="Tss-T9-bn8" firstAttribute="width" secondItem="SaM-Z0-QVB" secondAttribute="width" id="yL4-rg-Iim"/>
                             <constraint firstItem="2Hu-2u-v9O" firstAttribute="centerX" secondItem="SaM-Z0-QVB" secondAttribute="centerX" multiplier="0.544" id="ynv-iH-akl"/>
                         </constraints>
@@ -187,45 +175,15 @@
                         <outlet property="emailTextField" destination="k4D-TJ-geC" id="svV-jc-y1a"/>
                         <outlet property="nameTextField" destination="TkY-NL-GWt" id="YJd-d0-sxt"/>
                         <outlet property="passwordTextField" destination="HtO-Vi-zeh" id="Wyh-E6-4nA"/>
-                        <segue destination="Wv7-od-DL8" kind="show" identifier="skipToMainTabView" animates="NO" id="nKZ-9n-4p3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROv-ZL-G7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="905.79710144927549" y="99.776785714285708"/>
         </scene>
-        <!--UploadProfilePic-->
-        <scene sceneID="Os2-Ys-gDy">
-            <objects>
-                <viewControllerPlaceholder storyboardName="UploadProfilePic" id="ZM6-M0-X49" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="DUI-6U-NNw"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SOn-O4-Yyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1521" y="84"/>
-        </scene>
-        <!--WelcomeBack-->
-        <scene sceneID="jlm-im-sIN">
-            <objects>
-                <viewControllerPlaceholder storyboardName="WelcomeBack" id="HZT-so-x9P" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VUP-SK-JFN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1470" y="374"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="0xp-xY-c1U">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="Wv7-od-DL8" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="75a-cc-1Ej"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JqI-s8-raS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1520" y="322"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Facebook Button Copy-2" width="700" height="100"/>
         <image name="Next Button Copy-2" width="700" height="100"/>
-        <image name="multiply" catalog="system" width="64" height="54"/>
     </resources>
 </document>
