@@ -24,7 +24,7 @@ class LocationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        navigationController?.navigationItem.backBarButtonItem?.setBackgroundImage(UIImage(named: "Back Button"), for: .normal, barMetrics: .default)
+    navigationController?.navigationItem.backBarButtonItem?.setBackgroundImage(UIImage(named: "Back Button"), for: .normal, barMetrics: .default)
     }
     
     func setUpView(){
