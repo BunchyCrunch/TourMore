@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Comment View Controller-->
+        <!--View Controller-->
         <scene sceneID="wd7-4B-XLC">
             <objects>
-                <viewController id="TDt-f1-q3B" customClass="CommentViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TDt-f1-q3B" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kER-oV-dQT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,9 +39,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e79-1b-evV">
                                         <rect key="frame" x="356" y="143" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
-                                        <connections>
-                                            <action selector="saveComment:" destination="TDt-f1-q3B" eventType="touchUpInside" id="eOY-Jc-AbB"/>
-                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohj-M8-bjr">
                                         <rect key="frame" x="24" y="143" width="110" height="30"/>
@@ -50,37 +47,22 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="22" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" image="star" catalog="system"/>
-                                                <connections>
-                                                    <action selector="starOneButtonPressed:" destination="TDt-f1-q3B" eventType="touchUpInside" id="PSO-2c-hbj"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbv-v4-2wn">
                                                 <rect key="frame" x="22" y="0.0" width="22" height="30"/>
                                                 <state key="normal" image="star" catalog="system"/>
-                                                <connections>
-                                                    <action selector="starTwoButtonPressed:" destination="TDt-f1-q3B" eventType="touchUpInside" id="EVf-k0-XfT"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7te-y4-ipu">
                                                 <rect key="frame" x="44" y="0.0" width="22" height="30"/>
                                                 <state key="normal" image="star" catalog="system"/>
-                                                <connections>
-                                                    <action selector="starThreeButtonPressed:" destination="TDt-f1-q3B" eventType="touchUpInside" id="mnA-Uv-uHQ"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2h2-G3-aV7">
                                                 <rect key="frame" x="66" y="0.0" width="22" height="30"/>
                                                 <state key="normal" image="star" catalog="system"/>
-                                                <connections>
-                                                    <action selector="starFourButtonPressed:" destination="TDt-f1-q3B" eventType="touchUpInside" id="RAx-Di-rFf"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5Q-G3-fDf">
                                                 <rect key="frame" x="88" y="0.0" width="22" height="30"/>
                                                 <state key="normal" image="star" catalog="system"/>
-                                                <connections>
-                                                    <action selector="starFiveButtonPressed:" destination="TDt-f1-q3B" eventType="touchUpInside" id="UsC-c4-9CT"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -103,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="223" width="414" height="639"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="92" id="DWR-Dc-t4C" customClass="CommentTableViewCell" customModule="TourMore" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="DWR-Dc-t4C" customClass="CommentTableViewCell" customModule="TourMore" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DWR-Dc-t4C" id="egj-Km-MfU">
@@ -122,9 +104,6 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0Z-QJ-Vd4">
                                                             <rect key="frame" x="357" y="0.0" width="17" height="22"/>
                                                             <state key="normal" image="ellipsis" catalog="system"/>
-                                                            <connections>
-                                                                <action selector="blockUserActionSheet:" destination="TDt-f1-q3B" eventType="touchUpInside" id="WoS-F9-HkQ"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -159,15 +138,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yd9-wJ-Sa0"/>
                     </view>
-                    <connections>
-                        <outlet property="enterCommentTextView" destination="nPn-Py-7cw" id="fiH-m7-D35"/>
-                        <outlet property="saveButton" destination="e79-1b-evV" id="9b9-jd-tvb"/>
-                        <outlet property="starFiveButton" destination="g5Q-G3-fDf" id="zhs-Lg-Bxr"/>
-                        <outlet property="starFourButton" destination="2h2-G3-aV7" id="h8o-I1-aLM"/>
-                        <outlet property="starOneButton" destination="5w1-Es-SSN" id="rjS-Au-UhJ"/>
-                        <outlet property="starThreeButton" destination="7te-y4-ipu" id="4Vd-cl-pAH"/>
-                        <outlet property="starTwoButton" destination="Rbv-v4-2wn" id="axl-oZ-Wlo"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4h-nD-kFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
