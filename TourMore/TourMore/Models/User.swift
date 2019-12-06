@@ -13,19 +13,17 @@ class User {
     var favoritesID: [String] //Add Strings of Buissness id
     var name: String
     var uid: String
-    var bio: String
     var profilePicture: UIImage?
-    var comment: [Comment]
+    var comment: [String]
+    var userAccessToken: String?
     //var blockedUser: [Sting] -> String == User.uuid
     
-    init(favoritesID: [String] = [], comment: [Comment] = [], name: String = "", uid: String, bio: String = "", profilePicture: UIImage? = nil) {
+    init(favoritesID: [String] = [], comment: [String] = [], name: String = "", uid: String, userAccessToken: String? = nil, profilePicture: UIImage? = nil) {
         self.favoritesID = favoritesID
         self.comment = comment
         self.name = name
         self.uid = uid
-        self.bio = bio
+        self.userAccessToken = userAccessToken
         self.profilePicture = profilePicture
     }
-    
-
 }

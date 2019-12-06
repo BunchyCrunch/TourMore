@@ -12,8 +12,12 @@ import FirebaseAuth
 
 class UserProfileViewController: UIViewController {
     
-    var user: User?
+    //MARK:- Properties
+//    var user: User? {
+//        return UserController.shared.currentUser
+//    }
     
+    //MARK:- Outlets
     @IBOutlet weak var userProfilePictureStaticImageView: UIImageView!
     
     @IBOutlet weak var containerView: UIView!
@@ -22,7 +26,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
     
-    
+    //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +42,7 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    
+    //MARK:- Helper Functions
     func setUpViews() {
         setUpUserInformationView()
     }
@@ -58,14 +62,20 @@ class UserProfileViewController: UIViewController {
         containerView.layer.borderWidth = 0.5
         containerView.layer.borderColor = UIColor.gray.cgColor
         
-        guard let name = user?.name else {return}
+        guard let name = UserController.shared.currentUser?.name else {return}
         if name != "" {
             usersNameLabel.text = name
         } else {
             usersNameLabel.isHidden = true
         }
         
-        //        guard let location =
+//        let profilePicture = user?.profilePicture
+//        if profilePicture != nil {
+//            userProfilePictureStaticImageView.image = profilePicture
+//        } else {
+//           // userProfilePictureStaticImageView.image = UIImage(name: "")
+//        }
+        
     }
     
     func presentMustBeSignedInAlert() {
@@ -88,14 +98,4 @@ class UserProfileViewController: UIViewController {
         usersNameLabel.isHidden = true
         userLocationLabel.isHidden = true
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

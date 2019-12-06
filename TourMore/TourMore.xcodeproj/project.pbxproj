@@ -30,6 +30,8 @@
 		26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8994F2386F091007542DE /* MapViewTabViewController.swift */; };
 		26F8995D238723BB007542DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995B238723BA007542DE /* LaunchScreen.storyboard */; };
 		26F8995E238723BB007542DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8995C238723BA007542DE /* Main.storyboard */; };
+		2805A09D239ACB22004B507C /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2805A09C239ACB22004B507C /* OnboardViewController.swift */; };
+		2805A0A2239ACC83004B507C /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2805A0A1239ACC83004B507C /* CommentTableViewCell.swift */; };
 		280D801E238F5AEF001704CC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280D801D238F5AEF001704CC /* Utilities.swift */; };
 		280D8020238F5FC0001704CC /* UploadProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280D801F238F5FC0001704CC /* UploadProfilePictureViewController.swift */; };
 		281E8ABA238DE27E007EB045 /* WelcomeBack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281E8AB9238DE27E007EB045 /* WelcomeBack.storyboard */; };
@@ -47,7 +49,6 @@
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
 		EAEB505AC5E0B6BF897C0AB3 /* Pods_TourMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCDA6513E6052A7B7004EFA /* Pods_TourMore.framework */; };
-		FC180F12239833B300DE507E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC180F11239833B300DE507E /* CommentTableViewCell.swift */; };
 		FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8A238D9E4800A0FB12 /* CommentController.swift */; };
 		FC79CF8D238D9FD300A0FB12 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */; };
 		FC79CF91238DE78000A0FB12 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC79CF90238DE78000A0FB12 /* Comment.storyboard */; };
@@ -78,6 +79,8 @@
 		26F8994F2386F091007542DE /* MapViewTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewTabViewController.swift; sourceTree = "<group>"; };
 		26F8995B238723BA007542DE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.Iproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26F8995C238723BA007542DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.Iproj/Main.storyboard; sourceTree = "<group>"; };
+		2805A09C239ACB22004B507C /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		2805A0A1239ACC83004B507C /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		280D801D238F5AEF001704CC /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		280D801F238F5FC0001704CC /* UploadProfilePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadProfilePictureViewController.swift; sourceTree = "<group>"; };
 		281E8AB9238DE27E007EB045 /* WelcomeBack.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomeBack.storyboard; sourceTree = "<group>"; };
@@ -98,7 +101,6 @@
 		28FB52672385C3D000266868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28FB526C2385C3D000266868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EBB7F49997E8BC0FBBE2AA3 /* Pods-TourMore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.release.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.release.xcconfig"; sourceTree = "<group>"; };
-		FC180F11239833B300DE507E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		FC79CF8A238D9E4800A0FB12 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		FC79CF90238DE78000A0FB12 /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
@@ -209,21 +211,23 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		2805A09E239ACC0C004B507C /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				2805A0A1239ACC83004B507C /* CommentTableViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		280D801C238F5AB9001704CC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				280D801D238F5AEF001704CC /* Utilities.swift */,
 				28BCD40723957DCD006898D1 /* PhotoPickerViewController.swift */,
+				FC180F11239833B300DE507E /* CommentTableViewCell.swift */,
+
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		288EB3722397215700B4AE4C /* CustomCells */ = {
-			isa = PBXGroup;
-			children = (
-				FC180F11239833B300DE507E /* CommentTableViewCell.swift */,
-			);
-			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		28FB52522385C3CF00266868 = {
@@ -413,6 +417,7 @@
 				280D8020238F5FC0001704CC /* UploadProfilePictureViewController.swift in Sources */,
 				267CC5BC23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift in Sources */,
 				28BC10AE238C89A2009CE084 /* SignUpViewController.swift in Sources */,
+				2805A0A2239ACC83004B507C /* CommentTableViewCell.swift in Sources */,
 				280D801E238F5AEF001704CC /* Utilities.swift in Sources */,
 				28BCD40823957DCD006898D1 /* PhotoPickerViewController.swift in Sources */,
 				267CC5BE2399CC3100CEFB70 /* LocationDetailViewController.swift in Sources */,
@@ -421,6 +426,7 @@
 				26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */,
 				28DDA7D4239981C600E12A8A /* UserProfileViewController.swift in Sources */,
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
+				2805A09D239ACB22004B507C /* OnboardViewController.swift in Sources */,
 				26A6B8AB238C83BB0099382F /* CreatedLocationController.swift in Sources */,
 				26A6B8A5238C78A30099382F /* Favorite.swift in Sources */,
 				267CC5C4239B05D100CEFB70 /* JoesSample.swift in Sources */,

@@ -15,25 +15,19 @@ class SignUpViewController: UIViewController {
     
     fileprivate var currentNonce: String?
     
+    //MARK:- Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var appleSignInButton: ASAuthorizationAppleIDButton!
     
+    //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if Auth.auth().currentUser != nil {
-            UserController.shared.fetchUserSkipSignIn()
-            performSegue(withIdentifier: "skipToMainTabView", sender: self)
-            dismiss(animated: false) {
-            }
-        }
         setUpTextFields()
-        
-        // Do any additional setup after loading the view.
     }
     
-    
+    //MARK:- Actions
     @IBAction func signInWithAppleButtonTapped(_ sender: UIButton) {
         handleAuthorizationAppleID()
     }
@@ -56,16 +50,22 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-//    
-//    func saveUserNameToFireBase() {
-//        guard var name = nameTextField.text else {return}
-//        if !name.isEmpty {
-//            UserController.shared.updateUser(name: name) { (success) in }
-//        } else {
-//            name = ""
-//        }
-//    }
     
+    @IBAction func signInButtonTapped(_ sender: UIButton) {
+        presentWelcomeBackScreen()
+    }
+    
+    //    
+    //    func saveUserNameToFireBase() {
+    //        guard var name = nameTextField.text else {return}
+    //        if !name.isEmpty {
+    //            UserController.shared.updateUser(name: name) { (success) in }
+    //        } else {
+    //            name = ""
+    //        }
+    //    }
+    
+    //MARK:- Helper Functions
     func setUpTextFields() {
         Utilities.textFieldSignUpStyle(emailTextField)
         Utilities.textFieldSignUpStyle(passwordTextField)
@@ -76,6 +76,7 @@ class SignUpViewController: UIViewController {
         let alert = UIAlertController(title: "Please Fill Out All Required Feilds", message: "You must fillout all required text in order to create an account", preferredStyle: .alert)
         let dismissButton = UIAlertAction(title: "Dismiss", style: .cancel)
         alert.addAction(dismissButton)
+        self.present(alert, animated: true)
     }
     
     func presentUploadProfilePicVC() {
@@ -87,19 +88,14 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}
+    func presentWelcomeBackScreen() {
+        DispatchQueue.main.async {
+            self.view.window?.rootViewController = UIStoryboard(name: "WelcomeBack", bundle: nil).instantiateInitialViewController()
+        }
+    }
+}//End of Class
 
+//MARK:- Apple Sign In Extention
 extension SignUpViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
@@ -137,11 +133,19 @@ extension SignUpViewController: ASAuthorizationControllerDelegate, ASAuthorizati
                 print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                 return
             }
+            guard let firstName = appleIDCredential.fullName?.givenName,
+                let lastName = appleIDCredential.fullName?.familyName else {
+                    return
+            }
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce, accessToken: nonce)
             UserController.shared.signInWithApple(credential: credential) { (success) in
                 if success {
-                    self.presentUploadProfilePicVC()
-                    print("Create User")
+                    UserController.shared.updateAppleUser(first: firstName, last: lastName) { (success) in
+                        if success {
+                            self.presentUploadProfilePicVC()
+                            print("Create User")
+                        }
+                    }
                 }
             }
         }
@@ -152,45 +156,45 @@ extension SignUpViewController: ASAuthorizationControllerDelegate, ASAuthorizati
     }
     
     private func randomNonceString(length: Int = 32) -> String {
-      precondition(length > 0)
-      let charset: Array<Character> =
-          Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-      var result = ""
-      var remainingLength = length
-
-      while remainingLength > 0 {
-        let randoms: [UInt8] = (0 ..< 16).map { _ in
-          var random: UInt8 = 0
-          let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
-          if errorCode != errSecSuccess {
-            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
-          }
-          return random
+        precondition(length > 0)
+        let charset: Array<Character> =
+            Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+        
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0 ..< 16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+                }
+                return random
+            }
+            
+            randoms.forEach { random in
+                if length == 0 {
+                    return
+                }
+                
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
         }
-
-        randoms.forEach { random in
-          if length == 0 {
-            return
-          }
-
-          if random < charset.count {
-            result.append(charset[Int(random)])
-            remainingLength -= 1
-          }
-        }
-      }
-
-      return result
+        
+        return result
     }
     
     private func sha256(_ input: String) -> String {
-      let inputData = Data(input.utf8)
-      let hashedData = SHA256.hash(data: inputData)
-      let hashString = hashedData.compactMap {
-        return String(format: "%02x", $0)
-      }.joined()
-
-      return hashString
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        let hashString = hashedData.compactMap {
+            return String(format: "%02x", $0)
+        }.joined()
+        
+        return hashString
     }
 }
 
