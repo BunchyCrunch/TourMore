@@ -19,7 +19,7 @@ class CreatedLocationController {
     // MARK: - CRUD
     static func addNewLocation(businessName: String, address1: String, address2: String, city: String, country: String, zipCode: String, locationDiscription: String, categories: String, completion: @escaping (CreatedLocation?, Error?) -> Void) {
         let uuid = UUID().uuidString
-        let location = CreatedLocation(businessName: businessName, address1: address1, address2: address2,  city: city, country: country, zipCode: zipCode, businessID: uuid, locationDiscription: locationDiscription, categories: categories)
+        let location = CreatedLocation(name: businessName, address1: address1, address2: address2,  city: city, country: country, zipCode: zipCode, businessID: uuid, locationDiscription: locationDiscription, categories: categories)
         
         ref.child("CreatedLocation").child(uuid).setValue(location.dictionary) { (error, _) in
             if let error = error {
