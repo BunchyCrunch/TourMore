@@ -95,10 +95,11 @@ class UserController {
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
+            if snapshot != nil {
             let name = snapshot?.get("name") as! String
             self.currentUser?.name = name
+            }
         }
-        
     }
     
     //MARK: UPDATE FUNCTIONS

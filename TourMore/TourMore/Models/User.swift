@@ -10,12 +10,13 @@ import UIKit
 
 class User {
     //Save Business ID from model
-    var favoritesID: [String]
+    var favoritesID: [String] //Add Strings of Buissness id
     var name: String
     var uid: String
     var bio: String
     var profilePicture: UIImage?
     var comment: [Comment]
+    //var blockedUser: [Sting] -> String == User.uuid
     
     init(favoritesID: [String] = [], comment: [Comment] = [], name: String = "", uid: String, bio: String = "", profilePicture: UIImage? = nil) {
         self.favoritesID = favoritesID

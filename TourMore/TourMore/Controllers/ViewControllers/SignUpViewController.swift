@@ -22,10 +22,12 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if Auth.auth().currentUser != nil {
-//            UserController.shared.fetchUserSkipSignIn()
-//            performSegue(withIdentifier: "", sender: self)
-//        }
+        if Auth.auth().currentUser != nil {
+            UserController.shared.fetchUserSkipSignIn()
+            performSegue(withIdentifier: "skipToMainTabView", sender: self)
+            dismiss(animated: false) {
+            }
+        }
         setUpTextFields()
         
         // Do any additional setup after loading the view.
@@ -38,26 +40,31 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
         guard let email = emailTextField.text, !email.isEmpty,
-            let password = passwordTextField.text, !password.isEmpty
+            let password = passwordTextField.text, !password.isEmpty,
+            var name = nameTextField.text
             else {
                 presentFillOutFieldsAlert(); return
         }
+        if name.isEmpty == true {
+            name = ""
+        }
         UserController.shared.createUser(email: email, password: password) { (success) in
             if success {
-                self.presentUploadProfilePicVC()
-                //Need to take in name somewhere
+                UserController.shared.updateUser(name: name) { (success) in
+                    self.presentUploadProfilePicVC()
+                }
             }
         }
     }
-    
-    func saveUserNameToFireBase() {
-        guard var name = nameTextField.text else {return}
-        if !name.isEmpty {
-            UserController.shared.updateUser(name: name) { (success) in }
-        } else {
-            name = ""
-        }
-    }
+//    
+//    func saveUserNameToFireBase() {
+//        guard var name = nameTextField.text else {return}
+//        if !name.isEmpty {
+//            UserController.shared.updateUser(name: name) { (success) in }
+//        } else {
+//            name = ""
+//        }
+//    }
     
     func setUpTextFields() {
         Utilities.textFieldSignUpStyle(emailTextField)
