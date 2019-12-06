@@ -141,4 +141,8 @@ class UserController {
         }
         completion(true)
     }
+    
+    func blockUser(with uid: String) {
+        print("blocked user with id \(uid)")
+    }
 }

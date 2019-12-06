@@ -17,27 +17,43 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var saveButton: UIButton!
     
+    @IBOutlet weak var starOneButton: UIButton!
+    @IBOutlet weak var starTwoButton: UIButton!
+    @IBOutlet weak var starThreeButton: UIButton!
+    @IBOutlet weak var starFourButton: UIButton!
+    @IBOutlet weak var starFiveButton: UIButton!
+    
+    
     var ref: DatabaseReference?
-   
     
     var businessID: String?
     
+    var rating: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         commentListTableView.delegate = self
         commentListTableView.dataSource = self
-
+        
         // Set the firebase reference
         ref = Database.database().reference()
     }
     
     @IBAction func saveComment(_ sender: Any) {
         // Post the data to firebase
-        guard let text = enterCommentTextView.text, let businessID = businessID else { return }
-        let rating = 0
-        CommentController.shared.addComment(to: businessID, text: text, rating: rating) { (success) in
+        guard let text = enterCommentTextView.text, let businessID = businessID,  let userID = UserController.shared.currentUser?.uid
+            else { return }
+        
+        CommentController.shared.addComment(to: businessID, text: text, rating: rating, userID: userID) { (success) in
             if success {
+                
+                self.starOneButton.setImage((UIImage(systemName: "star")), for: .normal)
+                self.starTwoButton.setImage((UIImage(systemName: "star")), for: .normal)
+                self.starThreeButton.setImage((UIImage(systemName: "star")), for: .normal)
+                self.starFourButton.setImage((UIImage(systemName: "star")), for: .normal)
+                self.starFiveButton.setImage((UIImage(systemName: "star")), for: .normal)
+                
                 // reload table
                 self.commentListTableView.reloadData()
             }
@@ -57,14 +73,54 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    @IBAction func blockUserActionSheet(_ sender: Any) {
+        
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        // 2
+        let reportUserAction = UIAlertAction(title: "Report User", style: .default)
+        let blockUserAction = UIAlertAction(title: "Block", style: .default)
+        // 3
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        // 4
+        optionMenu.addAction(reportUserAction)
+        optionMenu.addAction(blockUserAction)
+        optionMenu.addAction(cancelAction)
+        // 5
+        self.present(optionMenu, animated: true, completion: nil)
+    }
     
+    @IBAction func starOneButtonPressed(_ sender: Any) {
+        rating = 1
+        starOneButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+    }
+    
+    @IBAction func starTwoButtonPressed(_ sender: Any) {
+        rating = 2
+        starOneButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starTwoButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+    }
+    
+    @IBAction func starThreeButtonPressed(_ sender: Any) {
+        rating = 3
+        starOneButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starTwoButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starThreeButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+    }
+    @IBAction func starFourButtonPressed(_ sender: Any) {
+        rating = 4
+        starOneButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starTwoButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starThreeButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starFourButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+    }
+    
+    @IBAction func starFiveButtonPressed(_ sender: Any) {
+        rating = 5
+        starOneButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starTwoButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starThreeButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starFourButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+        starFiveButton.setImage((UIImage(systemName: "star.fill")), for: .normal)
+    }
 }

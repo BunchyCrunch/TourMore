@@ -12,12 +12,14 @@ class Comment {
     let text: String
     let rating: Int
     let businessID: String
-    let commentUID: String
+    let userID: String
+    let id: String
     
-    init(text: String, rating: Int, businessID: String, uuid: String = UUID().uuidString) {
+    init(text: String, rating: Int, businessID: String, userID: String, id: String = UUID().uuidString) {
         self.text = text
         self.rating = rating
         self.businessID = businessID
-        self.commentUID = uuid
+        self.userID = userID
+        self.id = id
     }
 }
