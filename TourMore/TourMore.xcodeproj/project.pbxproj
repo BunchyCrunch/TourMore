@@ -10,6 +10,9 @@
 		267CC5BA2399586A00CEFB70 /* locationDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CC5B92399586A00CEFB70 /* locationDisplayViewController.swift */; };
 		267CC5BC23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CC5BB23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift */; };
 		267CC5BE2399CC3100CEFB70 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CC5BD2399CC3100CEFB70 /* LocationDetailViewController.swift */; };
+		267CC5C0239ABDA800CEFB70 /* FavoriteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CC5BF239ABDA800CEFB70 /* FavoriteCollectionViewController.swift */; };
+		267CC5C2239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CC5C1239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift */; };
+		267CC5C4239B05D100CEFB70 /* JoesSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CC5C3239B05D100CEFB70 /* JoesSample.swift */; };
 		26A6B8A5238C78A30099382F /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8A4238C78A30099382F /* Favorite.swift */; };
 		26A6B8A7238C78EC0099382F /* CreatedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8A6238C78EC0099382F /* CreatedLocation.swift */; };
 		26A6B8A9238C82420099382F /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6B8A8238C82420099382F /* FavoriteController.swift */; };
@@ -55,6 +58,9 @@
 		267CC5B92399586A00CEFB70 /* locationDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationDisplayViewController.swift; sourceTree = "<group>"; };
 		267CC5BB23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDisplayCollectionViewCell.swift; sourceTree = "<group>"; };
 		267CC5BD2399CC3100CEFB70 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
+		267CC5BF239ABDA800CEFB70 /* FavoriteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewController.swift; sourceTree = "<group>"; };
+		267CC5C1239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		267CC5C3239B05D100CEFB70 /* JoesSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoesSample.swift; sourceTree = "<group>"; };
 		26A6B8A4238C78A30099382F /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		26A6B8A6238C78EC0099382F /* CreatedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedLocation.swift; sourceTree = "<group>"; };
 		26A6B8A8238C82420099382F /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 				26CFDD67238C63C10023444F /* Comment.swift */,
 				26A6B8A4238C78A30099382F /* Favorite.swift */,
 				26A6B8A6238C78EC0099382F /* CreatedLocation.swift */,
+				267CC5C3239B05D100CEFB70 /* JoesSample.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +203,8 @@
 				267CC5B92399586A00CEFB70 /* locationDisplayViewController.swift */,
 				267CC5BB23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift */,
 				267CC5BD2399CC3100CEFB70 /* LocationDetailViewController.swift */,
+				267CC5BF239ABDA800CEFB70 /* FavoriteCollectionViewController.swift */,
+				267CC5C1239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -394,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28BC10AA238C7F42009CE084 /* UserController.swift in Sources */,
+				267CC5C0239ABDA800CEFB70 /* FavoriteCollectionViewController.swift in Sources */,
 				267CC5BA2399586A00CEFB70 /* locationDisplayViewController.swift in Sources */,
 				26CFDD64238C63680023444F /* YelpAPIModel.swift in Sources */,
 				26CFDD60238C62ED0023444F /* APISearchController.swift in Sources */,
@@ -413,10 +423,12 @@
 				28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */,
 				26A6B8AB238C83BB0099382F /* CreatedLocationController.swift in Sources */,
 				26A6B8A5238C78A30099382F /* Favorite.swift in Sources */,
+				267CC5C4239B05D100CEFB70 /* JoesSample.swift in Sources */,
 				FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */,
 				FC180F12239833B300DE507E /* CommentTableViewCell.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
 				26CFDD66238C638E0023444F /* User.swift in Sources */,
+				267CC5C2239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift in Sources */,
 				26A6B8AD238D94F80099382F /* CreateNewLocationViewController.swift in Sources */,
 				26A6B8A9238C82420099382F /* FavoriteController.swift in Sources */,
 			);
