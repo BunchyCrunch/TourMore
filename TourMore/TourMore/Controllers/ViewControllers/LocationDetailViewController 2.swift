@@ -8,18 +8,15 @@
 
 import UIKit
 
-class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
+class LocationDetailViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var locationPhotoImageView: UIImageView!
-    @IBOutlet weak var dummyTextView: UITextView!
     @IBOutlet weak var businessName: UILabel!
-    @IBOutlet weak var peekStackView: UIStackView!
     @IBOutlet weak var businessTypeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var ratingImage: UIImageView!
     @IBOutlet weak var commentLabel: UILabel!
-    @IBOutlet weak var containerView: UIView!
     
     var location: Business?
     
@@ -27,26 +24,9 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        dummyTextView.delegate = self
-    navigationController?.navigationItem.backBarButtonItem?.setBackgroundImage(UIImage(named: "Back Button"), for: .normal, barMetrics: .default)
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        self.peekStackView.isHidden = true
-        UIView.animate(withDuration: 0.5, animations: {
-            self.containerView.isHidden = false
-            
-        }) { (success) in
-            if success {
-                print("Successfully animated drawer")
-            }
-        }
-        
-        
     }
     
     func setUpView(){
-        containerView.isHidden = true
         guard let location = location else { return }
         BusinessSearchController.sharedInstance.fetchImage(businessImage: location) { (image) in
             if let image = image {
@@ -64,10 +44,6 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
         starSelectorImage(star: location)
         makeNavagationControllerClear()
         setupFavoriteButton()
-        containerView.layer.borderWidth = 0.5
-        containerView.layer.borderColor = UIColor.black.cgColor
-        containerView.layer.cornerRadius = 20
-        containerView.clipsToBounds = true
     }
     
     func makeNavagationControllerClear(){
