@@ -85,6 +85,7 @@ extension locationDisplayViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as? LocationDisplayCollectionViewCell else { return UICollectionViewCell() }
         let location = locations[indexPath.item]
         cell.businessLocation = location
+        //ToDO - add turinary for nil value if there is any 
         catagoryLabel.text = locations[indexPath.item].categories.first?.title
             return cell
     }

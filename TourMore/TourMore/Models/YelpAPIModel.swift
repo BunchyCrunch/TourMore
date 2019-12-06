@@ -11,6 +11,7 @@ import Foundation
 struct TopLevelJSON: Decodable {
     let businesses: [Business]
 }
+
 struct Business: Decodable {
     let id: String
     let name: String
@@ -70,4 +71,8 @@ extension Location: Equatable {
     static func == (lhs: Location, rhs: Location) -> Bool {
         return lhs == rhs
     }
+}
+
+extension Business: BusinessLocation {
+    
 }

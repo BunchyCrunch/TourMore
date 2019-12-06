@@ -10,10 +10,13 @@ import Foundation
 import Firebase
 
 //https://medium.com/flawless-app-stories/scratching-the-firebase-services-with-your-ios-app-c2746881c6d8
-
-class CreatedLocation {
+protocol BusinessLocation {
+    var name: String { get }
     
-    var businessName: String
+}
+class CreatedLocation: BusinessLocation {
+    
+    var name: String
     var address1: String
     var address2: String
     var city: String
@@ -24,7 +27,7 @@ class CreatedLocation {
     var categories: String
     var dictionary: [String : Any] {
         return [
-            "businessName" : businessName,
+            "businessName" : name,
             "address1" : address1,
             "address2" : address2,
             "city" : city,
@@ -36,8 +39,8 @@ class CreatedLocation {
         ]
     }
     
-    init(businessName: String, address1: String, address2: String = "", city: String, country: String, zipCode: String, businessID: String, locationDiscription: String, categories: String ){
-        self.businessName = businessName
+    init(name: String, address1: String, address2: String = "", city: String, country: String, zipCode: String, businessID: String, locationDiscription: String, categories: String ){
+        self.name = name
         self.address1 = address1
         self.address2 = address2
         self.city = city
@@ -50,7 +53,7 @@ class CreatedLocation {
     
     convenience init?(snapshot: DataSnapshot) {
         guard let snapshotValue = snapshot.value as? [String : Any],
-            let businessName = snapshotValue["businessName"] as? String,
+            let name = snapshotValue["businessName"] as? String,
             let address1 = snapshotValue["address1"] as? String,
             let address2 = snapshotValue["address2"] as? String,
             let city = snapshotValue["city"] as? String,
@@ -61,9 +64,6 @@ class CreatedLocation {
             let categories = snapshotValue["categories"] as? String
             else {return nil}
         
-        self.init(businessName: businessName, address1: address1, address2: address2, city: city, country: country, zipCode: zipCode, businessID: businessID, locationDiscription: locationDiscription, categories: categories)
+        self.init(name: name, address1: address1, address2: address2, city: city, country: country, zipCode: zipCode, businessID: businessID, locationDiscription: locationDiscription, categories: categories)
     }
 }
-
-
-
