@@ -40,7 +40,6 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
     
     // MARK: - Actions
-    
     @IBAction func popularButtonTapped(_ sender: Any){
         searchByCatogory(term: "Popular")
     }
@@ -160,6 +159,7 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         guard let userlocation = userLocationForSearch,
             let searchBar = searchBar.text,
             let search = BusinessSearchController.sharedInstance.getSearchTermQueryItem(for: searchBar) else { return }

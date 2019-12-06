@@ -24,6 +24,7 @@ class LocationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        navigationController?.navigationItem.backBarButtonItem?.setBackgroundImage(UIImage(named: "Back Button"), for: .normal, barMetrics: .default)
     }
     
     func setUpView(){
@@ -44,7 +45,6 @@ class LocationDetailViewController: UIViewController {
         starSelectorImage(star: location)
         makeNavagationControllerClear()
         setupFavoriteButton()
-        
     }
     
     func makeNavagationControllerClear(){
@@ -98,9 +98,21 @@ class LocationDetailViewController: UIViewController {
     }
     
     @objc func buttonAction(sender: UIButton!) {
+//        if  != nil {
+//            favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
+//        } else {
+//            favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
+//        }
         print("Button tapped")
+        favoriteSavedToFavoritesAlert()
     }
-    // alert controller for Favorite saved
+    
+    func favoriteSavedToFavoritesAlert() {
+        let alert = UIAlertController(title: "Favorite has been added to your favorites", message: nil, preferredStyle: .actionSheet)
+        let okayButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alert.addAction(okayButton)
+        self.present(alert, animated:  true)
+    }
     
     
     /*

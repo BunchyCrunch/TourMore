@@ -46,6 +46,7 @@ UISearchBarDelegate {
 
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         guard let userlocation = userLocationForSearch,
             let searchBar = locationSearchBar.text,
             let search = BusinessSearchController.sharedInstance.getSearchTermQueryItem(for: searchBar) else { return }
