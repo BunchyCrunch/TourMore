@@ -16,13 +16,14 @@ class CommentController {
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
     
-    var comments: [Comment] = []
+    var comments: [Comment] = [Comment(text: "lehi", rating: 3, businessID: "asdfljasl", userID: "dlafjds"),
+                               Comment(text: "provo", rating: 5, businessID: "aldsfkjas", userID: "sldfjk")]
     
-    func addComment(to location: String, text: String, rating: Int, completion: @escaping (Bool) -> Void) {
+    func addComment(to location: String, text: String, rating: Int, userID: String, completion: @escaping (Bool) -> Void) {
         // save the comment to firebase
         ref = Database.database().reference()
-        let newComment = Comment(text: text, rating: rating, businessID: location)
-        ref?.child("Comment").child(newComment.commentUID).setValuesForKeys(["text" : newComment.text, "rating" : newComment.rating, "businessID" : newComment.businessID])
+        let newComment = Comment(text: text, rating: rating, businessID: location, userID: userID)
+        ref?.child("Comment").child(newComment.id).setValuesForKeys(["text" : newComment.text, "rating" : newComment.rating, "businessID" : newComment.businessID])
         // add the comment to the comments array
         comments.append(newComment)
     }
@@ -31,9 +32,8 @@ class CommentController {
         ref = Database.database().reference()
         ref?.child("Comment").queryEqual(toValue: businessID, childKey: "businessID")
         ref?.observeSingleEvent(of: .value, with: { (snapshot) in
-            if let data = snapshot.value as? [String : Any] {
-             
-            }
+            let data = snapshot.value as? [String : Any]
+            print(data)
         }) { (error) in
             print(error.localizedDescription)
         }
