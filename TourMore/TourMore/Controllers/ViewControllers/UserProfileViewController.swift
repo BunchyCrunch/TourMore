@@ -11,12 +11,7 @@ import FirebaseAuth
 
 
 class UserProfileViewController: UIViewController {
-    
-    //MARK:- Properties
-//    var user: User? {
-//        return UserController.shared.currentUser
-//    }
-    
+ 
     //MARK:- Outlets
     @IBOutlet weak var userProfilePictureStaticImageView: UIImageView!
     
@@ -58,6 +53,7 @@ class UserProfileViewController: UIViewController {
         userProfilePictureStaticImageView.clipsToBounds = true
         userProfilePictureStaticImageView.layer.borderColor = UIColor(named: "userView")?.cgColor
         userProfilePictureStaticImageView.layer.cornerRadius = userProfilePictureStaticImageView.frame.size.height/2
+        userProfilePictureStaticImageView.contentMode = .scaleAspectFill
         
         containerView.layer.borderWidth = 0.5
         containerView.layer.borderColor = UIColor.gray.cgColor
@@ -69,13 +65,14 @@ class UserProfileViewController: UIViewController {
             usersNameLabel.isHidden = true
         }
         
-//        let profilePicture = user?.profilePicture
-//        if profilePicture != nil {
-//            userProfilePictureStaticImageView.image = profilePicture
-//        } else {
-//           // userProfilePictureStaticImageView.image = UIImage(name: "")
-//        }
-        
+        UserController.shared.fetchProfilePicture { (success) in
+            let profilePicture = UserController.shared.currentUser?.profilePicture
+            if profilePicture != nil {
+                self.userProfilePictureStaticImageView.image = profilePicture
+            } else {
+                // userProfilePictureStaticImageView.image = UIImage(name: "")
+            }
+        }
     }
     
     func presentMustBeSignedInAlert() {
