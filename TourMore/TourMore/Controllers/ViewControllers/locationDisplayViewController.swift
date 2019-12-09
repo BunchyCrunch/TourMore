@@ -86,7 +86,8 @@ extension locationDisplayViewController: UICollectionViewDataSource {
         let location = locations[indexPath.item]
         cell.businessLocation = location
         //ToDO - add turinary for nil value if there is any 
-        catagoryLabel.text = locations[indexPath.item].categories.first?.title
+       // catagoryLabel.text = locations[indexPath.item].categories.first?.title
+        catagoryLabel.text = location.categories[0].title
             return cell
     }
 }

@@ -119,6 +119,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2676E3F4239B25610086031A /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		2676E3F5239B26990086031A /* CustomeCell */ = {
+			isa = PBXGroup;
+			children = (
+				2805A0A1239ACC83004B507C /* CommentTableViewCell.swift */,
+			);
+			name = CustomeCell;
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		26CFDD5B238C5C9B0023444F /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,8 +209,9 @@
 		26F899532386F0C8007542DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				288EB3722397215700B4AE4C /* CustomCells */,
+				2676E3F5239B26990086031A /* CustomeCell */,
 				26F8994F2386F091007542DE /* MapViewTabViewController.swift */,
+				2805A09C239ACB22004B507C /* OnboardViewController.swift */,
 				28BC10AD238C89A2009CE084 /* SignUpViewController.swift */,
 				28BCD40E2395BCFB006898D1 /* WelcomeBackViewController.swift */,
 				FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */,
@@ -211,21 +228,11 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		2805A09E239ACC0C004B507C /* CustomCell */ = {
-			isa = PBXGroup;
-			children = (
-				2805A0A1239ACC83004B507C /* CommentTableViewCell.swift */,
-			);
-			path = CustomCell;
-			sourceTree = "<group>";
-		};
 		280D801C238F5AB9001704CC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				280D801D238F5AEF001704CC /* Utilities.swift */,
 				28BCD40723957DCD006898D1 /* PhotoPickerViewController.swift */,
-				FC180F11239833B300DE507E /* CommentTableViewCell.swift */,
-
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -237,6 +244,7 @@
 				28FB525C2385C3CF00266868 /* Products */,
 				557646AAF2F3168FA41D19A7 /* Pods */,
 				2979E3F0BAD1DA469ED108D9 /* Frameworks */,
+				2676E3F4239B25610086031A /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -431,7 +439,6 @@
 				26A6B8A5238C78A30099382F /* Favorite.swift in Sources */,
 				267CC5C4239B05D100CEFB70 /* JoesSample.swift in Sources */,
 				FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */,
-				FC180F12239833B300DE507E /* CommentTableViewCell.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
 				26CFDD66238C638E0023444F /* User.swift in Sources */,
 				267CC5C2239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift in Sources */,
