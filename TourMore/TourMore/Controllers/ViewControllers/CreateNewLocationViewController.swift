@@ -31,7 +31,7 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
     var locationServiceManager = CLLocationManager()
     var location = CLLocation()
     var locationCheck: String = ""
-    
+    var locationCoordantes = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,6 +137,8 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         BusinessSearchController.sharedInstance.getSearch(location: "\(location)", queryItems: [search]) { (businesses) in
             DispatchQueue.main.async {
                 if businesses.count == 0 {
+                    //TODO: - check name and Zip on fire base prior to creating location
+                    
                     self.addNewLocation()
                 }
                 guard let businesses = businesses.first,
@@ -171,8 +173,9 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
                 return
         }
         let address2 = address2TextField.text ?? ""
-        CreatedLocationController.addNewLocation(businessName: businessName, address1: address1, address2: address2, city: city, country: country, zipCode: zipCode, locationDiscription: locationDiscription, categories: categories) { (business, error ) in
-            guard let business = business else {return}
+        
+        BusinessSearchController.sharedInstance.saveBusinessToFirebase(with: businessName, tags: categories, description: locationDiscription, lat: locationCoordantes[0], lng: locationCoordantes[1], rating: 0, addressOne: address1, addressTwo: address2, city: city, zipCode: zipCode, country: country) { (business, error ) in
+            guard let business = business else { return }
             self.addNewLocationPicture(for: business)
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -205,7 +208,7 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
     }
     
     func locationCreated() {
-        let locationCreated = UIAlertController(title: "This New location has been saved", message: nil, preferredStyle: .alert)
+        let locationCreated = UIAlertController(title: "This New location has been saved", message: nil, preferredStyle: .actionSheet)
         let okayButton = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
         locationCreated.addAction(okayButton)
         self.present(locationCreated, animated: true)
@@ -220,9 +223,9 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         }
     }
     
-    func addNewLocationPicture(for bussiness: CreatedLocation) {
+    func addNewLocationPicture(for bussiness: Business) {
         guard let image = image else {return}
-        CreatedLocationController.createLocationPicture(businessID: bussiness.businessID, image: image) { (success) in
+        BusinessSearchController.createLocationPicture(businessID: bussiness.id, image: image) { (success) in
             if success {
                 print("picture uploaded")
             }
@@ -249,8 +252,11 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         let locationArray = locations as NSArray
         let locationObj = locationArray.lastObject as! CLLocation
         let lastLocation = locationObj
-     //   let coord = locationObj.coordinate
-     //   let lat = coord.latitude
+        let coord = locationObj.coordinate
+        let lat = coord.latitude
+        let long = coord.longitude
+        self.locationCoordantes = [lat, long]
+        
         
         convertlocation(location: lastLocation) { (_, error) in
             if let error = error {
@@ -265,7 +271,6 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             } else if let placemarks = placemarks {
-              //  let placemark = placemarks.last as? CLPlacemark
                 let placemark = placemarks.last
                 self.address1TextField.text = placemark?.name
               //  self.address2TextField.text = placemark?.subThoroughfare
@@ -303,6 +308,4 @@ extension CreateNewLocationViewController: PhotoSelectorDelegate {
     func photoSelectorDidSelect(_ photo: UIImage) {
         self.image = photo
     }
-    
-    
 }

@@ -7,13 +7,16 @@
 //
 
 import UIKit
-
+import FirebaseDatabase
+import FirebaseStorage
+import Firebase
 
 class FavoriteCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private let reuseIdentifier = "favoriteCell"
     
-    //var locations: [Business] = []
-   var locations: [CreatedLocation?] = [CreatedLocation(name: "mike", address1: "mike", address2: "mike", city: "mike", country: "mike", zipCode: "mike", businessID: "mike", locationDiscription: "mike", categories: "mike")]
+    var locations: [Business] = []
+    var ref: DatabaseReference?
+    var refStorage = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +26,35 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
     // MARK: - Methods
     
     func getFavoriteLocations() {
-        // todo find fasvorite locations
+        if Auth.auth().currentUser != nil {
+          //  to do - pull favorites from user
+            fetchFavoritesFromUser()
+            attachToLandingPad(favorites: ["change"])
+        }
+        // need alert controller to log in
     }
     
+    func searchRealTimeFirebase(for businessID: String){
+        ref = Database.database().reference()
+        ref?.child("CreatedLocation").queryEqual(toValue: businessID, childKey: "businessID")
+        
+    }
     
+    func fetchFavoritesFromUser() {
+        // call fp and get data
+    }
 
+    func attachToLandingPad(favorites: [String]){
+        for id in favorites {
+            if id.count < 20 {
+                // fetch from yelp and append to
+                
+            } else {
+                // fetch from firebase
+                
+            }
+        }
+    }
     
 
     // MARK: UICollectionViewDataSource
@@ -38,17 +65,22 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FavoriteCollectionViewCell else { return UICollectionViewCell() }
-//        let location = locations[indexPath.item]
-//            BusinessSearchController.sharedInstance.fetchImage(businessImage: location) { (image) in
-//                if let image = image {
-//                    DispatchQueue.main.async {
-//                        cell.ratingImageView.image = image
-//                        //  cell.businessImageView.image
-//                    }
-//                }
-//            }
-        cell.businessNameLabel.text = locations[indexPath.item]?.name
-        cell.discriptionLabel.text = locations[indexPath.item]?.categories
+        let location = locations[indexPath.item]
+        cell.business = location
+        if location.isUserGenerated == false {
+                        BusinessSearchController.sharedInstance.fetchImage(businessImage: location) { (image) in
+                            if let image = image {
+                                DispatchQueue.main.async {
+                                    cell.businessImageView.image = image
+                                }
+                            }
+                        }
+        } else {
+            // ToDo: -
+            // search fireBase for photo
+        }
+        cell.businessNameLabel.text = locations[indexPath.item].name
+     //   cell.discriptionLabel.text = locations[indexPath.item].categories[title]
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 10
@@ -65,8 +97,6 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
         let targetStoryboardName = "Map"
         let targetStoryboard = UIStoryboard(name: targetStoryboardName, bundle: nil)
         guard let viewController = targetStoryboard.instantiateViewController(identifier: "LocationDetail") as? LocationDetailViewController else { return }
-        // uncomment after protocall or switch location var on top
-      //  viewController.location = location[indexPath.item]
         self.present(viewController, animated: true, completion: nil)
     }
 }

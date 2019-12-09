@@ -114,24 +114,38 @@ class BusinessSearchController {
 
 // Mark: - Add business information to Firestore
 extension BusinessSearchController {
-    func saveBusinessToFirebase(with name: String, tags: String, description: String, lat: Double, lng: Double, rating: Double, addressOne: String, addressTwo: String, city: String, zipCode: String, country: String, completion: @escaping (Bool) -> Void) {
+    func saveBusinessToFirebase(with name: String, tags: String, description: String, lat: Double, lng: Double, rating: Double, addressOne: String, addressTwo: String, city: String, zipCode: String, country: String, completion: @escaping (Business?, Error?) -> Void) {
         // Create the objects needed to save a custom location to Firebase
         let category = Categories(alias: description, title: tags)
         let coordinates = Coordinates(latitude: lat, longitude: lng)
-        let location = Location(addressOne: addressOne, addressTwo: addressTwo, addressThree: "", city: city, zipCode: zipCode, country: country, state: "", displayAddress: nil)
+        let location = Location(addressOne: addressOne, addressTwo: addressTwo, addressThree: "", city: city, zipCode: zipCode, country: country, state: "", displayAddress: ["\(addressOne)", ",\(addressTwo)", "\(city)", "\(country)"])
         let id = UUID().uuidString
-        let newBusiness = Business(id: id, name: name, imageUrl: nil, siteUrl: nil, reviewCount: 0, categories: [category], coordinates: coordinates, rating: rating, price: nil, location: location, phoneNumber: "", description: description, isUserGenerated: true)
-        
+        let newBusiness =  Business(id: id, name: name, imageUrl: nil, siteUrl: nil, reviewCount: 0, categories: [category], coordinates: coordinates, rating: rating, price: nil, location: location, phoneNumber: "", description: description, isUserGenerated: true)
         
         // Save the location to firebase
         ref.child("CreatedLocation").child(newBusiness.id).setValue(newBusiness.dictionary) { (error, ref) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                completion(false)
+                completion(nil, error)
                 return
             }
             
+            completion(newBusiness, nil)
+        }
+    }
+    
+    static func createLocationPicture(businessID: String, image: UIImage, completion: @escaping (_ success: Bool) -> Void) {
+        let uploadRef = Storage.storage().reference(withPath: "locationPicture/\(businessID).jpg")
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {completion(false);return}
+        let uploadMetaData = StorageMetadata.init()
+        uploadMetaData.contentType = "image/jpeg"
+        uploadRef.putData(imageData, metadata: uploadMetaData) { (downloadMetadata, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(false)
+            }
             completion(true)
+            print("photo uploaded")
         }
     }
     
@@ -141,9 +155,13 @@ extension BusinessSearchController {
                 completion(nil)
                 return
             }
-            
             let businesses = dictionaries.compactMap({ Business(dictionary: $0) })
             completion(businesses)
         }
+    }
+
+    func fetchUserFavorites(user: User, completion: @escaping ([Business]?) -> Void) {
+     //   let locationIDs = user.favoritesID
+        
     }
 }
