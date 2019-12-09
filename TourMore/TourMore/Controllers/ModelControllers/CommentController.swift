@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseDatabase
 
 class CommentController {
@@ -14,7 +15,6 @@ class CommentController {
     static let shared = CommentController()
     
     var ref: DatabaseReference?
-    var databaseHandle: DatabaseHandle?
     
     var comments: [Comment] = [Comment(text: "lehi", rating: 3, businessID: "asdfljasl", userID: "dlafjds"),
                                Comment(text: "provo", rating: 5, businessID: "aldsfkjas", userID: "sldfjk")]
@@ -22,7 +22,8 @@ class CommentController {
     func addComment(to location: String, text: String, rating: Int, userID: String, completion: @escaping (Bool) -> Void) {
         // save the comment to firebase
         ref = Database.database().reference()
-        let newComment = Comment(text: text, rating: rating, businessID: location, userID: userID)
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let newComment = Comment(text: text, rating: rating, businessID: location, userID: uid)
         ref?.child("Comment").child(newComment.id).setValuesForKeys(["text" : newComment.text, "rating" : newComment.rating, "businessID" : newComment.businessID])
         // add the comment to the comments array
         comments.append(newComment)

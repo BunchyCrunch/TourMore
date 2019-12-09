@@ -54,7 +54,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-//        doesUserExist()
+        doesUserExist()
         saveComment()
     }
     
