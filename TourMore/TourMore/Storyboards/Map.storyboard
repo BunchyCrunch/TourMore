@@ -175,8 +175,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3mZ-tZ-hL7">
-                                                    <rect key="frame" x="0.0" y="38" width="380" height="461.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3mZ-tZ-hL7">
+                                                    <rect key="frame" x="0.0" y="38" width="380" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="352" id="2WO-2s-gTU"/>
                                                         <constraint firstAttribute="height" constant="461.5" id="fud-ul-lqF"/>
@@ -226,7 +226,7 @@
                                             <constraints>
                                                 <constraint firstItem="CsL-9X-Fi7" firstAttribute="leading" secondItem="7Pi-us-ht4" secondAttribute="leading" constant="8" id="7Ms-5Y-kuR"/>
                                                 <constraint firstAttribute="trailing" secondItem="3mZ-tZ-hL7" secondAttribute="trailing" id="QTY-4P-frG"/>
-                                                <constraint firstItem="gYQ-vu-1Nx" firstAttribute="top" secondItem="7Pi-us-ht4" secondAttribute="top" id="Uwv-vv-4Fz"/>
+                                                <constraint firstAttribute="top" secondItem="gYQ-vu-1Nx" secondAttribute="top" id="Uwv-vv-4Fz"/>
                                                 <constraint firstAttribute="bottom" secondItem="CsL-9X-Fi7" secondAttribute="bottom" id="YMF-n5-AaX"/>
                                                 <constraint firstAttribute="trailing" secondItem="CsL-9X-Fi7" secondAttribute="trailing" constant="8" id="dfd-QG-3ew"/>
                                                 <constraint firstItem="gYQ-vu-1Nx" firstAttribute="leading" secondItem="7Pi-us-ht4" secondAttribute="leading" id="fvu-Xz-9pL"/>
