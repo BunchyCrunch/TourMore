@@ -12,8 +12,7 @@ import UIKit
 class FavoriteCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private let reuseIdentifier = "favoriteCell"
     
-    //var locations: [Business] = []
-   var locations: [CreatedLocation?] = [CreatedLocation(name: "mike", address1: "mike", address2: "mike", city: "mike", country: "mike", zipCode: "mike", businessID: "mike", locationDiscription: "mike", categories: "mike")]
+    var locations: [Business] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +37,22 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? FavoriteCollectionViewCell else { return UICollectionViewCell() }
-//        let location = locations[indexPath.item]
-//            BusinessSearchController.sharedInstance.fetchImage(businessImage: location) { (image) in
-//                if let image = image {
-//                    DispatchQueue.main.async {
-//                        cell.ratingImageView.image = image
-//                        //  cell.businessImageView.image
-//                    }
-//                }
-//            }
-        cell.businessNameLabel.text = locations[indexPath.item]?.name
-        cell.discriptionLabel.text = locations[indexPath.item]?.categories
+        let location = locations[indexPath.item]
+        cell.business = location
+        if location.isUserGenerated == false {
+                        BusinessSearchController.sharedInstance.fetchImage(businessImage: location) { (image) in
+                            if let image = image {
+                                DispatchQueue.main.async {
+                                    cell.businessImageView.image = image
+                                }
+                            }
+                        }
+        } else {
+            // ToDo: -
+            // search fireBase for photo
+        }
+        cell.businessNameLabel.text = locations[indexPath.item].name
+     //   cell.discriptionLabel.text = locations[indexPath.item].categories[title]
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 10
@@ -65,8 +69,6 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
         let targetStoryboardName = "Map"
         let targetStoryboard = UIStoryboard(name: targetStoryboardName, bundle: nil)
         guard let viewController = targetStoryboard.instantiateViewController(identifier: "LocationDetail") as? LocationDetailViewController else { return }
-        // uncomment after protocall or switch location var on top
-      //  viewController.location = location[indexPath.item]
         self.present(viewController, animated: true, completion: nil)
     }
 }
