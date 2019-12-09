@@ -90,7 +90,6 @@
                                                 <state key="normal" image="Next Button Copy-2"/>
                                                 <connections>
                                                     <action selector="attemptSignIn:" destination="EwD-OE-uSl" eventType="touchUpInside" id="pH5-Uo-Kb0"/>
-                                                    <action selector="signUpButtonTapped:" destination="EwD-OE-uSl" eventType="touchUpInside" id="h2n-1O-CU6"/>
                                                 </connections>
                                             </button>
                                         </subviews>

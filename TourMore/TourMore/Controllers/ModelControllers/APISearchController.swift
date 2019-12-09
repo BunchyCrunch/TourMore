@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Firebase
 class BusinessSearchController {
     
     //MARK:- Shared instance
     static let sharedInstance = BusinessSearchController()
+    let ref = Database.database().reference()
     
     //MARK:- Fetch Business
     func getSearch(location: String, queryItems: [URLQueryItem], completion: @escaping ([Business]) -> Void) {
@@ -106,5 +108,47 @@ class BusinessSearchController {
             }
             completion(image)
         }.resume()
+    }
+}
+
+
+// Mark: - Add business information to Firestore
+extension BusinessSearchController {
+    func saveBusinessToFirebase(with name: String, tags: String, description: String, lat: Double, lng: Double, rating: Double, addressOne: String, addressTwo: String, city: String, zipCode: String, country: String, completion: @escaping (Bool) -> Void) {
+        // Create the objects needed to save a custom location to Firebase
+        let category = Categories(alias: description, title: tags)
+        let coordinates = Coordinates(latitude: lat, longitude: lng)
+        let location = Location(addressOne: addressOne, addressTwo: addressTwo, addressThree: "", city: city, zipCode: zipCode, country: country, state: "", displayAddress: nil)
+        let id = UUID().uuidString
+        let newBusiness = Business(id: id, name: name, imageUrl: nil, siteUrl: nil, reviewCount: 0, categories: [category], coordinates: coordinates, rating: rating, price: nil, location: location, phoneNumber: "", description: description, isUserGenerated: true)
+        
+        
+        // Save the location to firebase
+        ref.child("CreatedLocation").child(newBusiness.id).setValue(newBusiness.dictionary) { (error, ref) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(false)
+                return
+            }
+            
+            completion(true)
+        }
+    }
+    
+    func fetchAllBusinessFromFirebase(completion: @escaping ([Business]?) -> Void) {
+        ref.child("CreatedLocation").observeSingleEvent(of: .value) { (snapshot) in
+            guard let dictionaries = snapshot.value as? [[String : Any]] else {
+                completion(nil)
+                return
+            }
+            
+            let businesses = dictionaries.compactMap({ Business(dictionary: $0) })
+            completion(businesses)
+        }
+    }
+    
+    func fetchUserFavorites(user: User, completion: @escaping ([Business]?) -> Void) {
+        let locationIDs = user.favoritesID
+        
     }
 }
