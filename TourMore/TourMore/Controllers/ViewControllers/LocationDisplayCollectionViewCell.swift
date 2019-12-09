@@ -12,6 +12,7 @@ class LocationDisplayCollectionViewCell: UICollectionViewCell {
     
     
     // MARK: - Outlets
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var businessPhoto: UIImageView!
     @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var discriptionLabel: UILabel!
@@ -40,6 +41,8 @@ class LocationDisplayCollectionViewCell: UICollectionViewCell {
         }
         starSelectorImage(star: location)
         businessName.text = location.name
+        categoryLabel.text = location.categories[0].title
+        self.bringSubviewToFront(categoryLabel)
         discriptionLabel.text = location.categories.map({$0.title}).joined(separator: " ")
         addressLabel.text = location.location.displayAddress?.joined(separator: ", ")
         numberOfReviewsLabel.text = "\(location.reviewCount) Reviews"
