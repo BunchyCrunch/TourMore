@@ -44,7 +44,7 @@ class SignUpViewController: UIViewController {
         }
         UserController.shared.createUser(email: email, password: password) { (success) in
             if success {
-                UserController.shared.updateUser(name: name) { (success) in
+                UserController.shared.updateUserGivenName(name: name) { (success) in
                     self.presentUploadProfilePicVC()
                 }
             }
@@ -140,7 +140,7 @@ extension SignUpViewController: ASAuthorizationControllerDelegate, ASAuthorizati
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce, accessToken: nonce)
             UserController.shared.signInWithApple(credential: credential) { (success) in
                 if success {
-                    UserController.shared.updateAppleUser(first: firstName, last: lastName) { (success) in
+                    UserController.shared.updateAppleUserGivenName(first: firstName, last: lastName) { (success) in
                         if success {
                             self.presentUploadProfilePicVC()
                             print("Create User")

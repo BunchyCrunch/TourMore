@@ -31,10 +31,12 @@ class UserController {
     }
     
     //MARK: UPDATE FUNCTIONS
-    func updateUser(name: String, completion: @escaping (_ success: Bool) -> Void) {
+    func updateUserGivenName(name: String, completion: @escaping (_ success: Bool) -> Void) {
         guard let userID = currentUser?.uid else {return}
         firebaseDB.collection("users").document(userID).setData([
-            "name" : name
+            "name" : name,
+            "favorites" : [],
+            "userComments" : []
         ]) { (error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -47,8 +49,8 @@ class UserController {
     
     func updateProfilePic(image: UIImage, completion: @escaping (_ success: Bool) -> Void) {
         guard let currentUser = currentUser else {completion(false);return}
-        let uploadRef = Storage.storage().reference(withPath: "profilePicture/\(currentUser.uid).jpg")
-        guard let imageData = image.jpegData(compressionQuality: 0.5) else {completion(false);return}
+        let uploadRef = Storage.storage().reference().child("profilePicture/\(currentUser.uid).jpg")
+        guard let imageData = image.jpegData(compressionQuality: 0.1) else {completion(false);return}
         let uploadMetaData = StorageMetadata.init()
         uploadMetaData.contentType = "image/jpeg"
         uploadRef.putData(imageData, metadata: uploadMetaData) { (downloadMetadata, error) in
@@ -86,8 +88,9 @@ class UserController {
     
     func fetchProfilePicture(completion: @escaping (_ success: Bool) -> Void) {
         guard let currentUser = currentUser else { return }
-        let storageRef = Storage.storage().reference(withPath: "profilepictures/\(currentUser.uid).jpg")
-        storageRef.getData(maxSize: 4 * 1024 * 1024) { (data, error) in
+        let storageRef = Storage.storage().reference()
+        let imageRef = storageRef.child("profilePicture/\(currentUser.uid).jpg")
+        imageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(false)
@@ -109,10 +112,12 @@ class UserController {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
             if snapshot != nil {
-                let data = snapshot!.data()
-                guard let name = data?["name"] as? String,
-                let favorites = data?["favorites"] as? [String],
-                let comments = data?["userComments"] as? [String],
+                guard let data = snapshot?.data() else {
+                    self.fetchAppleUserSkipSignIn() ; return
+                }
+                guard let name = data["name"] as? String,
+                    let favorites = data["favorites"] as? [String],
+                    let comments = data["userComments"] as? [String],
                 
                     let uid = snapshot?.documentID else {
                         return
@@ -154,11 +159,13 @@ class UserController {
     }
     
     //MARK:- Update Apple User Information in DB
-    func updateAppleUser(first: String, last: String, completion: @escaping (_ success: Bool) -> Void) {
+    func updateAppleUserGivenName(first: String, last: String, completion: @escaping (_ success: Bool) -> Void) {
         guard let userID = currentUser?.uid else {return}
         firebaseDB.collection("appleUsers").document(userID).setData([
             "firstName" : first,
-            "lastName" : last
+            "lastName" : last,
+            "favorites" : [],
+            "userComments" : []
         ]) { (error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -170,22 +177,22 @@ class UserController {
         }
     }
     
-    func updateAppleProfilePic(image: UIImage, completion: @escaping (_ success: Bool) -> Void) {
-        guard let currentUser = currentUser else {completion(false);return}
-        let uploadRef = Storage.storage().reference(withPath: "appleprofilePicture/\(currentUser.uid).jpg")
-        guard let imageData = image.jpegData(compressionQuality: 0.5) else {completion(false);return}
-        let uploadMetaData = StorageMetadata.init()
-        uploadMetaData.contentType = "image/jpeg"
-        uploadRef.putData(imageData, metadata: uploadMetaData) { (downloadMetadata, error) in
-            if let error = error {
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                completion(false)
-            }
-            currentUser.profilePicture = image
-            completion(true)
-        }
-    }
-    
+//    func updateAppleProfilePic(image: UIImage, completion: @escaping (_ success: Bool) -> Void) {
+//        guard let currentUser = currentUser else {completion(false);return}
+//        let uploadRef = Storage.storage().reference(withPath: "appleprofilePicture/\(currentUser.uid).jpg")
+//        guard let imageData = image.jpegData(compressionQuality: 0.5) else {completion(false);return}
+//        let uploadMetaData = StorageMetadata.init()
+//        uploadMetaData.contentType = "image/jpeg"
+//        uploadRef.putData(imageData, metadata: uploadMetaData) { (downloadMetadata, error) in
+//            if let error = error {
+//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+//                completion(false)
+//            }
+//            currentUser.profilePicture = image
+//            completion(true)
+//        }
+//    }
+//
     //MARK:- Fetch Apple User AutoSignIn
     func fetchAppleUserSkipSignIn() {
         guard let authUser = Auth.auth().currentUser else {return}
@@ -195,14 +202,16 @@ class UserController {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
             if snapshot != nil {
-                let data = snapshot!.data()
-                guard let firstName = data?["firstName"] as? String,
-                    let lastName = data?["lastName"] as? String,
+                guard let data = snapshot?.data() else {return}
+                guard let firstName = data["firstName"] as? String,
+                    let lastName = data["lastName"] as? String,
+                    let favorites = data["favorites"] as? [String],
+                    let comments = data["userComments"] as? [String],
         
                     let uid = snapshot?.documentID
                     else {return}
                 
-                let foundAppleUser = User(favoritesID: [], comment: [], name: "\(firstName) \(lastName)", uid: uid, userAccessToken: nil, profilePicture: nil)
+                let foundAppleUser = User(favoritesID: favorites, comment: comments, name: "\(firstName) \(lastName)", uid: uid, userAccessToken: nil, profilePicture: nil)
                 self.currentUser = foundAppleUser
 //                let name = "\(firstName) \(lastName)"
 //                if name != "" {
@@ -215,7 +224,7 @@ class UserController {
     func fetchAppleProfilePicture(completion: @escaping (_ success: Bool) -> Void) {
         guard let currentUser = currentUser else { return }
         let storageRef = Storage.storage().reference(withPath: "appleprofilepictures/\(currentUser.uid).jpg")
-        storageRef.getData(maxSize: 4 * 1024 * 1024) { (data, error) in
+        storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(false)
