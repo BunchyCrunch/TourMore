@@ -33,7 +33,11 @@ class WelcomeBackViewController: UIViewController {
                 textFieldIsMissingTextAlert(); return
         }
         UserController.shared.fetchUser(with: email, password: password) { (success) in
-            
+            if success {
+                DispatchQueue.main.async {
+                    self.view.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+                }
+            }
         }
     }
 

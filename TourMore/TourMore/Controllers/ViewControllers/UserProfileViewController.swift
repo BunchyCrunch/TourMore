@@ -74,7 +74,6 @@ class UserProfileViewController: UIViewController {
             }
         }
     }
-    
     func presentMustBeSignedInAlert() {
         let alert = UIAlertController(title: "You must be signed up to use this tab", message: nil, preferredStyle: .alert)
         let goToSign = UIAlertAction(title: "Sign Up", style: .default) { _ in

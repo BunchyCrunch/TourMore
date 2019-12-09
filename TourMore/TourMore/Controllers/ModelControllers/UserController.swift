@@ -129,6 +129,7 @@ class UserController {
             }
         }
     }
+
     //MARK:- Sign Out Function
     func signOutUser(user: User, completion: @escaping (_ success: Bool) -> Void) {
         let firebaseAuth = Auth.auth()
