@@ -11,6 +11,7 @@ import UIKit
 class User {
     //Save Business ID from model
     var favoritesID: [String] //Add Strings of Buissness id
+    var favBusinesses: [Business]?
     var name: String
     var uid: String
     var profilePicture: UIImage?
