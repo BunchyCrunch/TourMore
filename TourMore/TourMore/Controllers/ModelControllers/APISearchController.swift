@@ -8,11 +8,13 @@
 
 import UIKit
 import Firebase
+
 class BusinessSearchController {
+    
     
     //MARK:- Shared instance
     static let sharedInstance = BusinessSearchController()
-    let ref = Database.database().reference()
+    var firestoreDB = Firestore.firestore().collection("CreatedLocation")
     
     //MARK:- Fetch Business
     func getSearch(location: String, queryItems: [URLQueryItem], completion: @escaping ([Business]) -> Void) {
@@ -44,8 +46,38 @@ class BusinessSearchController {
                 completion([]); return
             }
             let jsonDecoder = JSONDecoder()
-            do {                let searchDecoder = try jsonDecoder.decode(TopLevelJSON.self, from: data)
+            do {
+                let searchDecoder = try jsonDecoder.decode(TopLevelJSON.self, from: data)
                 completion(searchDecoder.businesses)
+            } catch {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
+        }.resume()
+    }
+    
+    func fetchBusinessForID(businessID: String, completion: @escaping (Business?) -> Void) {
+        guard var url = URL(string: "https://api.yelp.com/v3/businesses") else {
+            completion(nil); return
+        }
+        url.appendPathComponent(businessID)
+        guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            completion(nil); return
+        }
+        guard let finalURL = urlComponents.url else {return}
+        var request = URLRequest(url: finalURL)
+        request.addValue(URLConstants.auhorizationToken, forHTTPHeaderField: "Authorization")
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(nil); return
+            }
+            guard let data = data else {
+                completion(nil); return
+            }
+            let jsonDecoder = JSONDecoder()
+            do {
+                let idDecoder = try jsonDecoder.decode(Business.self, from: data)
+                completion(idDecoder)
             } catch {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
@@ -122,8 +154,8 @@ extension BusinessSearchController {
         let id = UUID().uuidString
         let newBusiness =  Business(id: id, name: name, imageUrl: nil, siteUrl: nil, reviewCount: 0, categories: [category], coordinates: coordinates, rating: rating, price: nil, location: location, phoneNumber: "", description: description, isUserGenerated: true)
         
-        // Save the location to firebase
-        ref.child("CreatedLocation").child(newBusiness.id).setValue(newBusiness.dictionary) { (error, ref) in
+        let ref = firestoreDB.document(newBusiness.id)
+        ref.setData(newBusiness.dictionary) { (error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(nil, error)
@@ -150,18 +182,34 @@ extension BusinessSearchController {
     }
     
     func fetchAllBusinessFromFirebase(completion: @escaping ([Business]?) -> Void) {
-        ref.child("CreatedLocation").observeSingleEvent(of: .value) { (snapshot) in
-            guard let dictionaries = snapshot.value as? [[String : Any]] else {
+        
+        firestoreDB.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(nil)
-                return
             }
-            let businesses = dictionaries.compactMap({ Business(dictionary: $0) })
+            
+            guard let docs = snapshot?.documents else { completion(nil) ; return }
+            let businesses = docs.compactMap({ Business(dictionary: $0.data()) })
             completion(businesses)
         }
     }
 
     func fetchUserFavorites(user: User, completion: @escaping ([Business]?) -> Void) {
-     //   let locationIDs = user.favoritesID
-        
+        // query the database for the user's favorites
+        var foundBusinesses: [Business] = []
+        for favoriteID in user.favoritesID {
+            firestoreDB.whereField(BusinessStringKeys.businessID, isEqualTo: favoriteID).getDocuments { (snapshot, error) in
+                guard let foundData = snapshot?.documents.first?.data(),
+                    let foundBusiness = Business(dictionary: foundData)
+                    else {
+                    completion(nil)
+                    return
+                }
+                foundBusinesses.append(foundBusiness)
+                user.favBusinesses?.append(foundBusiness)
+            }
+        }
+        completion(foundBusinesses)
     }
 }
