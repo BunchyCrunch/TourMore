@@ -7,12 +7,16 @@
 //
 
 import UIKit
-
+import FirebaseDatabase
+import FirebaseStorage
+import Firebase
 
 class FavoriteCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private let reuseIdentifier = "favoriteCell"
     
     var locations: [Business] = []
+    var ref: DatabaseReference?
+    var refStorage = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +26,35 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
     // MARK: - Methods
     
     func getFavoriteLocations() {
-        // todo find fasvorite locations
+        if Auth.auth().currentUser != nil {
+          //  to do - pull favorites from user
+            fetchFavoritesFromUser()
+            attachToLandingPad(favorites: ["change"])
+        }
+        // need alert controller to log in
     }
     
+    func searchRealTimeFirebase(for businessID: String){
+        ref = Database.database().reference()
+        ref?.child("CreatedLocation").queryEqual(toValue: businessID, childKey: "businessID")
+        
+    }
     
+    func fetchFavoritesFromUser() {
+        // call fp and get data
+    }
 
+    func attachToLandingPad(favorites: [String]){
+        for id in favorites {
+            if id.count < 20 {
+                // fetch from yelp and append to
+                
+            } else {
+                // fetch from firebase
+                
+            }
+        }
+    }
     
 
     // MARK: UICollectionViewDataSource
