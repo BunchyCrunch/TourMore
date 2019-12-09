@@ -76,3 +76,10 @@ extension Location: Equatable {
 extension Business: BusinessLocation {
     
 }
+
+extension Categories: Equatable {
+    static func == (lhs: Categories, rhs: Categories) -> Bool {
+        return lhs.alias == rhs.alias &&
+            lhs.title == rhs.title
+    }
+}
