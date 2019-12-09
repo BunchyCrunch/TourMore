@@ -89,6 +89,7 @@
                                                 </constraints>
                                                 <state key="normal" image="Next Button Copy-2"/>
                                                 <connections>
+                                                    <action selector="attemptSignIn:" destination="EwD-OE-uSl" eventType="touchUpInside" id="pH5-Uo-Kb0"/>
                                                     <action selector="signUpButtonTapped:" destination="EwD-OE-uSl" eventType="touchUpInside" id="h2n-1O-CU6"/>
                                                 </connections>
                                             </button>
@@ -156,8 +157,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="qd0-Sj-S0V"/>
                     <connections>
-                        <outlet property="emailTextField" destination="lzS-pd-bPS" id="BYG-qZ-LrX"/>
-                        <outlet property="passwordTextField" destination="NJL-44-VHw" id="tij-XA-InV"/>
+                        <outlet property="emailTextField" destination="lzS-pd-bPS" id="DD1-Rb-i7c"/>
+                        <outlet property="passwordTextField" destination="NJL-44-VHw" id="XFr-jg-DMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCl-F4-cqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

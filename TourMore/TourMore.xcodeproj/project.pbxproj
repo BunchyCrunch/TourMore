@@ -209,9 +209,10 @@
 		26F899532386F0C8007542DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2676E3F5239B26990086031A /* CustomeCell */,
-				26F8994F2386F091007542DE /* MapViewTabViewController.swift */,
+
 				2805A09C239ACB22004B507C /* OnboardViewController.swift */,
+				26F8994F2386F091007542DE /* MapViewTabViewController.swift */,
+				2805A0AC239B2746004B507C /* CustomCell */,
 				28BC10AD238C89A2009CE084 /* SignUpViewController.swift */,
 				28BCD40E2395BCFB006898D1 /* WelcomeBackViewController.swift */,
 				FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */,
@@ -226,6 +227,22 @@
 				267CC5C1239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+
+		2805A0AB239B24FA004B507C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		2805A0AC239B2746004B507C /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				2805A0A1239ACC83004B507C /* CommentTableViewCell.swift */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		280D801C238F5AB9001704CC /* Helpers */ = {
@@ -244,7 +261,7 @@
 				28FB525C2385C3CF00266868 /* Products */,
 				557646AAF2F3168FA41D19A7 /* Pods */,
 				2979E3F0BAD1DA469ED108D9 /* Frameworks */,
-				2676E3F4239B25610086031A /* Recovered References */,
+				2805A0AB239B24FA004B507C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
