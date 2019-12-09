@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     @IBOutlet weak var enterCommentTextView: UITextView!
     
@@ -37,19 +37,25 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         commentListTableView.delegate = self
         commentListTableView.dataSource = self
+        enterCommentTextView.delegate = self
         
         // Set the firebase reference
         ref = Database.database().reference()
+        setupViews()
         
+    }
+    
+    func setupViews() {
         slideBar.layer.cornerRadius = 5
         enterCommentTextView.layer.borderWidth = 0.5
         enterCommentTextView.layer.borderColor = UIColor.black.cgColor
+        enterCommentTextView.text = "Enter comment"
+        enterCommentTextView.textColor = UIColor.lightGray
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
 //        doesUserExist()
         saveComment()
-        
     }
     
     func doesUserExist() {
@@ -101,11 +107,22 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     
     return cell
 }
-
-@IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
-    print("pan")
-}
-
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if enterCommentTextView.textColor == UIColor.lightGray {
+            enterCommentTextView.text = nil
+            enterCommentTextView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if enterCommentTextView.text.isEmpty {
+            enterCommentTextView.text = "Enter comment"
+            enterCommentTextView.textColor = UIColor.lightGray
+        }
+    }
+   
+    
 @IBAction func blockUserActionSheet(_ sender: Any) {
     
     // 1

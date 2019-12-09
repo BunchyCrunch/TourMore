@@ -336,15 +336,26 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bKD-EO-hsN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="592"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKF-vM-VyW">
+                                <rect key="frame" x="0.0" y="229" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="ct8-FW-Kgj"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="746" translatesAutoresizingMaskIntoConstraints="NO" id="9bt-pH-Dq8">
-                                <rect key="frame" x="103.5" y="240.5" width="207" height="9"/>
+                                <rect key="frame" x="103.5" y="238" width="207" height="9"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="9" id="5Zl-yQ-Ft8"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Wad-96-WE4" appends="YES" id="xdm-Tu-N8X"/>
+                                </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kva-us-SH9">
-                                <rect key="frame" x="0.0" y="257.5" width="414" height="604.5"/>
+                                <rect key="frame" x="0.0" y="255" width="414" height="607"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="d8N-hd-L6L">
                                         <rect key="frame" x="20.5" y="0.0" width="373" height="62.5"/>
@@ -355,7 +366,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="type something" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZOk-uB-sQf">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZOk-uB-sQf">
                                                 <rect key="frame" x="0.0" y="30.5" width="373" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
@@ -368,16 +379,21 @@
                                         </subviews>
                                     </stackView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSx-34-Gha">
-                                        <rect key="frame" x="0.0" y="62.5" width="414" height="542"/>
+                                        <rect key="frame" x="0.0" y="62.5" width="414" height="544.5"/>
                                         <connections>
                                             <segue destination="pNE-Qe-ptt" kind="embed" identifier="" id="Edn-lW-GvN"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="d8N-hd-L6L" firstAttribute="width" secondItem="kva-us-SH9" secondAttribute="width" multiplier="0.9" id="9QX-06-2vl"/>
                                     <constraint firstItem="XSx-34-Gha" firstAttribute="width" secondItem="kva-us-SH9" secondAttribute="width" id="HZo-IP-1e9"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="uoK-XG-bkK" appends="YES" id="9Zi-6e-7hs"/>
+                                    <outletCollection property="gestureRecognizers" destination="DbV-7O-YdA" appends="YES" id="2K4-z9-QOi"/>
+                                </connections>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -389,11 +405,14 @@
                             <constraint firstItem="9bt-pH-Dq8" firstAttribute="width" secondItem="kva-us-SH9" secondAttribute="width" multiplier="0.5" id="Qrs-5N-wLp"/>
                             <constraint firstItem="q68-Or-sLw" firstAttribute="leading" secondItem="4od-WG-jc7" secondAttribute="leading" constant="24" id="SFb-AL-gpP"/>
                             <constraint firstItem="XSx-34-Gha" firstAttribute="height" secondItem="w0U-6p-AUx" secondAttribute="height" multiplier="0.7" id="Sbh-t0-Sx8"/>
+                            <constraint firstItem="4od-WG-jc7" firstAttribute="trailing" secondItem="BKF-vM-VyW" secondAttribute="trailing" id="TUt-91-wub"/>
+                            <constraint firstItem="BKF-vM-VyW" firstAttribute="leading" secondItem="4od-WG-jc7" secondAttribute="leading" id="VOi-Wh-Gq1"/>
                             <constraint firstItem="9bt-pH-Dq8" firstAttribute="centerX" secondItem="kva-us-SH9" secondAttribute="centerX" id="ZG6-7G-m2s"/>
                             <constraint firstItem="4od-WG-jc7" firstAttribute="trailing" secondItem="bKD-EO-hsN" secondAttribute="trailing" id="ZKA-6K-99p"/>
                             <constraint firstItem="4od-WG-jc7" firstAttribute="trailing" secondItem="q68-Or-sLw" secondAttribute="trailing" constant="24" id="Zv7-Hm-rbQ"/>
                             <constraint firstItem="bKD-EO-hsN" firstAttribute="leading" secondItem="4od-WG-jc7" secondAttribute="leading" id="esj-xK-Bo7"/>
                             <constraint firstItem="9bt-pH-Dq8" firstAttribute="bottom" secondItem="kva-us-SH9" secondAttribute="top" constant="-8" id="mRw-Ew-GRi"/>
+                            <constraint firstItem="9bt-pH-Dq8" firstAttribute="top" secondItem="BKF-vM-VyW" secondAttribute="bottom" constant="8" id="uSq-Gi-KDY"/>
                             <constraint firstItem="4od-WG-jc7" firstAttribute="bottom" secondItem="q68-Or-sLw" secondAttribute="bottom" constant="120" id="x8Q-yI-gnz"/>
                             <constraint firstItem="kva-us-SH9" firstAttribute="centerX" secondItem="bKD-EO-hsN" secondAttribute="centerX" id="zu2-sG-J9K"/>
                         </constraints>
@@ -406,15 +425,32 @@
                         <outlet property="businessTypeLabel" destination="QF3-Hl-oER" id="lwv-B4-9UA"/>
                         <outlet property="commentLabel" destination="QON-u0-QWk" id="NKg-yI-BMe"/>
                         <outlet property="containerView" destination="XSx-34-Gha" id="Jsn-me-wkr"/>
+                        <outlet property="dummySlideBar" destination="9bt-pH-Dq8" id="OuO-sw-Nv8"/>
                         <outlet property="dummyTextView" destination="ZOk-uB-sQf" id="sd8-aQ-cUd"/>
                         <outlet property="locationPhotoImageView" destination="bKD-EO-hsN" id="WIN-pn-2E8"/>
                         <outlet property="peekStackView" destination="d8N-hd-L6L" id="oEZ-5g-gJu"/>
                         <outlet property="ratingImage" destination="YSz-vA-rNy" id="kxF-fS-vQD"/>
+                        <outlet property="separatorBar" destination="BKF-vM-VyW" id="uKN-90-0cG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ges-sG-OP2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="uoK-XG-bkK">
+                    <connections>
+                        <action selector="swipeUp:" destination="Jmx-Q5-EM3" id="7S9-tK-x6R"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="Wad-96-WE4">
+                    <connections>
+                        <action selector="swipeUpDummySlideBar:" destination="Jmx-Q5-EM3" id="oPv-uS-qSV"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="DbV-7O-YdA">
+                    <connections>
+                        <action selector="swipeDown:" destination="Jmx-Q5-EM3" id="rAe-Eh-OlX"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2197.1014492753625" y="150"/>
+            <point key="canvasLocation" x="2184" y="151"/>
         </scene>
         <!--Map-->
         <scene sceneID="iSE-hT-cFV">
@@ -440,7 +476,7 @@
             <objects>
                 <viewController id="pNE-Qe-ptt" customClass="CommentViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qCA-Tl-k4D">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="542"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="544.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ma6-2T-7xv">
@@ -459,7 +495,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text View" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w6z-w0-Wkt">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w6z-w0-Wkt">
                                         <rect key="frame" x="0.0" y="34.5" width="366" height="88.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -526,7 +562,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0wD-e8-t08">
-                                <rect key="frame" x="0.0" y="193" width="414" height="290"/>
+                                <rect key="frame" x="0.0" y="193" width="414" height="291"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="92" id="e70-1E-0Hg" customClass="CommentTableViewCell" customModule="TourMore" customModuleProvider="target">
@@ -601,11 +637,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ce-EZ-sFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="f3q-mz-i0n">
-                    <connections>
-                        <action selector="panGesture:" destination="pNE-Qe-ptt" id="TIE-WI-geC"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3124.6376811594205" y="149.66517857142856"/>
         </scene>
