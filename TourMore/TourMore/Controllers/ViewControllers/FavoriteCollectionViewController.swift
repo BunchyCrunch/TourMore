@@ -17,6 +17,7 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
     var locations: [Business] = []
     var ref: DatabaseReference?
     var refStorage = Firestore.firestore()
+    var favorites: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +28,8 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
     
     func getFavoriteLocations() {
         if Auth.auth().currentUser != nil {
-          //  to do - pull favorites from user
             fetchFavoritesFromUser()
-            attachToLandingPad(favorites: ["change"])
+            attachToLandingPad(favorites: favorites)
         }
         // need alert controller to log in
     }
@@ -41,18 +41,28 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
     }
     
     func fetchFavoritesFromUser() {
-        // call fp and get data
+        guard let user = UserController.shared.currentUser else { return }
+        BusinessSearchController.sharedInstance.fetchUserFavorites(user: user) { (businesses) in
+           /**
+             buiness id out of businesss
+             */
+            var idsToFetch: [String] = []
+            if let businesses = businesses {
+                for id in user.favoritesID {
+                    if businesses.contains(where: { $0.id == id }) {
+                        // do nothing
+                    } else {
+                        idsToFetch.append(id)
+                    }
+                }
+            }
+            self.attachToLandingPad(favorites: idsToFetch)
+        }
     }
 
     func attachToLandingPad(favorites: [String]){
         for id in favorites {
-            if id.count < 20 {
-                // fetch from yelp and append to
-                
-            } else {
-                // fetch from firebase
-                
-            }
+            
         }
     }
     

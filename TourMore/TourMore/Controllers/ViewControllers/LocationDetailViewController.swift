@@ -23,6 +23,8 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var dummySlideBar: UIView!
     @IBOutlet weak var separatorBar: UIView!
     
+    weak var favoriteButton: UIButton!
+    
     var location: Business?
     
     override func viewDidLoad() {
@@ -140,6 +142,7 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     
     func setupFavoriteButton() {
         let favoriteButton = UIButton()
+        self.favoriteButton = favoriteButton
         favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
         favoriteButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         let stackView = UIStackView(arrangedSubviews: [favoriteButton])
@@ -155,11 +158,14 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     @objc func buttonAction(sender: UIButton!) {
-//        if  != nil {
-//            favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
-//        } else {
-//            favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
-//        }
+        guard let location = self.location,
+            let user = UserController.shared.currentUser
+            else { return }
+        if !user.favoritesID.contains(location.id) {
+            favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
+        } else {
+            favoriteButton.setBackgroundImage(UIImage(named: "unfilledHeart"), for: .normal)
+        }
         print("Button tapped")
         favoriteSavedToFavoritesAlert()
     }
