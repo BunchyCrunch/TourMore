@@ -20,9 +20,10 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var ratingImage: UIImageView!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var dummySlideBar: UIView!
+    @IBOutlet weak var separatorBar: UIView!
     
     var location: Business?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +33,47 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        self.peekStackView.isHidden = true
+        hideDummyStackView()
+    }
+    
+    @IBAction func swipeUp(_ sender: Any) {
+        hideDummyStackView()
+    }
+    
+    @IBAction func swipeUpDummySlideBar(_ sender: Any) {
+        hideDummyStackView()
+    }
+    
+    @IBAction func swipeDown(_ sender: Any) {
+        UIView.animate(withDuration: 0.5, animations:  {
+            self.peekStackView.isHidden = false
+            self.dummySlideBar.isHidden = false
+            self.separatorBar.isHidden = false
+            self.containerView.isHidden = true
+            
+        }) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                }
+                print("Successfully hid drawer")
+            }
+        }
+    }
+    
+    func hideDummyStackView() {
         UIView.animate(withDuration: 0.5, animations: {
             self.containerView.isHidden = false
             
         }) { (success) in
             if success {
+                DispatchQueue.main.async {
+                    self.peekStackView.isHidden = true
+                    self.dummySlideBar.isHidden = true
+                    self.separatorBar.isHidden = true
+                }
                 print("Successfully animated drawer")
             }
         }
-        
-        
     }
     
     func setUpView(){
@@ -68,6 +99,9 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
         containerView.layer.borderColor = UIColor.black.cgColor
         containerView.layer.cornerRadius = 20
         containerView.clipsToBounds = true
+        dummySlideBar.layer.cornerRadius = 5
+        dummyTextView.layer.borderWidth = 0.5
+        dummyTextView.layer.borderColor = UIColor.black.cgColor
     }
     
     func makeNavagationControllerClear(){

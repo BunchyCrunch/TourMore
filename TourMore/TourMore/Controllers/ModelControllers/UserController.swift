@@ -47,6 +47,8 @@ class UserController {
         }
     }
     
+    
+    
     func updateProfilePic(image: UIImage, completion: @escaping (_ success: Bool) -> Void) {
         guard let currentUser = currentUser else {completion(false);return}
         let uploadRef = Storage.storage().reference().child("profilePicture/\(currentUser.uid).jpg")
