@@ -16,14 +16,16 @@ class User {
     var profilePicture: UIImage?
     var comment: [String]
     var userAccessToken: String?
+    var isAppleUser: Bool
     //var blockedUser: [Sting] -> String == User.uuid
     
-    init(favoritesID: [String] = [], comment: [String] = [], name: String = "", uid: String, userAccessToken: String? = nil, profilePicture: UIImage? = nil) {
+    init(favoritesID: [String] = [], comment: [String] = [], name: String = "", uid: String, userAccessToken: String? = nil, isAppleUser: Bool, profilePicture: UIImage? = nil) {
         self.favoritesID = favoritesID
         self.comment = comment
         self.name = name
         self.uid = uid
         self.userAccessToken = userAccessToken
+        self.isAppleUser = isAppleUser
         self.profilePicture = profilePicture
     }
 }

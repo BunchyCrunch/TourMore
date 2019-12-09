@@ -24,7 +24,7 @@ class UserController {
                 completion(false)
             }
             guard let user = authResult else {return}
-            let newUser = User(uid: user.user.uid)
+            let newUser = User(uid: user.user.uid, isAppleUser: false)
             self.currentUser = newUser
             completion(true)
         }
@@ -36,7 +36,8 @@ class UserController {
         firebaseDB.collection("users").document(userID).setData([
             "name" : name,
             "favorites" : [],
-            "userComments" : []
+            "userComments" : [],
+            "isAppleUser" : false
         ]) { (error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -73,7 +74,7 @@ class UserController {
                 completion(false)
             }
             guard let user = authResult else {return}
-            let loggedInUser = User(uid: user.user.uid)
+            let loggedInUser = User(uid: user.user.uid, isAppleUser: false)
             self.currentUser = loggedInUser
             let ref = self.firebaseDB.collection("users").document(user.user.uid)
             ref.getDocument { (snapshot, error) in
@@ -120,11 +121,11 @@ class UserController {
                 guard let name = data["name"] as? String,
                     let favorites = data["favorites"] as? [String],
                     let comments = data["userComments"] as? [String],
-                
+                    let isAppleUser = data["isAppleUser"] as? Bool,
                     let uid = snapshot?.documentID else {
                         return
                 }
-                let foundUser = User(favoritesID: favorites, comment: comments, name: name, uid: uid, userAccessToken: nil, profilePicture: nil)
+                let foundUser = User(favoritesID: favorites, comment: comments, name: name, uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
                 self.currentUser = foundUser
             }
         }
@@ -138,6 +139,7 @@ class UserController {
         } catch _ as NSError {
             print("Error signing out: %@")
         }
+        print("signed out user")
         completion(true)
     }
     
@@ -155,7 +157,7 @@ class UserController {
                 let uuid = authResult?.user.uid
                 else { completion(false) ; return }
             
-            let user = User(uid: uuid, userAccessToken: accessToken)
+            let user = User(uid: uuid, userAccessToken: accessToken, isAppleUser: true)
             self.currentUser = user
             completion(true)
         }
@@ -168,7 +170,8 @@ class UserController {
             "firstName" : first,
             "lastName" : last,
             "favorites" : [],
-            "userComments" : []
+            "userComments" : [],
+            "isAppleUser" : true
         ]) { (error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -210,11 +213,11 @@ class UserController {
                     let lastName = data["lastName"] as? String,
                     let favorites = data["favorites"] as? [String],
                     let comments = data["userComments"] as? [String],
-        
+                    let isAppleUser = data["isAppleUser"] as? Bool,
                     let uid = snapshot?.documentID
                     else {return}
                 
-                let foundAppleUser = User(favoritesID: favorites, comment: comments, name: "\(firstName) \(lastName)", uid: uid, userAccessToken: nil, profilePicture: nil)
+                let foundAppleUser = User(favoritesID: favorites, comment: comments, name: "\(firstName) \(lastName)", uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
                 self.currentUser = foundAppleUser
 //                let name = "\(firstName) \(lastName)"
 //                if name != "" {
@@ -224,22 +227,22 @@ class UserController {
         }
     }
     
-    func fetchAppleProfilePicture(completion: @escaping (_ success: Bool) -> Void) {
-        guard let currentUser = currentUser else { return }
-        let storageRef = Storage.storage().reference(withPath: "appleprofilepictures/\(currentUser.uid).jpg")
-        storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
-            if let error = error {
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                completion(false)
-            }
-            if let data = data {
-                let downloadedImage = UIImage(data: data)
-                currentUser.profilePicture = downloadedImage
-                print("Successfully fetched user's profile picture")
-                completion(true)
-            }
-        }
-    }
+//    func fetchAppleProfilePicture(completion: @escaping (_ success: Bool) -> Void) {
+//        guard let currentUser = currentUser else { return }
+//        let storageRef = Storage.storage().reference(withPath: "appleprofilepictures/\(currentUser.uid).jpg")
+//        storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+//            if let error = error {
+//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+//                completion(false)
+//            }
+//            if let data = data {
+//                let downloadedImage = UIImage(data: data)
+//                currentUser.profilePicture = downloadedImage
+//                print("Successfully fetched user's profile picture")
+//                completion(true)
+//            }
+//        }
+//    }
 }//END OF CLASS
 
 

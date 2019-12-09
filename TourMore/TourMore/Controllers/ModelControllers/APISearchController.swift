@@ -159,7 +159,7 @@ extension BusinessSearchController {
             completion(businesses)
         }
     }
-    
+
     func fetchUserFavorites(user: User, completion: @escaping ([Business]?) -> Void) {
      //   let locationIDs = user.favoritesID
         

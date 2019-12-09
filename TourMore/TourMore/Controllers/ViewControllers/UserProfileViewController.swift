@@ -77,7 +77,9 @@ class UserProfileViewController: UIViewController {
     func presentMustBeSignedInAlert() {
         let alert = UIAlertController(title: "You must be signed up to use this tab", message: nil, preferredStyle: .alert)
         let goToSign = UIAlertAction(title: "Sign Up", style: .default) { _ in
-            //send user to sign up screen
+            DispatchQueue.main.async {
+                 self.view.window?.rootViewController = UIStoryboard(name: "SignUp", bundle: nil).instantiateInitialViewController()
+            }
         }
         let exit = UIAlertAction(title: "Exit", style: .cancel) { _ in
             //present index 1 of tab view

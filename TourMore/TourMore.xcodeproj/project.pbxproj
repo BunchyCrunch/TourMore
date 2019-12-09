@@ -48,6 +48,7 @@
 		28FB525F2385C3CF00266868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB525E2385C3CF00266868 /* AppDelegate.swift */; };
 		28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB52602385C3CF00266868 /* SceneDelegate.swift */; };
 		28FB52682385C3D000266868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FB52672385C3D000266868 /* Assets.xcassets */; };
+		28FCE3A9239EDE41001BFD40 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FCE3A8239EDE41001BFD40 /* SettingsTableViewController.swift */; };
 		EAEB505AC5E0B6BF897C0AB3 /* Pods_TourMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCDA6513E6052A7B7004EFA /* Pods_TourMore.framework */; };
 		FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8A238D9E4800A0FB12 /* CommentController.swift */; };
 		FC79CF8D238D9FD300A0FB12 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */; };
@@ -100,6 +101,7 @@
 		28FB52602385C3CF00266868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		28FB52672385C3D000266868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28FB526C2385C3D000266868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28FCE3A8239EDE41001BFD40 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8EBB7F49997E8BC0FBBE2AA3 /* Pods-TourMore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourMore.release.xcconfig"; path = "Target Support Files/Pods-TourMore/Pods-TourMore.release.xcconfig"; sourceTree = "<group>"; };
 		FC79CF8A238D9E4800A0FB12 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		FC79CF8C238D9FD300A0FB12 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -119,22 +121,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2676E3F4239B25610086031A /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		2676E3F5239B26990086031A /* CustomeCell */ = {
-			isa = PBXGroup;
-			children = (
-				2805A0A1239ACC83004B507C /* CommentTableViewCell.swift */,
-			);
-			name = CustomeCell;
-			path = CustomCell;
-			sourceTree = "<group>";
-		};
 		26CFDD5B238C5C9B0023444F /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +195,6 @@
 		26F899532386F0C8007542DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-
 				2805A09C239ACB22004B507C /* OnboardViewController.swift */,
 				26F8994F2386F091007542DE /* MapViewTabViewController.swift */,
 				2805A0AC239B2746004B507C /* CustomCell */,
@@ -219,6 +204,7 @@
 				26A6B8AC238D94F80099382F /* CreateNewLocationViewController.swift */,
 				280D801F238F5FC0001704CC /* UploadProfilePictureViewController.swift */,
 				28DDA7D3239981C600E12A8A /* UserProfileViewController.swift */,
+				28FCE3A8239EDE41001BFD40 /* SettingsTableViewController.swift */,
 				280D801C238F5AB9001704CC /* Helpers */,
 				267CC5B92399586A00CEFB70 /* locationDisplayViewController.swift */,
 				267CC5BB23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift */,
@@ -229,7 +215,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-
 		2805A0AB239B24FA004B507C /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +443,7 @@
 				FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
 				26CFDD66238C638E0023444F /* User.swift in Sources */,
+				28FCE3A9239EDE41001BFD40 /* SettingsTableViewController.swift in Sources */,
 				267CC5C2239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift in Sources */,
 				26A6B8AD238D94F80099382F /* CreateNewLocationViewController.swift in Sources */,
 				26A6B8A9238C82420099382F /* FavoriteController.swift in Sources */,
