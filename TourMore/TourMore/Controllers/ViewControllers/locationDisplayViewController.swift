@@ -18,7 +18,6 @@ UISearchBarDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var locationSearchBar: UISearchBar!
-    @IBOutlet weak var catagoryLabel: UILabel!
     @IBOutlet weak var locationCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -87,7 +86,7 @@ extension locationDisplayViewController: UICollectionViewDataSource {
         cell.businessLocation = location
         //ToDO - add turinary for nil value if there is any 
        // catagoryLabel.text = locations[indexPath.item].categories.first?.title
-        catagoryLabel.text = location.categories[0].title
+       // catagoryLabel.text = location.categories[0].title
             return cell
     }
 }
