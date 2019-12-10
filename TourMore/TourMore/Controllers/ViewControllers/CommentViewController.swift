@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
+    static var shared = CommentViewController()
+    
     @IBOutlet weak var enterCommentTextView: UITextView!
     
     @IBOutlet weak var commentListTableView: UITableView!
@@ -29,7 +31,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     var ref: DatabaseReference?
     
     var businessID: String?
-    var businessComments: [Comment] = []
+    var businessComments: [Comment] = [] {
+        didSet {
+            commentListTableView.reloadData()
+        }
+    }
     
     var rating: Double = 0
     
