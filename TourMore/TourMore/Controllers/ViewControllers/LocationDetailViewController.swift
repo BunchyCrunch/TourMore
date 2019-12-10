@@ -47,6 +47,7 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     @IBAction func swipeDown(_ sender: Any) {
+        self.favoriteButton.isHidden = false
         UIView.animate(withDuration: 0.5, animations:  {
             self.peekStackView.isHidden = false
             self.dummySlideBar.isHidden = false
@@ -63,6 +64,7 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     func hideDummyStackView() {
+        self.favoriteButton.isHidden = true
         UIView.animate(withDuration: 0.5, animations: {
             self.containerView.isHidden = false
             
