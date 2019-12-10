@@ -584,7 +584,7 @@
                                                             <rect key="frame" x="357" y="0.0" width="17" height="22"/>
                                                             <state key="normal" image="ellipsis" catalog="system"/>
                                                             <connections>
-                                                                <action selector="blockUserActionSheet:" destination="pNE-Qe-ptt" eventType="touchUpInside" id="x0P-9j-pS9"/>
+                                                                <action selector="blockedButtonTapped:" destination="e70-1E-0Hg" eventType="touchUpInside" id="6jE-Hg-0A9"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>

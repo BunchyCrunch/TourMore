@@ -23,7 +23,7 @@ class Comment {
     let userID: String
     let id: String
     
-    init(text: String, rating: Double, businessID: String, userID: String, id: String = UUID().uuidString) {
+    init(text: String = "", rating: Double = 0, businessID: String = "", userID: String = "", id: String) {
         self.text = text
         self.rating = rating
         self.businessID = businessID

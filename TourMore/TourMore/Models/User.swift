@@ -10,24 +10,26 @@ import UIKit
 
 class User {
     //Save Business ID from model
-    var favoritesID: [String] //Add Strings of Buissness id
-    var favBusinesses: [Business]? = []
     var name: String
     var uid: String
     var profilePicture: UIImage?
     var comment: [String]
     var createdComments: [Comment]? = []
+    var favoritesID: [String]
+    var favBusinesses: [Business]? = []
     var userAccessToken: String?
     var isAppleUser: Bool
+    var blockedCommentIDs: [String]
+    var blockedComment: [Comment]? = []
     
     var firstName: String {
         return name.components(separatedBy: " ").first ?? ""
     }
-    //var blockedUser: [Sting] -> String == User.uuid
     
-    init(favoritesID: [String] = [], comment: [String] = [], name: String = "", uid: String, userAccessToken: String? = nil, isAppleUser: Bool, profilePicture: UIImage? = nil) {
+    init(favoritesID: [String] = [], comment: [String] = [], blockedCommentIDs: [String] = [], name: String = "", uid: String, userAccessToken: String? = nil, isAppleUser: Bool, profilePicture: UIImage? = nil) {
         self.favoritesID = favoritesID
         self.comment = comment
+        self.blockedCommentIDs = blockedCommentIDs
         self.name = name
         self.uid = uid
         self.userAccessToken = userAccessToken

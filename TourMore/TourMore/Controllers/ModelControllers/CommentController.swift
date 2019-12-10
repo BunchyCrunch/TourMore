@@ -62,6 +62,10 @@ class CommentController {
         completion(foundComments)
     }
     
+//    func addBlockComment(commentID: String, completion: @escaping (Comment, Error?) -> Void) {
+//        let newBlockedComment = Comment(id: <#T##String#>)
+//    }
+    
 //    func fetchComments(for businessID: String, completion: @escaping(_ success: Bool) -> Void) {
 //        ref = Database.database().reference()
 //        ref?.child("Comment").queryEqual(toValue: businessID, childKey: "businessID")
