@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2676E3F923A04B850086031A /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676E3F823A04B850086031A /* UIImageExtension.swift */; };
+		2676E3FB23A0631E0086031A /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676E3FA23A0631E0086031A /* MainTabViewController.swift */; };
 		267CC5BA2399586A00CEFB70 /* locationDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CC5B92399586A00CEFB70 /* locationDisplayViewController.swift */; };
 		267CC5BC23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CC5BB23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift */; };
 		267CC5BE2399CC3100CEFB70 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267CC5BD2399CC3100CEFB70 /* LocationDetailViewController.swift */; };
@@ -57,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		0DCDA6513E6052A7B7004EFA /* Pods_TourMore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourMore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2676E3F823A04B850086031A /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		2676E3FA23A0631E0086031A /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		267CC5B92399586A00CEFB70 /* locationDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationDisplayViewController.swift; sourceTree = "<group>"; };
 		267CC5BB23995A2A00CEFB70 /* LocationDisplayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDisplayCollectionViewCell.swift; sourceTree = "<group>"; };
 		267CC5BD2399CC3100CEFB70 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				267CC5BD2399CC3100CEFB70 /* LocationDetailViewController.swift */,
 				267CC5BF239ABDA800CEFB70 /* FavoriteCollectionViewController.swift */,
 				267CC5C1239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift */,
+				2676E3FA23A0631E0086031A /* MainTabViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			children = (
 				280D801D238F5AEF001704CC /* Utilities.swift */,
 				28BCD40723957DCD006898D1 /* PhotoPickerViewController.swift */,
+				2676E3F823A04B850086031A /* UIImageExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -431,7 +437,9 @@
 				280D801E238F5AEF001704CC /* Utilities.swift in Sources */,
 				28BCD40823957DCD006898D1 /* PhotoPickerViewController.swift in Sources */,
 				267CC5BE2399CC3100CEFB70 /* LocationDetailViewController.swift in Sources */,
+				2676E3F923A04B850086031A /* UIImageExtension.swift in Sources */,
 				26CFDD68238C63C10023444F /* Comment.swift in Sources */,
+				2676E3FB23A0631E0086031A /* MainTabViewController.swift in Sources */,
 				FC79CF8D238D9FD300A0FB12 /* CommentViewController.swift in Sources */,
 				26F899512386F091007542DE /* MapViewTabViewController.swift in Sources */,
 				28DDA7D4239981C600E12A8A /* UserProfileViewController.swift in Sources */,

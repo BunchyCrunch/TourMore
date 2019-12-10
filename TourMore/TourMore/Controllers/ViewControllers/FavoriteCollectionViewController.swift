@@ -90,9 +90,10 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
             BusinessSearchController.sharedInstance.fetchImage(businessImage: location) { (image) in
                 if let image = image {
                     DispatchQueue.main.async {
+//                        let scaledImage = image.scaleImage(into: CGSize(width: cell.frame.width, height: cell.frame.height / 2))
                         cell.businessImageView.image = image
                         cell.businessImageView.clipsToBounds = true
-                        cell.businessImageView.contentMode = .scaleAspectFit
+                        cell.businessImageView.contentMode = .scaleAspectFill
                         cell.businessImageView.layer.cornerRadius = cell.businessImageView.frame.height / 40
                     }
                 }
@@ -101,8 +102,8 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
             // ToDo: -
             // search fireBase for photo
         }
-        cell.businessNameLabel.text = locations[indexPath.item].name
-        //   cell.discriptionLabel.text = locations[indexPath.item].categories[title]
+        cell.businessNameLabel.text = " \(locations[indexPath.item].name)"
+        cell.discriptionLabel.text = " \(locations[indexPath.item].categories.map({$0.title}).joined(separator: " "))"
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 10
@@ -110,17 +111,20 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return  //CGSize(width: UIScreen.main.bounds.width - 16, height: 260)
-            CGSize(width: view.bounds.width - 16, height: 260)
+        return CGSize(width: UIScreen.main.bounds.width - 16, height: 500)
+//            CGSize(width: view.bounds.width - 16, height: 260)
     }
-    
+
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let targetStoryboardName = "Map"
         let targetStoryboard = UIStoryboard(name: targetStoryboardName, bundle: nil)
         guard let viewController = targetStoryboard.instantiateViewController(identifier: "LocationDetail") as? LocationDetailViewController else { return }
+        viewController.location = locations[indexPath.item]
         self.present(viewController, animated: true, completion: nil)
+        
+        
     }
 }
 
