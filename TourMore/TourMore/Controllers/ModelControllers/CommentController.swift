@@ -8,35 +8,68 @@
 
 import Foundation
 import FirebaseAuth
-import FirebaseDatabase
+import Firebase
 
 class CommentController {
     
     static let shared = CommentController()
     
     var ref: DatabaseReference?
+    var firestoreDB = Firestore.firestore().collection("Comments")
     
-    var comments: [Comment] = [Comment(text: "lehi", rating: 3, businessID: "asdfljasl", userID: "dlafjds"),
-                               Comment(text: "provo", rating: 5, businessID: "aldsfkjas", userID: "sldfjk")]
+//    var comments: [Comment] = []
+//    var comments: [Comment] = [Comment(text: "lehi", rating: 3, businessID: "asdfljasl", userID: "dlafjds"),
+//                               Comment(text: "provo", rating: 5, businessID: "aldsfkjas", userID: "sldfjk")]
     
-    func addComment(to location: String, text: String, rating: Int, userID: String, completion: @escaping (Bool) -> Void) {
+    func addComment(text: String, rating: Double, businessID: String, completion: @escaping (Comment?, Error?) -> Void) {
         // save the comment to firebase
-        ref = Database.database().reference()
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        let newComment = Comment(text: text, rating: rating, businessID: location, userID: uid)
-        ref?.child("Comment").child(newComment.id).setValuesForKeys(["text" : newComment.text, "rating" : newComment.rating, "businessID" : newComment.businessID])
-        // add the comment to the comments array
-        comments.append(newComment)
-    }
-    
-    func fetchComment(for businessID: String, completion: @escaping(_ success: Bool) -> Void) {
-        ref = Database.database().reference()
-        ref?.child("Comment").queryEqual(toValue: businessID, childKey: "businessID")
-        ref?.observeSingleEvent(of: .value, with: { (snapshot) in
-            let data = snapshot.value as? [String : Any]
-            print(data)
-        }) { (error) in
-            print(error.localizedDescription)
+        guard let userID = UserController.shared.currentUser?.uid else {return}
+        let commentID = UUID().uuidString
+        let newComment = Comment(text: text, rating: rating, businessID: businessID, userID: userID, id: commentID)
+        let ref = firestoreDB.document(newComment.id)
+        ref.setData(newComment.dictionary) { (error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(nil, error); return
+            }
+//            self.comments.append(newComment)
+            UserController.shared.currentUser?.createdComments?.append(newComment)
+            UserController.shared.currentUser?.comment.append(newComment.id)
+            completion(newComment, nil)
         }
     }
+    
+    func fetchCommentsForLocation(business: String, completion: @escaping([Comment]?) -> Void) {
+        firestoreDB.whereField(CommentStringKeys.businessID, isEqualTo: business).getDocuments { (snapshot, error) in
+            guard let foundData = snapshot?.documents else {completion(nil) ; return}
+            let comments = foundData.compactMap({ Comment(dictionary: $0.data()) })
+            completion(comments)
+        }
+    }
+    
+    func fetchCommentsForUser(user: User, completion: @escaping([Comment]?) -> Void) {
+        var foundComments: [Comment] = []
+        for commentID in user.comment {
+            firestoreDB.whereField(CommentStringKeys.id, isEqualTo: commentID).getDocuments { (snapshot, error) in
+                guard let foundData = snapshot?.documents.first?.data(),
+                    let foundComment = Comment(dictionary: foundData) else {
+                        completion(nil); return
+                }
+                foundComments.append(foundComment)
+                user.createdComments?.append(foundComment)
+            }
+        }
+        completion(foundComments)
+    }
+    
+//    func fetchComments(for businessID: String, completion: @escaping(_ success: Bool) -> Void) {
+//        ref = Database.database().reference()
+//        ref?.child("Comment").queryEqual(toValue: businessID, childKey: "businessID")
+//        ref?.observeSingleEvent(of: .value, with: { (snapshot) in
+//            let data = snapshot.value as? [String : Any]
+//            print(data)
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//    }
 } // end of class

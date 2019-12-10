@@ -62,7 +62,10 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
 
     func attachToLandingPad(favorites: [String]){
         for id in favorites {
-            
+            BusinessSearchController.sharedInstance.fetchBusinessForID(businessID: id) { (business) in
+                guard let favoriteBusiness = business else {return}
+                self.locations.append(favoriteBusiness)
+            }
         }
     }
     

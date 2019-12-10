@@ -13,7 +13,11 @@ import FirebaseStorage
 class UserController {
     
     static let shared = UserController()
-    var currentUser: User?
+    var currentUser: User? {
+        didSet {
+        print("currentUser set \(currentUser)")
+        }
+    }
     let firebaseDB = Firestore.firestore()
     
     //MARK: CREATE USER
@@ -130,7 +134,13 @@ class UserController {
             }
         }
     }
-
+    
+    func postCommmentForUser(comment: Comment) {
+           guard let user = currentUser,
+               let userID = currentUser?.uid else {return}
+           firebaseDB.collection("users").document(userID).updateData(["userComments": user.createdComments?.compactMap{$0.id} ?? []])
+       }
+    
     //MARK:- Sign Out Function
     func signOutUser(user: User, completion: @escaping (_ success: Bool) -> Void) {
         let firebaseAuth = Auth.auth()
@@ -163,13 +173,26 @@ class UserController {
         }
     }
     
+    func postCommmentForAppleUser(comment: Comment) {
+        guard let user = currentUser,
+            let userID = currentUser?.uid else {return}
+        firebaseDB.collection("appleUsers").document(userID).updateData(["userComments": user.comment])
+//        guard let user = currentUser,
+//            let userID = currentUser?.uid else {return}
+//        var newComments = user.createdComments?.compactMap{$0.id} ?? []
+//        if let currentFBComments = firebaseDB.collection("appleUsers").document(userID).collection("userComments") {
+//            newComments = currentFBComments + newComments
+//        }
+//        firebaseDB.collection("appleUsers").document(userID).updateData(["userComments": newComments])
+    }
+    
     //MARK:- Update Apple User Information in DB
     func updateAppleUserGivenName(first: String, last: String, completion: @escaping (_ success: Bool) -> Void) {
         guard let userID = currentUser?.uid else {return}
+        let name = "\(first) \(last)"
+        self.currentUser?.name = name
         firebaseDB.collection("appleUsers").document(userID).setData([
-            "firstName" : first,
-            "lastName" : last,
-            "favorites" : [],
+            "name" : name,
             "userComments" : [],
             "isAppleUser" : true
         ]) { (error) in
@@ -177,28 +200,26 @@ class UserController {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(false)
             }
-            let name = "\(first) \(last)"
-            self.currentUser?.name = name
             completion(true)
         }
     }
     
-//    func updateAppleProfilePic(image: UIImage, completion: @escaping (_ success: Bool) -> Void) {
-//        guard let currentUser = currentUser else {completion(false);return}
-//        let uploadRef = Storage.storage().reference(withPath: "appleprofilePicture/\(currentUser.uid).jpg")
-//        guard let imageData = image.jpegData(compressionQuality: 0.5) else {completion(false);return}
-//        let uploadMetaData = StorageMetadata.init()
-//        uploadMetaData.contentType = "image/jpeg"
-//        uploadRef.putData(imageData, metadata: uploadMetaData) { (downloadMetadata, error) in
-//            if let error = error {
-//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-//                completion(false)
-//            }
-//            currentUser.profilePicture = image
-//            completion(true)
-//        }
-//    }
-//
+    //    func updateAppleProfilePic(image: UIImage, completion: @escaping (_ success: Bool) -> Void) {
+    //        guard let currentUser = currentUser else {completion(false);return}
+    //        let uploadRef = Storage.storage().reference(withPath: "appleprofilePicture/\(currentUser.uid).jpg")
+    //        guard let imageData = image.jpegData(compressionQuality: 0.5) else {completion(false);return}
+    //        let uploadMetaData = StorageMetadata.init()
+    //        uploadMetaData.contentType = "image/jpeg"
+    //        uploadRef.putData(imageData, metadata: uploadMetaData) { (downloadMetadata, error) in
+    //            if let error = error {
+    //                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+    //                completion(false)
+    //            }
+    //            currentUser.profilePicture = image
+    //            completion(true)
+    //        }
+    //    }
+    //
     //MARK:- Fetch Apple User AutoSignIn
     func fetchAppleUserSkipSignIn() {
         guard let authUser = Auth.auth().currentUser else {return}
@@ -209,40 +230,44 @@ class UserController {
             }
             if snapshot != nil {
                 guard let data = snapshot?.data() else {return}
-                guard let firstName = data["firstName"] as? String,
-                    let lastName = data["lastName"] as? String,
-                    let favorites = data["favorites"] as? [String],
+                guard let name = data["name"] as? String,
+//                    let lastName = data["lastName"] as? String,
+//                    let favorites = data["favorites"] as? [String],
                     let comments = data["userComments"] as? [String],
                     let isAppleUser = data["isAppleUser"] as? Bool,
                     let uid = snapshot?.documentID
-                    else {return}
+                    else {
+                        print("Missing Data in FetchAppleSignIn")
+                        return
+                        
+                }
                 
-                let foundAppleUser = User(favoritesID: favorites, comment: comments, name: "\(firstName) \(lastName)", uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
+                let foundAppleUser = User(favoritesID: [], comment: comments, name: name, uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
                 self.currentUser = foundAppleUser
-//                let name = "\(firstName) \(lastName)"
-//                if name != "" {
-//                    self.currentUser?.name = name
-//                }
+                //                let name = "\(firstName) \(lastName)"
+                //                if name != "" {
+                //                    self.currentUser?.name = name
+                //                }
             }
         }
     }
     
-//    func fetchAppleProfilePicture(completion: @escaping (_ success: Bool) -> Void) {
-//        guard let currentUser = currentUser else { return }
-//        let storageRef = Storage.storage().reference(withPath: "appleprofilepictures/\(currentUser.uid).jpg")
-//        storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
-//            if let error = error {
-//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-//                completion(false)
-//            }
-//            if let data = data {
-//                let downloadedImage = UIImage(data: data)
-//                currentUser.profilePicture = downloadedImage
-//                print("Successfully fetched user's profile picture")
-//                completion(true)
-//            }
-//        }
-//    }
+    //    func fetchAppleProfilePicture(completion: @escaping (_ success: Bool) -> Void) {
+    //        guard let currentUser = currentUser else { return }
+    //        let storageRef = Storage.storage().reference(withPath: "appleprofilepictures/\(currentUser.uid).jpg")
+    //        storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+    //            if let error = error {
+    //                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+    //                completion(false)
+    //            }
+    //            if let data = data {
+    //                let downloadedImage = UIImage(data: data)
+    //                currentUser.profilePicture = downloadedImage
+    //                print("Successfully fetched user's profile picture")
+    //                completion(true)
+    //            }
+    //        }
+    //    }
 }//END OF CLASS
 
 

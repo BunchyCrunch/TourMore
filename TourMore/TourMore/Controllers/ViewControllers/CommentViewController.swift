@@ -29,8 +29,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     var ref: DatabaseReference?
     
     var businessID: String?
+    var businessComments: [Comment] = []
     
-    var rating: Int = 0
+    var rating: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +41,13 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         enterCommentTextView.delegate = self
         
         // Set the firebase reference
-        ref = Database.database().reference()
+        guard let businessID = businessID else {return}
+        CommentController.shared.fetchCommentsForLocation(business: businessID) { (comments) in
+            if let comments = comments {
+                self.businessComments = comments
+            }
+        }
         setupViews()
-        
     }
     
     func setupViews() {
@@ -55,7 +60,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         doesUserExist()
-        saveComment()
     }
     
     func doesUserExist() {
@@ -67,11 +71,18 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
         func saveComment() {
             // Post the data to firebase
-            guard let text = enterCommentTextView.text, let businessID = businessID,  let userID = UserController.shared.currentUser?.uid
-                else { return }
+            guard let text = enterCommentTextView.text, let businessID = self.businessID else { return }
             
-            CommentController.shared.addComment(to: businessID, text: text, rating: rating, userID: userID) { (success) in
-                if success {
+            //, let businessID = businessID
+            
+            CommentController.shared.addComment(text: text, rating: rating, businessID: businessID) { (comment, error) in
+                if let comment = comment {
+                    guard let user = UserController.shared.currentUser else {return}
+                    if user.isAppleUser == true {
+                    UserController.shared.postCommmentForAppleUser(comment: comment)
+                    } else if user.isAppleUser == false {
+                        UserController.shared.postCommmentForUser(comment: comment)
+                    }
                     
                     self.starOneButton.setImage((UIImage(systemName: "star")), for: .normal)
                     self.starTwoButton.setImage((UIImage(systemName: "star")), for: .normal)
@@ -82,6 +93,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.enterCommentTextView.text = ""
                     
                     // reload table
+                    CommentController.shared.fetchCommentsForLocation(business: businessID) { (comments) in
+                        if let comments = comments {
+                            self.businessComments = comments
+                        }
+                    }
                     self.commentListTableView.reloadData()
                 }
             }
@@ -96,13 +112,13 @@ func needToLogInAlert() {
 }
 
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    CommentController.shared.comments.count
+    businessComments.count
 }
 
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = commentListTableView.dequeueReusableCell(withIdentifier: "commentCell") as? CommentTableViewCell else { return UITableViewCell()}
     
-    let comment = CommentController.shared.comments[indexPath.row]
+    let comment = businessComments[indexPath.row]
     cell.comment = comment
     
     return cell
