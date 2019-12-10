@@ -15,7 +15,7 @@ class UserController {
     static let shared = UserController()
     var currentUser: User? {
         didSet {
-        print("currentUser set \(currentUser)")
+            print("currentUser set \(currentUser)")
         }
     }
     let firebaseDB = Firestore.firestore()
@@ -41,6 +41,7 @@ class UserController {
             "name" : name,
             "favorites" : [],
             "userComments" : [],
+            "blockedComment" : [],
             "isAppleUser" : false
         ]) { (error) in
             if let error = error {
@@ -125,21 +126,31 @@ class UserController {
                 guard let name = data["name"] as? String,
                     let favorites = data["favorites"] as? [String],
                     let comments = data["userComments"] as? [String],
+                    let blockedCommentIDs = data["blockedComment"] as? [String],
                     let isAppleUser = data["isAppleUser"] as? Bool,
                     let uid = snapshot?.documentID else {
                         return
                 }
-                let foundUser = User(favoritesID: favorites, comment: comments, name: name, uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
+                let foundUser = User(favoritesID: favorites, comment: comments, blockedCommentIDs: blockedCommentIDs, name: name, uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
                 self.currentUser = foundUser
             }
         }
     }
     
     func postCommmentForUser(comment: Comment) {
-           guard let user = currentUser,
-               let userID = currentUser?.uid else {return}
+        guard let user = currentUser,
+            let userID = currentUser?.uid else {return}
         firebaseDB.collection("users").document(userID).updateData(["userComments": user.comment])
-       }
+    }
+    
+    func blockCommentForUser(blockedComment: Comment) {
+        guard let user = currentUser,
+            let userID = currentUser?.uid else {return}
+        let newBlockedComment = blockedComment.id
+        currentUser?.blockedCommentIDs.append(newBlockedComment)
+        currentUser?.blockedComment?.append(blockedComment)
+        firebaseDB.collection("user").document(userID).updateData(["blockedComment" : user.blockedCommentIDs])
+    }
     
     func addFavoriteToUserFavorites(business: Business) {
         guard let user = currentUser,
@@ -152,10 +163,11 @@ class UserController {
         firebaseDB.collection("users").document(userID).updateData(["favorites" : user.favoritesID])
     }
     
-
+    
     func deleteFavoriteFromUser(business: Business){
         guard let user = currentUser else { return }
         let locationIdToDelete = business.id
+
         guard let index = user.favoritesID.firstIndex(of: locationIdToDelete) else {return}
         user.favoritesID.remove(at: index)
         firebaseDB.collection("users").document(user.uid).updateData(["favorites" : user.favoritesID]) {
@@ -167,9 +179,9 @@ class UserController {
                    }
                    
                }
+
     }
     
-
     //MARK:- Sign Out Function
     func signOutUser(user: User, completion: @escaping (_ success: Bool) -> Void) {
         let firebaseAuth = Auth.auth()
@@ -206,13 +218,15 @@ class UserController {
         guard let user = currentUser,
             let userID = currentUser?.uid else {return}
         firebaseDB.collection("appleUsers").document(userID).updateData(["userComments": user.comment])
-//        guard let user = currentUser,
-//            let userID = currentUser?.uid else {return}
-//        var newComments = user.createdComments?.compactMap{$0.id} ?? []
-//        if let currentFBComments = firebaseDB.collection("appleUsers").document(userID).collection("userComments") {
-//            newComments = currentFBComments + newComments
-//        }
-//        firebaseDB.collection("appleUsers").document(userID).updateData(["userComments": newComments])
+    }
+    
+    func blockCommentForAppleUser(blockedComment: Comment) {
+        guard let user = currentUser,
+            let userID = currentUser?.uid else {return}
+        let newBlockedComment = blockedComment.id
+        currentUser?.blockedCommentIDs.append(newBlockedComment)
+        currentUser?.blockedComment?.append(blockedComment)
+        firebaseDB.collection("appleUser").document(userID).updateData(["blockedCommentIDs" : user.blockedCommentIDs])
     }
     
     func addFavoriteToAppleUserFavorites(business: Business) {
@@ -227,7 +241,7 @@ class UserController {
         firebaseDB.collection("appleUsers").document(userID).updateData(["favorites" : user.favoritesID])
     }
     
-
+    
     func deleteFavoriteFromAppleUser(business: Business){
         guard let user = currentUser else { return }
         let locationIdToDelete = business.id
@@ -237,7 +251,7 @@ class UserController {
         firebaseDB.collection("appleUsers").document(user.uid).updateData(["favorites" : user.favoritesID])
     }
     
-
+    
     //MARK:- Update Apple User Information in DB
     func updateAppleUserGivenName(first: String, last: String, completion: @escaping (_ success: Bool) -> Void) {
         guard let userID = currentUser?.uid else {return}
@@ -247,6 +261,7 @@ class UserController {
             "name" : name,
             "favorites" : [],
             "userComments" : [],
+            "blockedComment" : [],
             "isAppleUser" : true
         ]) { (error) in
             if let error = error {
@@ -284,9 +299,10 @@ class UserController {
             if snapshot != nil {
                 guard let data = snapshot?.data() else {return}
                 guard let name = data["name"] as? String,
-//                    let lastName = data["lastName"] as? String,
+                    //                    let lastName = data["lastName"] as? String,
                     let favorites = data["favorites"] as? [String],
                     let comments = data["userComments"] as? [String],
+                    let blockedCommentIDs = data["blockedComment"] as? [String],
                     let isAppleUser = data["isAppleUser"] as? Bool,
                     let uid = snapshot?.documentID
                     else {
@@ -295,7 +311,7 @@ class UserController {
                         
                 }
                 
-                let foundAppleUser = User(favoritesID: favorites, comment: comments, name: name, uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
+                let foundAppleUser = User(favoritesID: favorites, comment: comments, blockedCommentIDs: blockedCommentIDs, name: name, uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
                 self.currentUser = foundAppleUser
                 //                let name = "\(firstName) \(lastName)"
                 //                if name != "" {

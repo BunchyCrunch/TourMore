@@ -29,13 +29,13 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     var ref: DatabaseReference?
-    
     var businessID: String?
     var businessComments: [Comment] = [] {
         didSet {
             commentListTableView.reloadData()
         }
     }
+    var blockedComments: [String] = []
     
     var rating: Double = 0
     
@@ -77,7 +77,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
         func saveComment() {
             // Post the data to firebase
-            guard let text = enterCommentTextView.text, let businessID = self.businessID else { return }
+            guard let text = enterCommentTextView.text, !text.isEmpty,
+                let businessID = self.businessID else { return }
             
             //, let businessID = businessID
             
@@ -144,23 +145,29 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         }
     }
    
+    func fetchBlockedUserComments() {
+        guard let user = UserController.shared.currentUser else {return}
+        self.blockedComments = user.blockedCommentIDs
+        for id in blockedComments {
+            
+        }
+    }
     
-@IBAction func blockUserActionSheet(_ sender: Any) {
-    
-    // 1
-    let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-    // 2
-    let reportUserAction = UIAlertAction(title: "Report User", style: .default)
-    let blockUserAction = UIAlertAction(title: "Block", style: .default)
-    // 3
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-    // 4
-    optionMenu.addAction(reportUserAction)
-    optionMenu.addAction(blockUserAction)
-    optionMenu.addAction(cancelAction)
-    // 5
-    self.present(optionMenu, animated: true, completion: nil)
-}
+    func blockCommentForUser() {
+//        guard let commentToBlock = CommentTableViewCell.shared.comment else {
+//            print("Cant Set Comment to a comment"); return}
+//           guard let user = UserController.shared.currentUser else {
+//            print("Cant Set User"); return}
+//        if !user.blockedCommentIDs.contains(commentToBlock.id) {
+//            if user.isAppleUser == true {
+//                UserController.shared.blockCommentForAppleUser(blockedComment: commentToBlock)
+//            } else {
+//                UserController.shared.blockCommentForUser(blockedComment: commentToBlock)
+//            }
+//        }
+//        CommentTableViewCell.shared.commentTextLabel.text = "Blocked Comment"
+//        CommentTableViewCell.shared.commentTextLabel.textColor = .red
+    }
 
 @IBAction func starOneButtonPressed(_ sender: Any) {
     rating = 1
