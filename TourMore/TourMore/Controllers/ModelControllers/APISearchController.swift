@@ -161,7 +161,6 @@ extension BusinessSearchController {
                 completion(nil, error)
                 return
             }
-            
             completion(newBusiness, nil)
         }
     }

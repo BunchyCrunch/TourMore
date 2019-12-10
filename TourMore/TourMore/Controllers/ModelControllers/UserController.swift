@@ -138,8 +138,19 @@ class UserController {
     func postCommmentForUser(comment: Comment) {
            guard let user = currentUser,
                let userID = currentUser?.uid else {return}
-           firebaseDB.collection("users").document(userID).updateData(["userComments": user.createdComments?.compactMap{$0.id} ?? []])
+        firebaseDB.collection("users").document(userID).updateData(["userComments": user.comment])
        }
+    
+    func addFavoriteToUserFavorites(business: Business) {
+        guard let user = currentUser,
+            let userID = currentUser?.uid else {
+                print("Cound not set user or user ID in addFavoriteForUserFavorites")
+                return}
+        let newFavorite = business.id
+        currentUser?.favoritesID.append(newFavorite)
+        currentUser?.favBusinesses?.append(business)
+        firebaseDB.collection("users").document(userID).updateData(["favorites" : user.favoritesID])
+    }
     
     //MARK:- Sign Out Function
     func signOutUser(user: User, completion: @escaping (_ success: Bool) -> Void) {
@@ -186,6 +197,18 @@ class UserController {
 //        firebaseDB.collection("appleUsers").document(userID).updateData(["userComments": newComments])
     }
     
+    func addFavoriteToAppleUserFavorites(business: Business) {
+        guard let user = currentUser,
+            let userID = currentUser?.uid
+            else {
+                print("Cound not set user or user ID in addFavoriteForAppleUserFavorites")
+                return}
+        let newFavorite = business.id
+        currentUser?.favoritesID.append(newFavorite)
+        currentUser?.favBusinesses?.append(business)
+        firebaseDB.collection("appleUsers").document(userID).updateData(["favorites" : user.favoritesID])
+    }
+    
     //MARK:- Update Apple User Information in DB
     func updateAppleUserGivenName(first: String, last: String, completion: @escaping (_ success: Bool) -> Void) {
         guard let userID = currentUser?.uid else {return}
@@ -193,6 +216,7 @@ class UserController {
         self.currentUser?.name = name
         firebaseDB.collection("appleUsers").document(userID).setData([
             "name" : name,
+            "favorites" : [],
             "userComments" : [],
             "isAppleUser" : true
         ]) { (error) in
@@ -232,7 +256,7 @@ class UserController {
                 guard let data = snapshot?.data() else {return}
                 guard let name = data["name"] as? String,
 //                    let lastName = data["lastName"] as? String,
-//                    let favorites = data["favorites"] as? [String],
+                    let favorites = data["favorites"] as? [String],
                     let comments = data["userComments"] as? [String],
                     let isAppleUser = data["isAppleUser"] as? Bool,
                     let uid = snapshot?.documentID
@@ -242,7 +266,7 @@ class UserController {
                         
                 }
                 
-                let foundAppleUser = User(favoritesID: [], comment: comments, name: name, uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
+                let foundAppleUser = User(favoritesID: favorites, comment: comments, name: name, uid: uid, userAccessToken: nil, isAppleUser: isAppleUser, profilePicture: nil)
                 self.currentUser = foundAppleUser
                 //                let name = "\(firstName) \(lastName)"
                 //                if name != "" {
