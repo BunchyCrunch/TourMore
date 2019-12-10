@@ -380,7 +380,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSx-34-Gha">
                                         <rect key="frame" x="0.0" y="62.5" width="414" height="544.5"/>
                                         <connections>
-                                            <segue destination="pNE-Qe-ptt" kind="embed" identifier="" id="Edn-lW-GvN"/>
+                                            <segue destination="pNE-Qe-ptt" kind="embed" identifier="toCommentVC" id="Edn-lW-GvN"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
