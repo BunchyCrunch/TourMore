@@ -248,7 +248,15 @@ class UserController {
         guard let index = user.favoritesID.firstIndex(of: locationIdToDelete) else { return }
         user.favoritesID.remove(at: index)
         
-        firebaseDB.collection("appleUsers").document(user.uid).updateData(["favorites" : user.favoritesID])
+        firebaseDB.collection("appleUsers").document(user.uid).updateData(["favorites" : user.favoritesID]) {
+            err in
+            if let err = err {
+                print("Error in \(#function) : \(err.localizedDescription) \n---\n \(err)")
+            } else {
+                print("delete successfully")
+            }
+            
+        }
     }
     
     
