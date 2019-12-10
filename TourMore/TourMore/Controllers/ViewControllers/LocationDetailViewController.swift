@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseStorage
+import Firebase
 
 class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
     
@@ -27,6 +29,8 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     
     var location: Business?
     
+    var firestoreUserDB = Firestore.firestore().collection("users")
+    var firestoreAppleUserDB = Firestore.firestore().collection("appleUsers")
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
@@ -143,7 +147,17 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     func setupFavoriteButton() {
         let favoriteButton = UIButton()
         self.favoriteButton = favoriteButton
-        favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
+       // favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
+        guard let location = self.location,
+            let user = UserController.shared.currentUser
+            else { return }
+        if !user.favoritesID.contains(location.id) {
+            favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
+        } else {
+            favoriteButton.setBackgroundImage(UIImage(named: "unfilledHeart"), for: .normal)
+        }
+        
+        
         favoriteButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         let stackView = UIStackView(arrangedSubviews: [favoriteButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -158,17 +172,38 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     @objc func buttonAction(sender: UIButton!) {
-        guard let location = self.location,
-            let user = UserController.shared.currentUser
-            else { return }
-        if !user.favoritesID.contains(location.id) {
-            favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
-        } else {
-            favoriteButton.setBackgroundImage(UIImage(named: "unfilledHeart"), for: .normal)
-        }
-        print("Button tapped")
-        favoriteSavedToFavoritesAlert()
-        //MARK:- TODO add save to faorites func
+//        guard let location = self.location,
+//            let user = UserController.shared.currentUser
+//            else { return }
+//        if !user.favoritesID.contains(location.id) {
+//            favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
+//        } else {
+//            favoriteButton.setBackgroundImage(UIImage(named: "unfilledHeart"), for: .normal)
+//        }
+        // MARK: - uncomment
+//        guard let location = self.location,
+//            let user = UserController.shared.currentUser else { return }
+//        if !user.favoritesID.contains(location.id) {
+//            if user.isAppleUser == true {
+//                let userFavoritesArray = firestoreAppleUserDB.document(user.uid).value(forKey: "favorites")
+//                userFavoritesArray
+//            } else {
+//                let userFavoritesArray = firestoreUserDB.document(user.uid).value(forKey: "favorites")
+//                userFavoritesArray.delete()
+//            }
+//            removedFromFavoritesAlert()
+//        } else {
+//            if user.isAppleUser == true {
+//                let ref = firestoreAppleUserDB.document("favorite")
+//                ref.setData(<#T##documentData: [String : Any]##[String : Any]#>)
+//            } else {
+//                let ref = firestoreUserDB.document("favorite")
+//                ref.setData(<#T##documentData: [String : Any]##[String : Any]#>)
+//            }
+//            favoriteSavedToFavoritesAlert()
+//        }
+//        print("Button tapped")
+
     }
     
     func favoriteSavedToFavoritesAlert() {
@@ -178,6 +213,12 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
         self.present(alert, animated:  true)
     }
     
+    func removedFromFavoritesAlert() {
+        let alert = UIAlertController(title: "This has been removed from your favorites", message: nil, preferredStyle: .actionSheet)
+        let okayButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alert.addAction(okayButton)
+        self.present(alert, animated:  true)
+    }
     
     // MARK: - Navigation
 
