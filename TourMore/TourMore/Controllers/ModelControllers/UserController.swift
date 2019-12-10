@@ -165,17 +165,21 @@ class UserController {
     
     
     func deleteFavoriteFromUser(business: Business){
-        guard let userID = currentUser?.uid else { return }
+        guard let user = currentUser else { return }
         let locationIdToDelete = business.id
-        firebaseDB.collection("users").document(userID).collection("favorite").document(locationIdToDelete).updateData([locationIdToDelete: FieldValue.delete()]) {
-            err in
-            if let err = err {
-                print("Error in \(#function) : \(err.localizedDescription) \n---\n \(err)")
-            } else {
-                print("delete successfully")
-            }
-            
-        }
+
+        guard let index = user.favoritesID.firstIndex(of: locationIdToDelete) else {return}
+        user.favoritesID.remove(at: index)
+        firebaseDB.collection("users").document(user.uid).updateData(["favorites" : user.favoritesID]) {
+                   err in
+                   if let err = err {
+                       print("Error in \(#function) : \(err.localizedDescription) \n---\n \(err)")
+                   } else {
+                       print("delete successfully")
+                   }
+                   
+               }
+
     }
     
     //MARK:- Sign Out Function
@@ -239,17 +243,12 @@ class UserController {
     
     
     func deleteFavoriteFromAppleUser(business: Business){
-        guard let userID = currentUser?.uid else { return }
+        guard let user = currentUser else { return }
         let locationIdToDelete = business.id
-        firebaseDB.collection("appleUsers").document(userID).collection("favorite").document(locationIdToDelete).updateData([locationIdToDelete: FieldValue.delete()]) {
-            err in
-            if let err = err {
-                print("Error in \(#function) : \(err.localizedDescription) \n---\n \(err)")
-            } else {
-                print("delete successfully")
-            }
-            
-        }
+        guard let index = user.favoritesID.firstIndex(of: locationIdToDelete) else { return }
+        user.favoritesID.remove(at: index)
+        
+        firebaseDB.collection("appleUsers").document(user.uid).updateData(["favorites" : user.favoritesID])
     }
     
     
