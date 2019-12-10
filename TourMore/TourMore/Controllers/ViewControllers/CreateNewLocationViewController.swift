@@ -47,7 +47,7 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
       //  doesUserExist()
       //  addNewLocation()
         guard let name = businessNameTextField.text,
-        !name.isEmpty  else {
+        !name.isEmpty else {
             needToFillInAllFields()
             return }
         doesLocationExist(name: name)
@@ -93,6 +93,9 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         categoriesTextView.layer.borderWidth = 0.7
         categoriesTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
         categoriesTextView.layer.cornerRadius = 5
+        comment.delegate = self
+        comment.text = "Enter Comment"
+        comment.textColor = .lightGray
         comment.layer.borderWidth = 0.7
         comment.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
         comment.layer.cornerRadius = 5
@@ -105,18 +108,24 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
         } else if categoriesTextView.textColor == .lightGray {
             categoriesTextView.text = ""
             categoriesTextView.textColor = .black
+        } else if comment.textColor == .lightGray {
+            comment.text = ""
+            comment.textColor = .black
         }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if locationDiscriptionTextView.text.isEmpty {
-            locationDiscriptionTextView.text = "Discription"
-            locationDiscriptionTextView.textColor = .lightGray
-        } else if categoriesTextView.text.isEmpty {
-            categoriesTextView.text = "Tags ie (Cheap Food, Kid Friendly, Quick)"
-            categoriesTextView.textColor = .lightGray
+        func textViewDidEndEditing(_ textView: UITextView) {
+            if locationDiscriptionTextView.text.isEmpty {
+                locationDiscriptionTextView.text = "Discription"
+                locationDiscriptionTextView.textColor = .lightGray
+            } else if categoriesTextView.text.isEmpty {
+                categoriesTextView.text = "Tags ie (Cheap Food, Kid Friendly, Quick)"
+                categoriesTextView.textColor = .lightGray
+            } else if comment.text.isEmpty {
+                comment.text = "Enter Comment"
+                comment.textColor = .lightGray
+            }
         }
-    }
     
     func getLocationCheck () {
         if locationCheck != "" {
@@ -167,7 +176,9 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
             let locationDiscription = locationDiscriptionTextView.text,
             locationDiscriptionTextView.text != "Discription",
             let categories = categoriesTextView.text,
-            categoriesTextView.text != "Tags ie (Cheap Food, Kid Friendly, Quick)"
+            categoriesTextView.text != "Tags ie (Cheap Food, Kid Friendly, Quick)",
+            let commentText = comment.text,
+            commentText != "Enter Comment"
             else {
                 self.needToFillInAllFields()
                 return
@@ -180,6 +191,16 @@ class CreateNewLocationViewController: UITableViewController, CLLocationManagerD
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 return
+            }
+            CommentController.shared.addComment(text: commentText, rating: 0, businessID: business.id) { (comment, _) in
+                if let comment = comment {
+                    guard let user = UserController.shared.currentUser else {return}
+                    if user.isAppleUser == true {
+                        UserController.shared.postCommmentForAppleUser(comment: comment)
+                    } else if user.isAppleUser == false {
+                        UserController.shared.postCommmentForUser(comment: comment)
+                    }
+                }
             }
         }
         locationCreated()

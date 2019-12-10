@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseStorage
-import Firebase
 
 class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
     
@@ -29,13 +27,11 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     
     var location: Business?
     
-    var firestoreUserDB = Firestore.firestore().collection("users")
-    var firestoreAppleUserDB = Firestore.firestore().collection("appleUsers")
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
         dummyTextView.delegate = self
-    navigationController?.navigationItem.backBarButtonItem?.setBackgroundImage(UIImage(named: "Back Button"), for: .normal, barMetrics: .default)
+        navigationController?.navigationItem.backBarButtonItem?.setBackgroundImage(UIImage(named: "Back Button"), for: .normal, barMetrics: .default)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -147,14 +143,14 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     func setupFavoriteButton() {
         let favoriteButton = UIButton()
         self.favoriteButton = favoriteButton
-       // favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
+  //       favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
         guard let location = self.location,
             let user = UserController.shared.currentUser
             else { return }
         if !user.favoritesID.contains(location.id) {
-            favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
+            favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
         } else {
-            favoriteButton.setBackgroundImage(UIImage(named: "unfilledHeart"), for: .normal)
+            favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
         }
         
         
@@ -172,38 +168,30 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     @objc func buttonAction(sender: UIButton!) {
-//        guard let location = self.location,
-//            let user = UserController.shared.currentUser
-//            else { return }
-//        if !user.favoritesID.contains(location.id) {
-//            favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
-//        } else {
-//            favoriteButton.setBackgroundImage(UIImage(named: "unfilledHeart"), for: .normal)
-//        }
-        // MARK: - uncomment
-//        guard let location = self.location,
-//            let user = UserController.shared.currentUser else { return }
-//        if !user.favoritesID.contains(location.id) {
-//            if user.isAppleUser == true {
-//                let userFavoritesArray = firestoreAppleUserDB.document(user.uid).value(forKey: "favorites")
-//                userFavoritesArray
-//            } else {
-//                let userFavoritesArray = firestoreUserDB.document(user.uid).value(forKey: "favorites")
-//                userFavoritesArray.delete()
-//            }
-//            removedFromFavoritesAlert()
-//        } else {
-//            if user.isAppleUser == true {
-//                let ref = firestoreAppleUserDB.document("favorite")
-//                ref.setData(<#T##documentData: [String : Any]##[String : Any]#>)
-//            } else {
-//                let ref = firestoreUserDB.document("favorite")
-//                ref.setData(<#T##documentData: [String : Any]##[String : Any]#>)
-//            }
-//            favoriteSavedToFavoritesAlert()
-//        }
-//        print("Button tapped")
-
+        
+        guard let location = self.location,
+            let user = UserController.shared.currentUser else { return }
+        if !user.favoritesID.contains(location.id) {
+            if user.isAppleUser == true {
+                UserController.shared.addFavoriteToAppleUserFavorites(business: location)
+                
+            } else {
+                UserController.shared.addFavoriteToUserFavorites(business: location)
+            }
+            favoriteSavedToFavoritesAlert()
+            print("added to favorites")
+            
+        } else {
+            if user.isAppleUser == true {
+                UserController.shared.deleteFavoriteFromAppleUser(business: location)
+            } else {
+                
+                UserController.shared.deleteFavoriteFromUser(business: location)
+            }
+            removedFromFavoritesAlert()
+            print("removed from favorites")
+        }
+        print("Button tapped")
     }
     
     func favoriteSavedToFavoritesAlert() {
@@ -221,7 +209,7 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCommentVC" {
