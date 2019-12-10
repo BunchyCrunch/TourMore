@@ -11,13 +11,18 @@ import UIKit
 class User {
     //Save Business ID from model
     var favoritesID: [String] //Add Strings of Buissness id
-    var favBusinesses: [Business]?
+    var favBusinesses: [Business]? = []
     var name: String
     var uid: String
     var profilePicture: UIImage?
     var comment: [String]
+    var createdComments: [Comment]? = []
     var userAccessToken: String?
     var isAppleUser: Bool
+    
+    var firstName: String {
+        return name.components(separatedBy: " ").first ?? ""
+    }
     //var blockedUser: [Sting] -> String == User.uuid
     
     init(favoritesID: [String] = [], comment: [String] = [], name: String = "", uid: String, userAccessToken: String? = nil, isAppleUser: Bool, profilePicture: UIImage? = nil) {

@@ -144,7 +144,7 @@ class BusinessSearchController {
 }
 
 
-// Mark: - Add business information to Firestore
+// MARK:- Add business information to Firestore
 extension BusinessSearchController {
     func saveBusinessToFirebase(with name: String, tags: String, description: String, lat: Double, lng: Double, rating: Double, addressOne: String, addressTwo: String, city: String, zipCode: String, country: String, completion: @escaping (Business?, Error?) -> Void) {
         // Create the objects needed to save a custom location to Firebase

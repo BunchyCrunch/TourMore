@@ -23,6 +23,7 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var locationSearchBar: UISearchBar!
     
     var locationManager: CLLocationManager!
+    let staus = CLLocationManager.authorizationStatus()
     private var scaleView: MKScaleView!
     private var userTrackingButton: MKUserTrackingButton!
     var userLocationForSearch: String?
