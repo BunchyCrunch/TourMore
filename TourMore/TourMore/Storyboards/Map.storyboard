@@ -365,7 +365,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZOk-uB-sQf">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Press to show comments" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZOk-uB-sQf">
                                                 <rect key="frame" x="0.0" y="30.5" width="373" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
@@ -561,7 +561,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0wD-e8-t08">
-                                <rect key="frame" x="0.0" y="193" width="414" height="291"/>
+                                <rect key="frame" x="0.0" y="193" width="414" height="351.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="92" id="e70-1E-0Hg" customClass="CommentTableViewCell" customModule="TourMore" customModuleProvider="target">
@@ -608,12 +608,12 @@
                         <constraints>
                             <constraint firstItem="ZS6-h3-gBx" firstAttribute="trailing" secondItem="I7M-QD-RGo" secondAttribute="trailing" id="3gH-FN-gEb"/>
                             <constraint firstItem="I7M-QD-RGo" firstAttribute="leading" secondItem="HDW-MK-PfX" secondAttribute="leading" constant="24" id="8mx-jK-PGD"/>
-                            <constraint firstItem="0wD-e8-t08" firstAttribute="height" secondItem="qCA-Tl-k4D" secondAttribute="height" multiplier="0.534884" id="9cX-uF-raU"/>
                             <constraint firstItem="ma6-2T-7xv" firstAttribute="centerX" secondItem="HDW-MK-PfX" secondAttribute="centerX" id="PyE-fk-HIG"/>
                             <constraint firstItem="I7M-QD-RGo" firstAttribute="top" secondItem="ma6-2T-7xv" secondAttribute="bottom" constant="8" id="Rj8-0Z-D9Z"/>
                             <constraint firstItem="0wD-e8-t08" firstAttribute="width" secondItem="qCA-Tl-k4D" secondAttribute="width" id="UUl-jc-ktq"/>
                             <constraint firstItem="0wD-e8-t08" firstAttribute="centerX" secondItem="qCA-Tl-k4D" secondAttribute="centerX" id="YdF-Q2-Gqf"/>
                             <constraint firstItem="ma6-2T-7xv" firstAttribute="width" secondItem="I7M-QD-RGo" secondAttribute="width" multiplier="0.5" id="Z8C-X5-5Cz"/>
+                            <constraint firstItem="HDW-MK-PfX" firstAttribute="bottom" secondItem="0wD-e8-t08" secondAttribute="bottom" id="ag2-0X-ydI"/>
                             <constraint firstItem="AyD-hV-8c2" firstAttribute="top" secondItem="I7M-QD-RGo" secondAttribute="bottom" constant="4" id="bA2-Dp-GDz"/>
                             <constraint firstItem="0wD-e8-t08" firstAttribute="top" secondItem="AyD-hV-8c2" secondAttribute="bottom" constant="12" id="itk-5x-RQQ"/>
                             <constraint firstItem="AyD-hV-8c2" firstAttribute="leading" secondItem="I7M-QD-RGo" secondAttribute="leading" id="lGK-8d-h1J"/>
