@@ -138,7 +138,7 @@ class UserController {
     func postCommmentForUser(comment: Comment) {
            guard let user = currentUser,
                let userID = currentUser?.uid else {return}
-           firebaseDB.collection("users").document(userID).updateData(["userComments": user.createdComments?.compactMap{$0.id} ?? []])
+        firebaseDB.collection("users").document(userID).updateData(["userComments": user.comment])
        }
     
     func addFavoriteToUserFavorites(business: Business) {
@@ -152,6 +152,7 @@ class UserController {
         firebaseDB.collection("users").document(userID).updateData(["favorites" : user.favoritesID])
     }
     
+
     func deleteFavoriteFromUser(business: Business){
         guard let userID = currentUser?.uid else { return }
         let locationIdToDelete = business.id
@@ -166,6 +167,7 @@ class UserController {
                }
     }
     
+
     //MARK:- Sign Out Function
     func signOutUser(user: User, completion: @escaping (_ success: Bool) -> Void) {
         let firebaseAuth = Auth.auth()
@@ -223,6 +225,7 @@ class UserController {
         firebaseDB.collection("appleUsers").document(userID).updateData(["favorites" : user.favoritesID])
     }
     
+
     func deleteFavoriteFromAppleUser(business: Business){
         guard let userID = currentUser?.uid else { return }
         let locationIdToDelete = business.id
@@ -237,6 +240,7 @@ class UserController {
         }
     }
     
+
     //MARK:- Update Apple User Information in DB
     func updateAppleUserGivenName(first: String, last: String, completion: @escaping (_ success: Bool) -> Void) {
         guard let userID = currentUser?.uid else {return}
