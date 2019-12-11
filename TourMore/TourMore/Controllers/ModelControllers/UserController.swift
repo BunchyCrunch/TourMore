@@ -53,8 +53,6 @@ class UserController {
         }
     }
     
-    
-    
     func updateProfilePic(image: UIImage, completion: @escaping (_ success: Bool) -> Void) {
         guard let currentUser = currentUser else {completion(false);return}
         let uploadRef = Storage.storage().reference().child("profilePicture/\(currentUser.uid).jpg")
@@ -149,7 +147,7 @@ class UserController {
         let newBlockedComment = blockedComment.id
         currentUser?.blockedCommentIDs.append(newBlockedComment)
         currentUser?.blockedComment?.append(blockedComment)
-        firebaseDB.collection("user").document(userID).updateData(["blockedComment" : user.blockedCommentIDs])
+        firebaseDB.collection("users").document(userID).updateData(["blockedComment" : user.blockedCommentIDs])
     }
     
     func addFavoriteToUserFavorites(business: Business) {
@@ -167,19 +165,17 @@ class UserController {
     func deleteFavoriteFromUser(business: Business){
         guard let user = currentUser else { return }
         let locationIdToDelete = business.id
-
+        
         guard let index = user.favoritesID.firstIndex(of: locationIdToDelete) else {return}
         user.favoritesID.remove(at: index)
         firebaseDB.collection("users").document(user.uid).updateData(["favorites" : user.favoritesID]) {
-                   err in
-                   if let err = err {
-                       print("Error in \(#function) : \(err.localizedDescription) \n---\n \(err)")
-                   } else {
-                       print("delete successfully")
-                   }
-                   
-               }
-
+            err in
+            if let err = err {
+                print("Error in \(#function) : \(err.localizedDescription) \n---\n \(err)")
+            } else {
+                print("delete successfully")
+            }
+        }
     }
     
     //MARK:- Sign Out Function
@@ -226,7 +222,14 @@ class UserController {
         let newBlockedComment = blockedComment.id
         currentUser?.blockedCommentIDs.append(newBlockedComment)
         currentUser?.blockedComment?.append(blockedComment)
-        firebaseDB.collection("appleUser").document(userID).updateData(["blockedCommentIDs" : user.blockedCommentIDs])
+        firebaseDB.collection("appleUsers").document(userID).updateData(["blockedComment" : user.blockedCommentIDs])
+    }
+    
+    func fetchBlockedCommentsForAppleUser(completion: @escaping([String]?) -> Void) {
+        firebaseDB.collection("appleUsers").document(currentUser!.uid).getDocument { (snapshot, error) in
+            guard let blockedIDs = snapshot?.data()?["blockedComment"] as? [String] else { completion(nil); return}
+            completion(blockedIDs)
+        }
     }
     
     func addFavoriteToAppleUserFavorites(business: Business) {
@@ -255,7 +258,6 @@ class UserController {
             } else {
                 print("delete successfully")
             }
-            
         }
     }
     

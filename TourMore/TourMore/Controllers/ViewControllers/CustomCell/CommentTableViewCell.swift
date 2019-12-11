@@ -7,20 +7,22 @@
 //
 import UIKit
 
-protocol CommentTableViewCellDelegate {
+protocol CommentTableViewCellDelegate: class {
     func actionButtonTapped(_ sender: CommentTableViewCell)
 }
 
 class CommentTableViewCell: UITableViewCell {
     
-    var comment: Comment? {
-        didSet {
-            updateViews()
-        }
-    }
-    var delegate: CommentTableViewCellDelegate?
+    var comment: Comment?
+    var blockedComments: [Comment] = []
+    
+    weak var delegate: CommentTableViewCellDelegate?
     
     @IBOutlet weak var commentTextLabel: UILabel!
+    
+    override func prepareForReuse() {
+        commentTextLabel.textColor = .black
+    }
     
     
     override func awakeFromNib() {
@@ -31,25 +33,33 @@ class CommentTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
+    
+    func changeBlockedCommentText() {
+        commentTextLabel?.text = "BLOCKED COMMENT"
+        commentTextLabel.textColor = .red
+    }
+    
+    
     @IBAction func blockedButtonTapped(_ sender: Any) {
-            // 1
-            let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            // 2
-            let reportCommentAction = UIAlertAction(title: "Report Comment", style: .default) { (_) in
-                self.delegate?.actionButtonTapped(self)
-                //HIDE COMMENT FOR USER && SEND EMAIL TO FIREBASE EMAIL FOR REVIEW OF COMMENT
-            }
-            let blockCommentAction = UIAlertAction(title: "Block", style: .default) { (_) in
-            }
-            // 3
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-            // 4
-            optionMenu.addAction(reportCommentAction)
-            optionMenu.addAction(blockCommentAction)
-            optionMenu.addAction(cancelAction)
-            // 5
-//            self.present(optionMenu, animated: true, completion: nil)
-        }
+        delegate?.actionButtonTapped(self)
+        //            // 1
+        //            let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        //            // 2
+        //            let reportCommentAction = UIAlertAction(title: "Report Comment", style: .default) { (_) in
+        //                self.delegate?.actionButtonTapped(self)
+        //                //HIDE COMMENT FOR USER && SEND EMAIL TO FIREBASE EMAIL FOR REVIEW OF COMMENT
+        //            }
+        //            let blockCommentAction = UIAlertAction(title: "Block", style: .default) { (_) in
+        //            }
+        //            // 3
+        //            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        //            // 4
+        //            optionMenu.addAction(reportCommentAction)
+        //            optionMenu.addAction(blockCommentAction)
+        //            optionMenu.addAction(cancelAction)
+        //            // 5
+        //            self.present(optionMenu, animated: true, completion: nil)
+    }
     
     func updateViews() {
         guard let comment = comment else { return }

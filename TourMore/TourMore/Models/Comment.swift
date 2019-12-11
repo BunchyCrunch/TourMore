@@ -17,7 +17,7 @@ struct CommentStringKeys {
 }
 
 class Comment {
-    let text: String
+    var text: String
     let rating: Double
     let businessID: String
     let userID: String
