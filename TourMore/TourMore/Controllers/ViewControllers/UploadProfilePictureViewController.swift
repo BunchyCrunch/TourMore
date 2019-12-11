@@ -35,10 +35,6 @@ class UploadProfilePictureViewController: UIViewController {
     func updateUserProfilePicture() {
         guard let image = image else {return}
         UserController.shared.updateProfilePic(image: image) { (success) in
-            if success {
-                //save to user
-                //
-            }
         }
     }
 

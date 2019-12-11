@@ -11,7 +11,7 @@ import FirebaseAuth
 import CryptoKit
 import AuthenticationServices
 
-class WelcomeBackViewController: UIViewController {
+class WelcomeBackViewController: UIViewController, UITextFieldDelegate {
     
     fileprivate var currentNonce: String?
 
@@ -21,7 +21,8 @@ class WelcomeBackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     @IBAction func continueWithAppleSignIn(_ sender: UIButton) {
@@ -46,6 +47,14 @@ class WelcomeBackViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     func textFieldIsMissingTextAlert() {

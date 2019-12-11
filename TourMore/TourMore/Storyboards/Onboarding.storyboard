@@ -67,6 +67,8 @@
                         <color key="backgroundColor" red="0.20000000000000001" green="0.41568627450000001" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="STl-Nc-9bJ" firstAttribute="centerX" secondItem="gOc-57-1cz" secondAttribute="centerX" id="Tq8-6I-M9t"/>
+                            <constraint firstItem="gOc-57-1cz" firstAttribute="trailing" secondItem="STl-Nc-9bJ" secondAttribute="trailing" constant="8" id="WIs-hq-FLA"/>
+                            <constraint firstItem="STl-Nc-9bJ" firstAttribute="leading" secondItem="gOc-57-1cz" secondAttribute="leading" constant="8" id="e9o-G0-Jyw"/>
                             <constraint firstItem="STl-Nc-9bJ" firstAttribute="centerY" secondItem="gOc-57-1cz" secondAttribute="centerY" id="tnL-88-jt6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gOc-57-1cz"/>

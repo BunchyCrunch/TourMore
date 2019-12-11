@@ -12,17 +12,21 @@ import CoreLocation
 
 
 class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
- 
+    
     //MARK:- Outlets
     @IBOutlet weak var userProfilePictureStaticImageView: UIImageView!
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var userInformationView: UIView!
+    @IBOutlet weak var profilePictureContainerView: UIView!
     
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
     
     var locationManager: CLLocationManager!
+    var selectedImage: UIImage?
+    
+    weak var photoPickerVC: PhotoPickerViewController?
     
     //MARK:- Lifecycle
     override func viewDidLoad() {
@@ -45,6 +49,10 @@ class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
     }
     
+    @IBAction func saveProfilePictureChangeButtonTapped(_ sender: Any) {
+        updateProfilePicture()
+    }
+    
     //MARK:- Helper Functions
     func setUpViews() {
         setUpUserInformationView()
@@ -56,12 +64,12 @@ class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
         userInformationView.layer.borderColor = UIColor(named: "userView")?.cgColor
         userInformationView.layer.cornerRadius = view.frame.height/200
         
-        userProfilePictureStaticImageView.layer.borderWidth = 1
-        userProfilePictureStaticImageView.layer.masksToBounds = false
-        userProfilePictureStaticImageView.clipsToBounds = true
-        userProfilePictureStaticImageView.layer.borderColor = UIColor(named: "userView")?.cgColor
-        userProfilePictureStaticImageView.layer.cornerRadius = userProfilePictureStaticImageView.frame.size.height/2
-        userProfilePictureStaticImageView.contentMode = .scaleAspectFill
+        profilePictureContainerView.layer.borderWidth = 1
+        profilePictureContainerView.layer.masksToBounds = false
+        profilePictureContainerView.clipsToBounds = true
+        profilePictureContainerView.layer.borderColor = UIColor(named: "userView")?.cgColor
+        profilePictureContainerView.layer.cornerRadius = profilePictureContainerView.frame.size.height/2
+        photoPickerVC?.pickedPhotoImageView.contentMode = .scaleAspectFill
         
         containerView.layer.borderWidth = 0.5
         containerView.layer.borderColor = UIColor.gray.cgColor
@@ -76,11 +84,9 @@ class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         UserController.shared.fetchProfilePicture { (success) in
-            let profilePicture = UserController.shared.currentUser?.profilePicture
-            if profilePicture != nil {
-                self.userProfilePictureStaticImageView.image = profilePicture
-            } else {
-                // userProfilePictureStaticImageView.image = UIImage(name: "")
+            if success {
+                let image = UserController.shared.currentUser?.profilePicture
+                self.photoPickerVC?.updateViews(with: image)
             }
         }
     }
@@ -88,7 +94,7 @@ class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
         let alert = UIAlertController(title: "You must be signed up to use this tab", message: nil, preferredStyle: .alert)
         let goToSign = UIAlertAction(title: "Sign Up", style: .default) { _ in
             DispatchQueue.main.async {
-                 self.view.window?.rootViewController = UIStoryboard(name: "SignUp", bundle: nil).instantiateInitialViewController()
+                self.view.window?.rootViewController = UIStoryboard(name: "SignUp", bundle: nil).instantiateInitialViewController()
             }
         }
         let exit = UIAlertAction(title: "Exit", style: .cancel) { _ in
@@ -126,29 +132,54 @@ class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?)
-                    -> Void ) {
+        -> Void ) {
         // Use the last reported location.
         if let lastLocation = self.locationManager.location {
             let geocoder = CLGeocoder()
-                
+            
             // Look up the location and pass it to the completion handler
             geocoder.reverseGeocodeLocation(lastLocation,
-                        completionHandler: { (placemarks, error) in
-                if error == nil {
-                    guard let placemarks = placemarks else { return }
-                    let firstLocation = placemarks[0]
-                    self.userLocationLabel.text = "\(firstLocation.locality ?? "Unknow Location")" + ", " + "\(firstLocation.isoCountryCode ?? "")"
-                    completionHandler(firstLocation)
-                }
-                else {
-                 // An error occurred during geocoding.
-                    completionHandler(nil)
-                }
+                                            completionHandler: { (placemarks, error) in
+                                                if error == nil {
+                                                    guard let placemarks = placemarks else { return }
+                                                    let firstLocation = placemarks[0]
+                                                    self.userLocationLabel.text = "\(firstLocation.locality ?? "Unknow Location")" + ", " + "\(firstLocation.isoCountryCode ?? "")"
+                                                    completionHandler(firstLocation)
+                                                }
+                                                else {
+                                                    // An error occurred during geocoding.
+                                                    completionHandler(nil)
+                                                }
             })
         }
         else {
             // No location was available.
             completionHandler(nil)
         }
+    }
+    
+    func updateProfilePicture() {
+        guard let newImage = selectedImage else {return}
+        UserController.shared.deleteProfilePicture()
+        UserController.shared.updateProfilePic(image: newImage) { (success) in
+            if success {
+                print("Deleted old image ref and set new")
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEditProfilePicture" {
+            guard let destinationVC = segue.destination as? PhotoPickerViewController else {return}
+            destinationVC.delegate = self
+            destinationVC.profileImage = selectedImage
+            self.photoPickerVC = destinationVC
+        }
+    }
+}
+
+extension UserProfileViewController: PhotoSelectorDelegate {
+    func photoSelectorDidSelect(_ photo: UIImage) {
+        self.selectedImage = photo
     }
 }

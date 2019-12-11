@@ -17,6 +17,8 @@ class PhotoPickerViewController: UIViewController {
     
     let imagePicker = UIImagePickerController()
     weak var delegate: PhotoSelectorDelegate?
+    var profileImage: UIImage?
+    
     
     
     @IBOutlet weak var pickedPhotoImageView: UIImageView!
@@ -25,8 +27,14 @@ class PhotoPickerViewController: UIViewController {
         super.viewDidLoad()
         imagePicker.delegate = self
         
+        
         // let bgImage: UIImage = isLoggingIn ? LoginImage : PhotoPickerImage
         // profile.image = bgImage
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews(with: nil)
     }
     
     @IBAction func selectImageButtonTapped(_ sender: UIButton) {
@@ -46,7 +54,6 @@ class PhotoPickerViewController: UIViewController {
         present(alertController, animated: true)
     }
     
-    
     func presentMediaNotAvalible() {
         let errorAlertController = UIAlertController(title: "Error", message: "Media access is denied, please check your settings to be sure Recyclr has access to Media", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -61,10 +68,10 @@ class PhotoPickerViewController: UIViewController {
         present(errorAlertController, animated: true)
     }
     
-    func updateViews() {
-        DispatchQueue.main.async {
-            guard let user = UserController.shared.currentUser else {return}
-            self.pickedPhotoImageView.image = user.profilePicture
+    func updateViews(with image: UIImage?) {
+        if let image = image {
+            loadViewIfNeeded()
+            pickedPhotoImageView.image = image
         }
     }
 }

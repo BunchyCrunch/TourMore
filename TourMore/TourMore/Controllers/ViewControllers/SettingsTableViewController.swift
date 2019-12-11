@@ -47,4 +47,8 @@ class SettingsTableViewController: UITableViewController {
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.init(0.1)
+    }
 }

@@ -11,7 +11,7 @@ import FirebaseAuth
 import CryptoKit
 import AuthenticationServices
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     fileprivate var currentNonce: String?
     
@@ -24,7 +24,12 @@ class SignUpViewController: UIViewController {
     //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        nameTextField.delegate = self
         setUpTextFields()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     //MARK:- Actions
@@ -65,7 +70,24 @@ class SignUpViewController: UIViewController {
     //        }
     //    }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        emailTextField = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     //MARK:- Helper Functions
+    @objc func keyboardWillShow(sender: Notification) {
+         self.view.frame.origin.y = -150 // Move view 150 points upward
+    }
+
+    @objc func keyboardWillHide(sender: Notification) {
+         self.view.frame.origin.y = 0 // Move view to original position
+    }
+    
     func setUpTextFields() {
         Utilities.textFieldSignUpStyle(emailTextField)
         Utilities.textFieldSignUpStyle(passwordTextField)
