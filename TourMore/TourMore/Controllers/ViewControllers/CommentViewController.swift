@@ -54,6 +54,10 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
+        guard let user = UserController.shared.currentUser else {
+            dispatchGroup.leave()
+            return
+        }
         UserController.shared.fetchBlockedCommentsForAppleUser { (blockedIDs) in
             self.blockedCommentIDs = blockedIDs ?? []
             dispatchGroup.leave()
