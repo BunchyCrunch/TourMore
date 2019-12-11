@@ -187,7 +187,6 @@ extension BusinessSearchController {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                 completion(nil)
             }
-            
             guard let docs = snapshot?.documents else { completion(nil) ; return }
             let businesses = docs.compactMap({ Business(dictionary: $0.data()) })
             completion(businesses)

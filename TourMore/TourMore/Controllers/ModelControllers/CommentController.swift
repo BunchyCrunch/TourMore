@@ -17,10 +17,6 @@ class CommentController {
     var ref: DatabaseReference?
     var firestoreDB = Firestore.firestore().collection("Comments")
     
-//    var comments: [Comment] = []
-//    var comments: [Comment] = [Comment(text: "lehi", rating: 3, businessID: "asdfljasl", userID: "dlafjds"),
-//                               Comment(text: "provo", rating: 5, businessID: "aldsfkjas", userID: "sldfjk")]
-    
     func addComment(text: String, rating: Double, businessID: String, completion: @escaping (Comment?, Error?) -> Void) {
         // save the comment to firebase
         guard let userID = UserController.shared.currentUser?.uid else {return}
@@ -46,34 +42,4 @@ class CommentController {
             completion(comments)
         }
     }
-    
-    func fetchCommentsForUser(user: User, completion: @escaping([Comment]?) -> Void) {
-        var foundComments: [Comment] = []
-        for commentID in user.comment {
-            firestoreDB.whereField(CommentStringKeys.id, isEqualTo: commentID).getDocuments { (snapshot, error) in
-                guard let foundData = snapshot?.documents.first?.data(),
-                    let foundComment = Comment(dictionary: foundData) else {
-                        completion(nil); return
-                }
-                foundComments.append(foundComment)
-                user.createdComments?.append(foundComment)
-            }
-        }
-        completion(foundComments)
-    }
-    
-//    func addBlockComment(commentID: String, completion: @escaping (Comment, Error?) -> Void) {
-//        let newBlockedComment = Comment(id: <#T##String#>)
-//    }
-    
-//    func fetchComments(for businessID: String, completion: @escaping(_ success: Bool) -> Void) {
-//        ref = Database.database().reference()
-//        ref?.child("Comment").queryEqual(toValue: businessID, childKey: "businessID")
-//        ref?.observeSingleEvent(of: .value, with: { (snapshot) in
-//            let data = snapshot.value as? [String : Any]
-//            print(data)
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
-//    }
 } // end of class
