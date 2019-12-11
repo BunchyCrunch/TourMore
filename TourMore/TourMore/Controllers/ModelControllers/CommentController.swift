@@ -16,6 +16,7 @@ class CommentController {
     
     var ref: DatabaseReference?
     var firestoreDB = Firestore.firestore().collection("Comments")
+    var reportedDB = Firestore.firestore().collection("ReportedComments")
     
     func addComment(text: String, rating: Double, businessID: String, completion: @escaping (Comment?, Error?) -> Void) {
         // save the comment to firebase
@@ -41,5 +42,17 @@ class CommentController {
             let comments = foundData.compactMap({ Comment(dictionary: $0.data()) })
             completion(comments)
         }
+    }
+    
+    func addReportedCommentsToCollection(comment: Comment, completion: @escaping (Bool) -> Void) {
+        let commentID = comment.id
+        let ref = reportedDB.document(commentID)
+        ref.setData(comment.dictionary) { (error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(false); return
+            }
+        }
+        completion(true)
     }
 } // end of class

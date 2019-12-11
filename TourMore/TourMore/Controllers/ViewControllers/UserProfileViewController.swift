@@ -36,12 +36,22 @@ class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        if Auth.auth().currentUser == nil {
+//            hideViews()
+//            presentMustBeSignedInAlert()
+//        } else {
+//            setUpViews()
+//        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         if Auth.auth().currentUser == nil {
-            hideViews()
-            presentMustBeSignedInAlert()
-        } else {
-            setUpViews()
-        }
+                  hideViews()
+                  presentMustBeSignedInAlert()
+              } else {
+                  setUpViews()
+              }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
