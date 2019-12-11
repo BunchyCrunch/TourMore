@@ -24,6 +24,7 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var separatorBar: UIView!
     
     weak var favoriteButton: UIButton!
+    weak var delegate: LocationDetailViewControllerDelegate?
     
     var location: Business?
     
@@ -32,6 +33,11 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
         setUpView()
         dummyTextView.delegate = self
         navigationController?.navigationItem.backBarButtonItem?.setBackgroundImage(UIImage(named: "Back Button"), for: .normal, barMetrics: .default)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super .viewWillDisappear(animated)
+        delegate?.removeFavoriteToUpdateView()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -209,7 +215,7 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     func removedFromFavoritesAlert() {
-        let alert = UIAlertController(title: "This has been removed from your favorites", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "This has been removed from your favorites", message: "Please allow some time for the network to update and the deleated location to disipear", preferredStyle: .actionSheet)
         let okayButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alert.addAction(okayButton)
         self.present(alert, animated:  true)
@@ -224,4 +230,8 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
             destinationVC?.businessID = self.location?.id
         }
     }
+}
+
+protocol LocationDetailViewControllerDelegate: class {
+    func removeFavoriteToUpdateView() 
 }

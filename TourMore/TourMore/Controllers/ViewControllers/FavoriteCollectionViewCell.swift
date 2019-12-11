@@ -27,7 +27,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         let star = star.rating
         switch star {
         case 0.5:
-            ratingImageView.image = UIImage(named: "")
+            ratingImageView.image = UIImage(named: "0.5Star")
         case 1.0:
             ratingImageView.image = UIImage(named: "1Star")
         case 1.5:
@@ -47,7 +47,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         case 5.0:
             ratingImageView.image = UIImage(named: "5Star")
         default:
-            ratingImageView.image = UIImage(named: "")
+            ratingImageView.image = UIImage(named: "noReview")
         }
     }
     

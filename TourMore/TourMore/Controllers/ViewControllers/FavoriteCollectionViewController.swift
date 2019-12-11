@@ -37,7 +37,6 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        getFavoriteLocations()
     }
     // MARK: - Methods
     
@@ -45,7 +44,11 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
         if Auth.auth().currentUser == nil {
             //  pop up controller to log in
         }
-        fetchFavoritesFromUser()
+        if UserController.shared.currentUser?.favBusinesses.count == 0 {
+            fetchFavoritesFromUser()
+        } else {
+            self.locations = UserController.shared.currentUser!.favBusinesses
+        }
         // need alert controller to log in
     }
     
@@ -65,6 +68,7 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
                         print("business not found in favorites fetch") ; return }
                     if !self.locations.contains(business) {
                         self.locations.append(business)
+                        user.favBusinesses.append(business)
                     }
                 }
             } else {
@@ -130,9 +134,15 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
         let targetStoryboard = UIStoryboard(name: targetStoryboardName, bundle: nil)
         guard let viewController = targetStoryboard.instantiateViewController(identifier: "LocationDetail") as? LocationDetailViewController else { return }
         viewController.location = locations[indexPath.item]
+        viewController.delegate = self
         self.present(viewController, animated: true, completion: nil)
         collectionView.reloadData()
     }
 }
 
+extension FavoriteCollectionViewController: LocationDetailViewControllerDelegate {
+    func removeFavoriteToUpdateView() {
+        collectionView.reloadData()
+    }
+}
 

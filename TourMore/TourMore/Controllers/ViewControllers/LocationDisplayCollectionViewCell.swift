@@ -52,7 +52,7 @@ class LocationDisplayCollectionViewCell: UICollectionViewCell {
         let star = star.rating
         switch star {
         case 0.5:
-            numberOfStarsImageView.image = UIImage(named: "")
+            numberOfStarsImageView.image = UIImage(named: "0.5Star")
         case 1.0:
             numberOfStarsImageView.image = UIImage(named: "1Star")
         case 1.5:
@@ -72,7 +72,7 @@ class LocationDisplayCollectionViewCell: UICollectionViewCell {
         case 5.0:
             numberOfStarsImageView.image = UIImage(named: "5Star")
         default:
-            numberOfStarsImageView.image = UIImage(named: "")
+            numberOfStarsImageView.image = UIImage(named: "noReview")
         }
     }
 }

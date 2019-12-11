@@ -14,9 +14,9 @@ class User {
     var uid: String
     var profilePicture: UIImage?
     var comment: [String]
-    var createdComments: [Comment]? = []
+    var createdComments: [Comment] = []
     var favoritesID: [String]
-    var favBusinesses: [Business]? = []
+    var favBusinesses: [Business] = []
     var userAccessToken: String?
     var isAppleUser: Bool
     var blockedCommentIDs: [String]
