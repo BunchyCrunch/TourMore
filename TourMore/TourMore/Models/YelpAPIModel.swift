@@ -162,3 +162,9 @@ extension Categories: Equatable {
             lhs.title == rhs.title
     }
 }
+
+extension Business: Equatable {
+    static func == (lhs: Business, rhs: Business) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

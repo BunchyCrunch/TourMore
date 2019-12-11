@@ -8,9 +8,10 @@
 
 import UIKit
 import FirebaseAuth
+import CoreLocation
 
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
  
     //MARK:- Outlets
     @IBOutlet weak var userProfilePictureStaticImageView: UIImageView!
@@ -20,6 +21,8 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
+    
+    var locationManager: CLLocationManager!
     
     //MARK:- Lifecycle
     override func viewDidLoad() {
@@ -35,6 +38,11 @@ class UserProfileViewController: UIViewController {
         } else {
             setUpViews()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        locationManager.stopUpdatingLocation()
     }
     
     //MARK:- Helper Functions
@@ -57,6 +65,8 @@ class UserProfileViewController: UIViewController {
         
         containerView.layer.borderWidth = 0.5
         containerView.layer.borderColor = UIColor.gray.cgColor
+        
+        deterimeLocation()
         
         guard let name = UserController.shared.currentUser?.name else {return}
         if name != "" {
@@ -95,5 +105,50 @@ class UserProfileViewController: UIViewController {
         userInformationView.isHidden = true
         usersNameLabel.isHidden = true
         userLocationLabel.isHidden = true
+    }
+    
+    func deterimeLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            lookUpCurrentLocation { (placemark) in
+                if (placemark != nil) {
+                    DispatchQueue.main.async {
+                        self.reloadInputViews()
+                    }
+                }
+            }
+        }
+    }
+    
+    func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?)
+                    -> Void ) {
+        // Use the last reported location.
+        if let lastLocation = self.locationManager.location {
+            let geocoder = CLGeocoder()
+                
+            // Look up the location and pass it to the completion handler
+            geocoder.reverseGeocodeLocation(lastLocation,
+                        completionHandler: { (placemarks, error) in
+                if error == nil {
+                    guard let placemarks = placemarks else { return }
+                    let firstLocation = placemarks[0]
+                    self.userLocationLabel.text = "\(firstLocation.locality ?? "Unknow Location")" + ", " + "\(firstLocation.isoCountryCode ?? "")"
+                    completionHandler(firstLocation)
+                }
+                else {
+                 // An error occurred during geocoding.
+                    completionHandler(nil)
+                }
+            })
+        }
+        else {
+            // No location was available.
+            completionHandler(nil)
+        }
     }
 }
