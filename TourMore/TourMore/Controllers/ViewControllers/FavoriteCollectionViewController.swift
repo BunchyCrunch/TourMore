@@ -58,10 +58,13 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
                 BusinessSearchController.sharedInstance.fetchBusinessForID(businessID: businessId) { (business) in
                     guard let business = business else {
                         print("business not found in favorites fetch") ; return }
-                    self.locations.append(business)
+                    if !self.locations.contains(business) {
+                        self.locations.append(business)
+                    }
                 }
             } else {
                 // search fire base
+                
             }
         }
     }
