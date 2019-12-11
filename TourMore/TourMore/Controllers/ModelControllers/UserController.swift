@@ -15,7 +15,7 @@ class UserController {
     static let shared = UserController()
     var currentUser: User? {
         didSet {
-            print("currentUser set \(currentUser)")
+            print("currentUser set \(currentUser!)")
         }
     }
     let firebaseDB = Firestore.firestore()
@@ -66,6 +66,16 @@ class UserController {
             }
             currentUser.profilePicture = image
             completion(true)
+        }
+    }
+    
+    func deleteProfilePicture() {
+        guard let currentUser = currentUser else {return}
+        let deletedRef = Storage.storage().reference().child("profilePicture/\(currentUser.uid).jpg")
+        deletedRef.delete { (err) in
+            if let error = err {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
         }
     }
     

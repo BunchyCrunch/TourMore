@@ -33,6 +33,11 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
         super.viewDidLoad()
         setupScreen()
         locationSearchBar.delegate = self
+        UserController.shared.fetchProfilePicture { (success) in
+            if success {
+                print("Success getting Profile picture")
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
