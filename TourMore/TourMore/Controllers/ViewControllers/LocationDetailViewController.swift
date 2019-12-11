@@ -208,14 +208,14 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     func favoriteSavedToFavoritesAlert() {
-        let alert = UIAlertController(title: "Favorite has been added to your favorites", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Favorite has been added to your favorites", message: nil, preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alert.addAction(okayButton)
         self.present(alert, animated:  true)
     }
     
     func removedFromFavoritesAlert() {
-        let alert = UIAlertController(title: "This has been removed from your favorites", message: "Please allow some time for the network to update and the deleated location to disipear", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "This has been removed from your favorites", message: "Please allow some time for the network to update and the deleated location to disipear", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alert.addAction(okayButton)
         self.present(alert, animated:  true)
