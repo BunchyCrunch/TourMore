@@ -167,6 +167,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 UserController.shared.blockCommentForUser(blockedComment: commentToBlock)
             }
+            CommentController.shared.addReportedCommentsToCollection(comment: commentToBlock) { (success) in
+                if success {
+                    print("Added to reported Collection")
+                }
+            }
         }
     }
     
@@ -220,10 +225,10 @@ extension CommentViewController: CommentTableViewCellDelegate {
         // 1
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         // 2
-        let reportCommentAction = UIAlertAction(title: "Report Comment", style: .default) { (_) in
-            //HIDE COMMENT FOR USER && SEND EMAIL TO FIREBASE EMAIL FOR REVIEW OF COMMENT
-        }
-        let blockCommentAction = UIAlertAction(title: "Block", style: .default) { (_) in
+//        let reportCommentAction = UIAlertAction(title: "Report Comment", style: .default) { (_) in
+//            //HIDE COMMENT FOR USER && SEND EMAIL TO FIREBASE EMAIL FOR REVIEW OF COMMENT
+//        }
+        let blockCommentAction = UIAlertAction(title: "Block & Report", style: .default) { (_) in
             self.blockCommentForUser(comment: sender.comment)
             sender.commentTextLabel.text = "BLOCKED COMMENT"
             sender.commentTextLabel.textColor = .red
@@ -231,7 +236,7 @@ extension CommentViewController: CommentTableViewCellDelegate {
         // 3
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         // 4
-        optionMenu.addAction(reportCommentAction)
+//        optionMenu.addAction(reportCommentAction)
         optionMenu.addAction(blockCommentAction)
         optionMenu.addAction(cancelAction)
         // 5
