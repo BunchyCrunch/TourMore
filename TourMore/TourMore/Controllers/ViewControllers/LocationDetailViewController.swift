@@ -176,9 +176,10 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
         if !user.favoritesID.contains(location.id) {
             if user.isAppleUser == true {
                 UserController.shared.addFavoriteToAppleUserFavorites(business: location)
-                
+                favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
             } else {
                 UserController.shared.addFavoriteToUserFavorites(business: location)
+                favoriteButton.setBackgroundImage(UIImage(named: "filledHeart"), for: .normal)
             }
             favoriteSavedToFavoritesAlert()
             print("added to favorites")
@@ -186,9 +187,13 @@ class LocationDetailViewController: UIViewController, UITextFieldDelegate, UITex
         } else {
             if user.isAppleUser == true {
                 UserController.shared.deleteFavoriteFromAppleUser(business: location)
+                favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
+                FavoriteCollectionViewController().reloadInputViews()
             } else {
                 
                 UserController.shared.deleteFavoriteFromUser(business: location)
+                favoriteButton.setBackgroundImage(UIImage(named: "unFilledHeart"), for: .normal)
+                FavoriteCollectionViewController().reloadInputViews()
             }
             removedFromFavoritesAlert()
             print("removed from favorites")

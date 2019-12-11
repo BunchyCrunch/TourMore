@@ -34,6 +34,11 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
         super.viewWillAppear(animated)
         getFavoriteLocations()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        getFavoriteLocations()
+    }
     // MARK: - Methods
     
     func getFavoriteLocations() {
@@ -77,7 +82,6 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
             }
         }
     }
-    
     
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -126,8 +130,7 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
         guard let viewController = targetStoryboard.instantiateViewController(identifier: "LocationDetail") as? LocationDetailViewController else { return }
         viewController.location = locations[indexPath.item]
         self.present(viewController, animated: true, completion: nil)
-        
-        
+        collectionView.reloadData()
     }
 }
 
