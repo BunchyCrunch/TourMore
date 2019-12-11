@@ -205,7 +205,7 @@ extension BusinessSearchController {
                     return
                 }
                 foundBusinesses.append(foundBusiness)
-                user.favBusinesses?.append(foundBusiness)
+                user.favBusinesses.append(foundBusiness)
             }
         }
         completion(foundBusinesses)

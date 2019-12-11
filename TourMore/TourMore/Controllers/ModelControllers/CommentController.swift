@@ -29,7 +29,7 @@ class CommentController {
                 completion(nil, error); return
             }
 //            self.comments.append(newComment)
-            UserController.shared.currentUser?.createdComments?.append(newComment)
+            UserController.shared.currentUser?.createdComments.append(newComment)
             UserController.shared.currentUser?.comment.append(newComment.id)
             completion(newComment, nil)
         }

@@ -157,7 +157,7 @@ class UserController {
                 return}
         let newFavorite = business.id
         currentUser?.favoritesID.append(newFavorite)
-        currentUser?.favBusinesses?.append(business)
+        currentUser?.favBusinesses.append(business)
         firebaseDB.collection("users").document(userID).updateData(["favorites" : user.favoritesID])
     }
     
@@ -166,8 +166,11 @@ class UserController {
         guard let user = currentUser else { return }
         let locationIdToDelete = business.id
         
-        guard let index = user.favoritesID.firstIndex(of: locationIdToDelete) else {return}
+        guard let index = user.favoritesID.firstIndex(of: locationIdToDelete),
+            let businessToDelete = user.favBusinesses.firstIndex(of: business)
+            else {return}
         user.favoritesID.remove(at: index)
+        user.favBusinesses.remove(at: businessToDelete)
         firebaseDB.collection("users").document(user.uid).updateData(["favorites" : user.favoritesID]) {
             err in
             if let err = err {
@@ -240,7 +243,7 @@ class UserController {
                 return}
         let newFavorite = business.id
         currentUser?.favoritesID.append(newFavorite)
-        currentUser?.favBusinesses?.append(business)
+        currentUser?.favBusinesses.append(business)
         firebaseDB.collection("appleUsers").document(userID).updateData(["favorites" : user.favoritesID])
     }
     
@@ -248,8 +251,11 @@ class UserController {
     func deleteFavoriteFromAppleUser(business: Business){
         guard let user = currentUser else { return }
         let locationIdToDelete = business.id
-        guard let index = user.favoritesID.firstIndex(of: locationIdToDelete) else { return }
+        guard let index = user.favoritesID.firstIndex(of: locationIdToDelete),
+            let businessToDelete = user.favBusinesses.firstIndex(of: business)
+            else { return }
         user.favoritesID.remove(at: index)
+        user.favBusinesses.remove(at: businessToDelete)
         
         firebaseDB.collection("appleUsers").document(user.uid).updateData(["favorites" : user.favoritesID]) {
             err in
