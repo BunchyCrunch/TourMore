@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9nu-j3-VBg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9nu-j3-VBg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="STl-Nc-9bJ">
-                                <rect key="frame" x="8" y="302" width="398" height="302"/>
+                                <rect key="frame" x="8" y="272" width="398" height="362"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="S3d-uy-DXR">
                                         <rect key="frame" x="85" y="0.0" width="228" height="152"/>
@@ -38,7 +38,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5pI-nv-FUT">
-                                        <rect key="frame" x="0.0" y="192" width="398" height="110"/>
+                                        <rect key="frame" x="0.0" y="192" width="398" height="170"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzW-UA-YZi">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="50"/>
@@ -59,6 +59,15 @@
                                                     <segue destination="rZl-vV-g2H" kind="presentation" id="mbY-qL-j1j"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGt-s4-Q1F">
+                                                <rect key="frame" x="0.0" y="120" width="398" height="50"/>
+                                                <state key="normal" title="Terms of Use &amp; Privacy Policy">
+                                                    <color key="titleColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="JvC-OQ-m65" kind="show" id="8BS-vl-l9K"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -77,6 +86,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LnB-Pa-Yz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-413.04347826086962" y="196.875"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="MWp-Lc-Tc7">
+            <objects>
+                <viewController id="JvC-OQ-m65" customClass="WebViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tbx-JO-EtP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9a-AO-FgO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vI2-De-kPk" firstAttribute="bottom" secondItem="a9a-AO-FgO" secondAttribute="bottom" id="AUa-7e-YU1"/>
+                            <constraint firstItem="vI2-De-kPk" firstAttribute="trailing" secondItem="a9a-AO-FgO" secondAttribute="trailing" id="KMa-21-PD2"/>
+                            <constraint firstItem="a9a-AO-FgO" firstAttribute="leading" secondItem="vI2-De-kPk" secondAttribute="leading" id="UXb-KS-6JD"/>
+                            <constraint firstItem="a9a-AO-FgO" firstAttribute="top" secondItem="vI2-De-kPk" secondAttribute="top" id="p74-ja-fLG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vI2-De-kPk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RM1-TJ-zep"/>
+                    <connections>
+                        <outlet property="termsOfUseAndPrivacyWebView" destination="a9a-AO-FgO" id="5wx-o1-rzx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vS7-Nc-hw5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="545" y="183"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="rLG-sD-ra1">

@@ -39,6 +39,7 @@
 		281E8ABA238DE27E007EB045 /* WelcomeBack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281E8AB9238DE27E007EB045 /* WelcomeBack.storyboard */; };
 		281E8ABC238DE53C007EB045 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281E8ABB238DE53C007EB045 /* Onboarding.storyboard */; };
 		28477F0A2385C48800C1CA16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28477F092385C48800C1CA16 /* GoogleService-Info.plist */; };
+		286BB4BC23A435EE004058A8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286BB4BB23A435EE004058A8 /* WebViewController.swift */; };
 		2891A245238DC56400EF795B /* UploadProfilePic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2891A244238DC56400EF795B /* UploadProfilePic.storyboard */; };
 		28BC10AA238C7F42009CE084 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BC10A9238C7F42009CE084 /* UserController.swift */; };
 		28BC10AC238C887D009CE084 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BC10AB238C887D009CE084 /* SignUp.storyboard */; };
@@ -91,6 +92,7 @@
 		281E8AB9238DE27E007EB045 /* WelcomeBack.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomeBack.storyboard; sourceTree = "<group>"; };
 		281E8ABB238DE53C007EB045 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		28477F092385C48800C1CA16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		286BB4BB23A435EE004058A8 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2891A244238DC56400EF795B /* UploadProfilePic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadProfilePic.storyboard; sourceTree = "<group>"; };
 		28BC10A9238C7F42009CE084 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		28BC10AB238C887D009CE084 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				267CC5BF239ABDA800CEFB70 /* FavoriteCollectionViewController.swift */,
 				267CC5C1239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift */,
 				2676E3FA23A0631E0086031A /* MainTabViewController.swift */,
+				286BB4BB23A435EE004058A8 /* WebViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				FC79CF8B238D9E4800A0FB12 /* CommentController.swift in Sources */,
 				28FB52612385C3CF00266868 /* SceneDelegate.swift in Sources */,
 				26CFDD66238C638E0023444F /* User.swift in Sources */,
+				286BB4BC23A435EE004058A8 /* WebViewController.swift in Sources */,
 				28FCE3A9239EDE41001BFD40 /* SettingsTableViewController.swift in Sources */,
 				267CC5C2239ACDF600CEFB70 /* FavoriteCollectionViewCell.swift in Sources */,
 				26A6B8AD238D94F80099382F /* CreateNewLocationViewController.swift in Sources */,
@@ -582,6 +586,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TourMore/TourMore.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.02;
 				DEVELOPMENT_TEAM = 5XC6N4RBRH;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = TourMore/Info.plist;
@@ -590,7 +595,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = calegre.TourMore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -605,6 +610,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TourMore/TourMore.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.02;
 				DEVELOPMENT_TEAM = 5XC6N4RBRH;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = TourMore/Info.plist;
@@ -613,7 +619,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = calegre.TourMore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
