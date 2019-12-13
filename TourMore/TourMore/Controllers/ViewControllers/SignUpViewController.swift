@@ -24,6 +24,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpAppleButton()
         emailTextField.delegate = self
         passwordTextField.delegate = self
         nameTextField.delegate = self
@@ -79,6 +80,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func setUpAppleButton () {
+        appleSignInButton.layer.borderColor = UIColor.black.cgColor
+        appleSignInButton.layer.borderWidth = 2
+        appleSignInButton.layer.cornerRadius = 5
+        appleSignInButton.clipsToBounds = true
+    }
     //MARK:- Helper Functions
     @objc func keyboardWillShow(sender: Notification) {
          self.view.frame.origin.y = -150 // Move view 150 points upward
@@ -122,7 +129,6 @@ extension SignUpViewController: ASAuthorizationControllerDelegate, ASAuthorizati
     public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
-    
     
     func handleAuthorizationAppleID() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
@@ -219,4 +225,3 @@ extension SignUpViewController: ASAuthorizationControllerDelegate, ASAuthorizati
         return hashString
     }
 }
-

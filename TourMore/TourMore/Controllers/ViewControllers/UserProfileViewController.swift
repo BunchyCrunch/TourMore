@@ -56,7 +56,9 @@ class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        if locationManager != nil {
         locationManager.stopUpdatingLocation()
+        }
     }
     
     @IBAction func saveProfilePictureChangeButtonTapped(_ sender: Any) {

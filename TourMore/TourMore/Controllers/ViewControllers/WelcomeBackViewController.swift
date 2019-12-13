@@ -17,10 +17,13 @@ class WelcomeBackViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var appleSignInButton: ASAuthorizationAppleIDButton!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpAppleButton()
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
@@ -55,6 +58,14 @@ class WelcomeBackViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func setUpAppleButton() {
+        appleSignInButton.layer.borderColor = UIColor.black.cgColor
+        appleSignInButton.layer.borderWidth = 2
+        appleSignInButton.layer.cornerRadius = 5
+        appleSignInButton.clipsToBounds = true
+        
     }
 
     func textFieldIsMissingTextAlert() {

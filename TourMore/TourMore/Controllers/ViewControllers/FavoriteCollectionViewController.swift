@@ -47,7 +47,9 @@ class FavoriteCollectionViewController: UICollectionViewController, UICollection
         if UserController.shared.currentUser?.favBusinesses.count == 0 {
             fetchFavoritesFromUser()
         } else {
+            if UserController.shared.currentUser != nil {
             self.locations = UserController.shared.currentUser!.favBusinesses
+            }
         }
         // need alert controller to log in
     }
