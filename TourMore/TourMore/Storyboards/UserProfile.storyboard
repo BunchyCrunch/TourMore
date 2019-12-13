@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xQ4-As-MuM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xQ4-As-MuM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -109,6 +109,7 @@
                     <connections>
                         <outlet property="containerView" destination="24l-JI-3XL" id="S7q-yb-YwI"/>
                         <outlet property="profilePictureContainerView" destination="L2J-op-Lw5" id="MRH-dc-n5P"/>
+                        <outlet property="saveProfilePictureButton" destination="dRw-9E-l09" id="YpL-wr-PWg"/>
                         <outlet property="userInformationView" destination="aqN-8b-G5h" id="wj8-EG-z4f"/>
                         <outlet property="userLocationLabel" destination="zEM-jK-Gc3" id="D8N-7n-LIK"/>
                         <outlet property="userProfilePictureStaticImageView" destination="PHc-mP-T8u" id="It2-32-LrH"/>
@@ -124,7 +125,7 @@
             <objects>
                 <tableViewController id="r52-eE-jRU" customClass="SettingsTableViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="3Ag-Gf-g9E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="582.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="537.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -272,7 +273,7 @@
             <objects>
                 <tableViewController id="mMl-Wh-bqO" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GYx-nS-iKJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="528.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -447,7 +448,7 @@ To create a custom theme, please upgrade. Pro+ plans start as low as </string>
             <objects>
                 <tableViewController id="1E8-tY-NcK" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9dh-pl-OLX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="528.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -604,11 +605,11 @@ These Terms of Use and any policies or operating rules posted by us on the Site 
             <objects>
                 <viewController id="usb-M0-yus" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wm3-5N-d2y">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="528.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yQr-dv-FfE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="423"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Report a problem" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i8B-fk-rvn">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -619,7 +620,7 @@ These Terms of Use and any policies or operating rules posted by us on the Site 
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tlc-Ih-vGN">
-                                        <rect key="frame" x="0.0" y="56" width="414" height="367"/>
+                                        <rect key="frame" x="0.0" y="56" width="414" height="331"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -633,7 +634,7 @@ These Terms of Use and any policies or operating rules posted by us on the Site 
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWe-OY-Khv">
-                                <rect key="frame" x="267.5" y="430" width="126" height="47"/>
+                                <rect key="frame" x="267.5" y="394" width="126" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="126" id="7uA-wE-zYs"/>
                                     <constraint firstAttribute="height" constant="47" id="h5g-D1-1zO"/>

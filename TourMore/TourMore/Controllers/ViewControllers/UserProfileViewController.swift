@@ -20,6 +20,8 @@ class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var userInformationView: UIView!
     @IBOutlet weak var profilePictureContainerView: UIView!
     
+    @IBOutlet weak var saveProfilePictureButton: UIButton!
+    
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
     
@@ -123,6 +125,7 @@ class UserProfileViewController: UIViewController, CLLocationManagerDelegate {
         userInformationView.isHidden = true
         usersNameLabel.isHidden = true
         userLocationLabel.isHidden = true
+        saveProfilePictureButton.isHidden = true
     }
     
     func deterimeLocation() {
