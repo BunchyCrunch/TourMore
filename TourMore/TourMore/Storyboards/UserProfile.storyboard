@@ -164,6 +164,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="eDL-pI-X5L" kind="show" id="q6K-Bz-5cd"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="fAN-qa-pyl" rowHeight="90" style="IBUITableViewCellStyleDefault" id="a3w-rY-3Km">
                                         <rect key="frame" x="0.0" y="228" width="414" height="90"/>
@@ -267,6 +270,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y4w-fb-QEd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1803" y="244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rU4-wn-XPO">
+            <objects>
+                <viewController id="eDL-pI-X5L" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ueg-Y8-jYh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUs-Ws-NUa">
+                                <rect key="frame" x="149.5" y="231.5" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IUs-Ws-NUa" firstAttribute="centerY" secondItem="eeU-FQ-163" secondAttribute="centerY" id="CvK-VS-hKF"/>
+                            <constraint firstItem="IUs-Ws-NUa" firstAttribute="centerX" secondItem="eeU-FQ-163" secondAttribute="centerX" id="Keg-H0-lIe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eeU-FQ-163"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LLI-9g-lcv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Vc-Cb-HWR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="886"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="c45-nW-hEe">
@@ -619,10 +650,9 @@ These Terms of Use and any policies or operating rules posted by us on the Site 
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tlc-Ih-vGN">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please email calegre2014@gmail.com to report a problem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tlc-Ih-vGN">
                                         <rect key="frame" x="0.0" y="56" width="414" height="331"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -633,7 +663,7 @@ These Terms of Use and any policies or operating rules posted by us on the Site 
                                     <constraint firstItem="i8B-fk-rvn" firstAttribute="width" secondItem="yQr-dv-FfE" secondAttribute="width" id="seK-WA-a4a"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWe-OY-Khv">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWe-OY-Khv">
                                 <rect key="frame" x="267.5" y="394" width="126" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="126" id="7uA-wE-zYs"/>
