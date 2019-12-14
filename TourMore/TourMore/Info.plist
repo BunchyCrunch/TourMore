@@ -25,9 +25,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Agree to this will grant access to your camera, This is used to set a profile picture or a business image</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We need your location to use this feature</string>
+	<string>We need your location to use this feature to find businesses near you </string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to use this feature </string>
+	<string>We need your location to use this feature to find businesses near you </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Agree to this will grant access to your camera, This is used to set a profile picture or a business image</string>
 	<key>UIApplicationSceneManifest</key>

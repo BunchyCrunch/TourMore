@@ -25,9 +25,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpAppleButton()
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        nameTextField.delegate = self
+       // emailTextField.delegate = self
+       // passwordTextField.delegate = self
+       // nameTextField.delegate = self
         setUpTextFields()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -39,8 +39,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        guard let email = emailTextField.text, !email.isEmpty,
-            let password = passwordTextField.text, !password.isEmpty,
+        guard let email = emailTextField.text,
+            !email.isEmpty,
+            let password = passwordTextField.text,
+            !password.isEmpty,
             var name = nameTextField.text
             else {
                 presentFillOutFieldsAlert(); return
