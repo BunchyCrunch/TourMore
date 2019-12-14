@@ -72,7 +72,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HtO-Vi-zeh">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password (minimum 6 character)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HtO-Vi-zeh">
                                                 <rect key="frame" x="0.0" y="152" width="350" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -188,7 +188,7 @@
                     <navigationItem key="navigationItem" id="dEj-ay-u8y"/>
                     <connections>
                         <outlet property="appleSignInButton" destination="dbu-og-MGa" id="0k0-nM-JoW"/>
-                        <outlet property="emailTextField" destination="k4D-TJ-geC" id="svV-jc-y1a"/>
+                        <outlet property="emailTextField" destination="k4D-TJ-geC" id="6Jd-83-wSn"/>
                         <outlet property="nameTextField" destination="TkY-NL-GWt" id="YJd-d0-sxt"/>
                         <outlet property="passwordTextField" destination="HtO-Vi-zeh" id="Wyh-E6-4nA"/>
                     </connections>
