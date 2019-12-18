@@ -19,13 +19,13 @@ class WelcomeBackViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var appleSignInButton: ASAuthorizationAppleIDButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpAppleButton()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func continueWithAppleSignIn(_ sender: UIButton) {
@@ -52,9 +52,6 @@ class WelcomeBackViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -65,9 +62,16 @@ class WelcomeBackViewController: UIViewController, UITextFieldDelegate {
         appleSignInButton.layer.borderWidth = 2
         appleSignInButton.layer.cornerRadius = 5
         appleSignInButton.clipsToBounds = true
-        
     }
+    
+    @objc func keyboardWillShow(sender: Notification) {
+            self.view.frame.origin.y = -150 // Move view 150 points upward
+       }
 
+       @objc func keyboardWillHide(sender: Notification) {
+            self.view.frame.origin.y = 0 // Move view to original position
+       }
+       
     func textFieldIsMissingTextAlert() {
         let alert = UIAlertController(title: "Missing Email or Password", message: "Please Check fields and try again", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Okay", style: .cancel) { (_) in }
@@ -75,10 +79,7 @@ class WelcomeBackViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(okayButton)
         present(alert, animated: true)
     }
-
 }
-
-
 
 extension WelcomeBackViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {

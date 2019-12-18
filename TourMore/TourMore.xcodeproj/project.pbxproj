@@ -102,7 +102,7 @@
 		28BCD40B23959B64006898D1 /* TourMore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TourMore.entitlements; sourceTree = "<group>"; };
 		28BCD40E2395BCFB006898D1 /* WelcomeBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackViewController.swift; sourceTree = "<group>"; };
 		28DDA7D3239981C600E12A8A /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		28FB525B2385C3CF00266868 /* TourMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28FB525B2385C3CF00266868 /* LunchHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FB525E2385C3CF00266868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28FB52602385C3CF00266868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		28FB52672385C3D000266868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 		28FB525C2385C3CF00266868 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				28FB525B2385C3CF00266868 /* TourMore.app */,
+				28FB525B2385C3CF00266868 /* LunchHunt.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -310,7 +310,7 @@
 				28FB52572385C3CF00266868 /* Sources */,
 				28FB52582385C3CF00266868 /* Frameworks */,
 				28FB52592385C3CF00266868 /* Resources */,
-				E31924A62B50B99D243AC114 /* [CP] Embed Pods Frameworks */,
+				E633A172077C9AF8E5BDEC1E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,7 +318,7 @@
 			);
 			name = TourMore;
 			productName = TourMore;
-			productReference = 28FB525B2385C3CF00266868 /* TourMore.app */;
+			productReference = 28FB525B2385C3CF00266868 /* LunchHunt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -401,7 +401,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E31924A62B50B99D243AC114 /* [CP] Embed Pods Frameworks */ = {
+		E633A172077C9AF8E5BDEC1E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -586,8 +586,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TourMore/TourMore.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.02;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 1.04;
+				DEVELOPMENT_TEAM = 5XC6N4RBRH;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = TourMore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -595,9 +595,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.04;
 				PRODUCT_BUNDLE_IDENTIFIER = calegre.TourMore;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LunchHunt;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -610,8 +610,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TourMore/TourMore.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.02;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 1.04;
+				DEVELOPMENT_TEAM = 5XC6N4RBRH;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = TourMore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -619,9 +619,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.04;
 				PRODUCT_BUNDLE_IDENTIFIER = calegre.TourMore;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LunchHunt;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

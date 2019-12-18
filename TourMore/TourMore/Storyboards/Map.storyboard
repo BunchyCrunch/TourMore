@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KJN-3s-ybE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KJN-3s-ybE">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--Map View Tab View Controller-->
         <scene sceneID="uSh-xG-QmV">
             <objects>
-                <viewController id="JPJ-7u-nQy" customClass="MapViewTabViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JPJ-7u-nQy" customClass="MapViewTabViewController" customModule="LunchHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rAd-ci-5S9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,7 +135,7 @@
         <!--Location Display View Controller-->
         <scene sceneID="yXX-nW-t4c">
             <objects>
-                <viewController id="4Jx-DU-tiJ" customClass="locationDisplayViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4Jx-DU-tiJ" customClass="locationDisplayViewController" customModule="LunchHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WOj-WA-kHf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,7 +150,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="locationCell" id="3c9-Ma-ScU" customClass="LocationDisplayCollectionViewCell" customModule="TourMore" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="locationCell" id="3c9-Ma-ScU" customClass="LocationDisplayCollectionViewCell" customModule="LunchHunt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-86" width="380" height="640"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7Pi-us-ht4">
@@ -268,7 +268,7 @@
         <!--Location Detail View Controller-->
         <scene sceneID="1UW-Ts-0CC">
             <objects>
-                <viewController storyboardIdentifier="LocationDetail" id="Jmx-Q5-EM3" customClass="LocationDetailViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationDetail" id="Jmx-Q5-EM3" customClass="LocationDetailViewController" customModule="LunchHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w0U-6p-AUx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -461,7 +461,7 @@
         <!--Comment View Controller-->
         <scene sceneID="801-vt-wQm">
             <objects>
-                <viewController id="pNE-Qe-ptt" customClass="CommentViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pNE-Qe-ptt" customClass="CommentViewController" customModule="LunchHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qCA-Tl-k4D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="544.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -552,7 +552,7 @@
                                 <rect key="frame" x="0.0" y="193" width="320" height="351.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="92" id="e70-1E-0Hg" customClass="CommentTableViewCell" customModule="TourMore" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="92" id="e70-1E-0Hg" customClass="CommentTableViewCell" customModule="LunchHunt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e70-1E-0Hg" id="eWg-tC-TDk">
