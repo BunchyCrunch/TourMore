@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xQ4-As-MuM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Profile View Controller-->
+        <scene sceneID="FIC-75-9ZH">
+            <objects>
+                <viewController id="Y8S-Ho-HT5" customClass="UserProfileViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ybj-3v-dwS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="q8F-5c-KnO">
+                                <rect key="frame" x="17" y="49.5" width="380" height="273"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gw8-DU-Jpm">
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="157.5"/>
+                                        <subviews>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PHc-mP-T8u">
+                                                <rect key="frame" x="-150" y="4" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="PHc-mP-T8u" secondAttribute="height" multiplier="1:1" id="DWM-jp-lV0"/>
+                                                    <constraint firstAttribute="height" constant="150" id="m7j-d5-pTo"/>
+                                                </constraints>
+                                            </imageView>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2J-op-Lw5">
+                                                <rect key="frame" x="0.0" y="4" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="duk-rS-pxj"/>
+                                                    <constraint firstAttribute="width" secondItem="L2J-op-Lw5" secondAttribute="height" multiplier="1:1" id="r0l-yK-fAV"/>
+                                                </constraints>
+                                                <connections>
+                                                    <segue destination="zJV-la-iNz" kind="embed" identifier="toEditProfilePicture" id="NEe-Mi-nVj"/>
+                                                </connections>
+                                            </containerView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqN-8b-G5h">
+                                                <rect key="frame" x="158" y="34" width="222" height="90"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ala-du-fsp">
+                                                        <rect key="frame" x="28" y="8" width="166.5" height="74"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="First Last" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOG-kr-HC0">
+                                                                <rect key="frame" x="0.0" y="0.0" width="166.5" height="37"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location City, State" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEM-jK-Gc3">
+                                                                <rect key="frame" x="0.0" y="37" width="166.5" height="37"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Ala-du-fsp" firstAttribute="width" secondItem="aqN-8b-G5h" secondAttribute="width" multiplier="0.75" id="KAM-mV-CnP"/>
+                                                    <constraint firstAttribute="height" constant="90" id="UX4-wd-X8p"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ala-du-fsp" secondAttribute="bottom" constant="8" id="YjN-Fn-MS4"/>
+                                                    <constraint firstItem="Ala-du-fsp" firstAttribute="top" secondItem="aqN-8b-G5h" secondAttribute="top" constant="8" id="cl9-xd-7ET"/>
+                                                    <constraint firstItem="Ala-du-fsp" firstAttribute="centerX" secondItem="aqN-8b-G5h" secondAttribute="centerX" id="czZ-th-dlq"/>
+                                                    <constraint firstAttribute="width" constant="222" id="tRY-g1-LJp"/>
+                                                    <constraint firstItem="Ala-du-fsp" firstAttribute="centerY" secondItem="aqN-8b-G5h" secondAttribute="centerY" id="wcz-8k-MfM"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRw-9E-l09">
+                                        <rect key="frame" x="0.0" y="157.5" width="134" height="115.5"/>
+                                        <state key="normal" title="Save Profile Picture"/>
+                                        <connections>
+                                            <action selector="saveProfilePictureChangeButtonTapped:" destination="Y8S-Ho-HT5" eventType="touchUpInside" id="wPc-FH-Ysg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gw8-DU-Jpm" firstAttribute="height" secondItem="q8F-5c-KnO" secondAttribute="height" multiplier="0.167411" constant="111.83" id="i5R-pj-KhZ"/>
+                                </constraints>
+                            </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24l-JI-3XL">
+                                <rect key="frame" x="0.0" y="324.5" width="414" height="537.5"/>
+                                <connections>
+                                    <segue destination="r52-eE-jRU" kind="embed" id="mTD-Fz-tfd"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="q8F-5c-KnO" firstAttribute="leading" secondItem="ePW-Zm-YG6" secondAttribute="leading" constant="17" id="2bs-Rl-QSH"/>
+                            <constraint firstItem="24l-JI-3XL" firstAttribute="centerX" secondItem="ePW-Zm-YG6" secondAttribute="centerX" id="A5A-Bb-vBW"/>
+                            <constraint firstItem="q8F-5c-KnO" firstAttribute="centerX" secondItem="ePW-Zm-YG6" secondAttribute="centerX" id="T2p-3P-09f"/>
+                            <constraint firstItem="ePW-Zm-YG6" firstAttribute="bottom" secondItem="24l-JI-3XL" secondAttribute="bottom" id="d0d-Ry-L9Z"/>
+                            <constraint firstItem="ePW-Zm-YG6" firstAttribute="trailing" secondItem="q8F-5c-KnO" secondAttribute="trailing" constant="17" id="d2u-OB-XDj"/>
+                            <constraint firstItem="24l-JI-3XL" firstAttribute="width" secondItem="Ybj-3v-dwS" secondAttribute="width" id="hHL-To-Yve"/>
+                            <constraint firstItem="24l-JI-3XL" firstAttribute="top" secondItem="q8F-5c-KnO" secondAttribute="bottom" constant="2" id="tch-Ik-8J9"/>
+                            <constraint firstItem="24l-JI-3XL" firstAttribute="height" secondItem="Ybj-3v-dwS" secondAttribute="height" multiplier="0.6" id="twx-hb-0bQ"/>
+                            <constraint firstItem="q8F-5c-KnO" firstAttribute="top" secondItem="ePW-Zm-YG6" secondAttribute="top" constant="5.5" id="zL0-C1-NXI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ePW-Zm-YG6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4tf-4c-mmE"/>
+                    <connections>
+                        <outlet property="containerView" destination="24l-JI-3XL" id="S7q-yb-YwI"/>
+                        <outlet property="profilePictureContainerView" destination="L2J-op-Lw5" id="MRH-dc-n5P"/>
+                        <outlet property="saveProfilePictureButton" destination="dRw-9E-l09" id="YpL-wr-PWg"/>
+                        <outlet property="userInformationView" destination="aqN-8b-G5h" id="wj8-EG-z4f"/>
+                        <outlet property="userLocationLabel" destination="zEM-jK-Gc3" id="D8N-7n-LIK"/>
+                        <outlet property="userProfilePictureStaticImageView" destination="PHc-mP-T8u" id="It2-32-LrH"/>
+                        <outlet property="usersNameLabel" destination="rOG-kr-HC0" id="Zag-8U-IFf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iNF-A9-cNN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032" y="-209"/>
+        </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="Kyd-da-vom">
+            <objects>
+                <tableViewController id="r52-eE-jRU" customClass="SettingsTableViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="3Ag-Gf-g9E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="537.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="4HY-9H-pqK">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="AyW-gQ-yzi" rowHeight="120" style="IBUITableViewCellStyleDefault" id="c07-S9-UjN">
+                                        <rect key="frame" x="0.0" y="18" width="414" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c07-S9-UjN" id="LTo-Kk-EGg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AyW-gQ-yzi">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="120"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="jOK-c1-yZh" rowHeight="90" style="IBUITableViewCellStyleDefault" id="XLJ-Ji-s4T">
+                                        <rect key="frame" x="0.0" y="138" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XLJ-Ji-s4T" id="wJx-Fz-jU7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Your Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jOK-c1-yZh">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="eDL-pI-X5L" kind="show" id="q6K-Bz-5cd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="fAN-qa-pyl" rowHeight="90" style="IBUITableViewCellStyleDefault" id="a3w-rY-3Km">
+                                        <rect key="frame" x="0.0" y="228" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a3w-rY-3Km" id="LDa-ar-Qt5">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fAN-qa-pyl">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="mMl-Wh-bqO" kind="show" id="zaY-g8-W0V"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="tE8-iC-tNb" rowHeight="90" style="IBUITableViewCellStyleDefault" id="Q6R-ce-mSg">
+                                        <rect key="frame" x="0.0" y="318" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q6R-ce-mSg" id="iSr-Y4-krf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Terms of Use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tE8-iC-tNb">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="1E8-tY-NcK" kind="show" id="Dkw-d9-gu9"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="ud6-yA-HzZ" rowHeight="90" style="IBUITableViewCellStyleDefault" id="pby-A5-Dca">
+                                        <rect key="frame" x="0.0" y="408" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pby-A5-Dca" id="MfV-tH-dZg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Contact Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ud6-yA-HzZ">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="usb-M0-yus" kind="show" id="rAe-co-d18"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SignOutCell" rowHeight="90" id="bkC-pn-RGl">
+                                        <rect key="frame" x="0.0" y="498" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bkC-pn-RGl" id="5Ub-2H-GqN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rml-Rn-2jI">
+                                                    <rect key="frame" x="20" y="11" width="374" height="68"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <state key="normal" title="Sign Out ">
+                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="signOutUserButtonTapped:" destination="r52-eE-jRU" eventType="touchUpInside" id="7QC-or-Ivw"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Rml-Rn-2jI" firstAttribute="leading" secondItem="5Ub-2H-GqN" secondAttribute="leadingMargin" id="FAK-my-CuM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Rml-Rn-2jI" secondAttribute="trailing" id="FeE-Ss-3Nf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Rml-Rn-2jI" secondAttribute="bottom" id="SNy-GQ-Ra5"/>
+                                                <constraint firstItem="Rml-Rn-2jI" firstAttribute="top" secondItem="5Ub-2H-GqN" secondAttribute="topMargin" id="gJf-aH-wRo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="r52-eE-jRU" id="ZJ2-sm-qqG"/>
+                            <outlet property="delegate" destination="r52-eE-jRU" id="V4O-kX-X0A"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ryR-fq-azS"/>
+                    <connections>
+                        <outlet property="signOutCell" destination="bkC-pn-RGl" id="8D0-D7-GsS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4w-fb-QEd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1803" y="244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rU4-wn-XPO">
+            <objects>
+                <viewController id="eDL-pI-X5L" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ueg-Y8-jYh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUs-Ws-NUa">
+                                <rect key="frame" x="149.5" y="231.5" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IUs-Ws-NUa" firstAttribute="centerY" secondItem="eeU-FQ-163" secondAttribute="centerY" id="CvK-VS-hKF"/>
+                            <constraint firstItem="IUs-Ws-NUa" firstAttribute="centerX" secondItem="eeU-FQ-163" secondAttribute="centerX" id="Keg-H0-lIe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eeU-FQ-163"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LLI-9g-lcv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Vc-Cb-HWR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="886"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="c45-nW-hEe">
+            <objects>
+                <tableViewController id="mMl-Wh-bqO" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GYx-nS-iKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="LiK-dP-cUQ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ij7-NN-hKU">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ij7-NN-hKU" id="vEH-UB-taC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Iy-pa-QXg">
+                                                    <rect key="frame" x="10.5" y="0.0" width="393" height="44"/>
+                                                    <string key="text">PRIVACY NOTICE     
+
+Last updated November 21, 2019  
+
+Thank you for choosing to be part of our community at lunch box . We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our notice, or our practices with regards to your personal information, please contact us at kassypedersen2001@gmail.cpm. 
+
+When you visit our mobile application, and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy notice, we seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy notice that you do not agree with, please discontinue use of our Apps and our services. 
+
+This privacy notice applies to all information collected through our mobile application, ("Apps"), and/or any related services, sales, marketing or events (we refer to them collectively in this privacy notice as the "Services").  
+
+Please read this privacy notice carefully as it will help you make informed decisions about sharing your personal information with us.   
+
+1. WHAT INFORMATION DO WE COLLECT?  
+
+
+Information automatically collected 
+
+In Short: Some information – such as IP address and/or browser and device characteristics – is collected automatically when you visit our Apps.
+
+
+ Information collected through our Apps 
+
+In Short:  We may collect information regarding your geo-location, mobile device, when you use our apps.
+
+If you use our Apps, we may also collect the following information:
+
+Geo-Location Information. We may request access or permission to and track location-based information from your mobile device, either continuously or while you are using our mobile application, to provide location-based services. If you wish to change our access or permissions, you may do so in your device’s settings.
+
+Mobile Device Access. We may request access or permission to certain features from your mobile device, including your mobile device’s camera, storage, and other features. If you wish to change our access or permissions, you may do so in your device’s settings.
+
+2. HOW DO WE USE YOUR INFORMATION?  
+
+In Short:  We process your information for purposes based on legitimate business interests, the fulfillment of our contract with you, compliance with our legal obligations, and/or your consent.  
+
+
+3. WILL YOUR INFORMATION BE SHARED WITH ANYONE?  
+
+In Short:  We only share information with your consent, to comply with laws, to provide you with services, to protect your rights, or to fulfill business obligations.   
+
+
+We may process or share data based on the following legal basis:
+Consent: We may process your data if you have given us specific consent to use your personal information in a specific purpose. 
+
+Legitimate Interests: We may process your data when it is reasonably necessary to achieve our legitimate business interests. 
+
+Performance of a Contract: Where we have entered into a contract with you, we may process your personal information to fulfill the terms of our contract. 
+
+4. HOW DO WE HANDLE YOUR SOCIAL LOGINS?  
+
+In Short:  If you choose to register or log in to our services using a social media account, we may have access to certain information about you.  
+
+5. HOW LONG DO WE KEEP YOUR INFORMATION?  
+
+In Short: We keep your information for as long as necessary to fulfill the purposes outlined in this privacy notice unless otherwise required by law.   
+
+6. HOW DO WE KEEP YOUR INFORMATION SAFE?   
+
+In Short:  We aim to protect your personal information through a system of organizational and technical security measures.  
+We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. 
+
+5. WHAT ARE YOUR PRIVACY RIGHTS?  
+
+In Short:  In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.   
+
+In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws. 
+
+If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.
+
+If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm. 
+ 
+
+Account Information  
+
+If you would at any time like to review or change the information in your account or terminate your account, you can: 
+
+    ■  Log into your account settings and update your user account.  
+
+Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use and/or comply with legal requirements.        
+
+Opting out of email marketing: You can unsubscribe from our marketing email list at any time by clicking on the unsubscribe link in the emails that we send or by contacting us using the details provided below. You will then be removed from the marketing email list – however, we will still need to send you service-related emails that are necessary for the administration and use of your account. To otherwise opt-out, you may: 
+
+    ■  Access your account settings and update preferences.
+
+
+6. CONTROLS FOR DO-NOT-TRACK FEATURES  
+
+Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (“DNT”) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. No uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.  
+
+
+7.. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?  
+
+In Short:  Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.   
+
+California Civil Code Section 1798.83, also known as the “Shine The Light” law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below. 
+
+If you are under 18 years of age, reside in California, and have a registered account with the Apps, you have the right to request removal of unwanted data that you publicly post on the Apps. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Apps, but please be aware that the data may not be completely or comprehensively removed from our systems.
+
+
+
+8. DO WE MAKE UPDATES TO THIS POLICY?  
+
+In Short:  Yes, we will update this policy as necessary to stay compliant with relevant laws.  
+
+We may update this privacy notice from time to time. The updated version will be indicated by an updated “Revised” date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.  
+
+
+
+9.. HOW CAN YOU CONTACT US ABOUT THIS POLICY?  
+
+If you have questions or comments about this policy, you may email us at kassypedersen2001@gmail.com or by post to:
+
+lunch box    
+13871 s 1950 w 
+bluffdale, UT 84065    
+United States        
+
+ 
+HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
+Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please submit a request form by clicking here. We will respond to your request within 30 days.
+Custom Branding
+Hide “Powered by Termly” logo
+Customize Policy Style
+Theme
+
+Select "Create New Theme" to edit your policy style.
+APPLY THEME
+
+To create a custom theme, please upgrade. Pro+ plans start as low as </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3Iy-pa-QXg" firstAttribute="centerX" secondItem="vEH-UB-taC" secondAttribute="centerX" id="9Yw-Tg-sdk"/>
+                                                <constraint firstItem="3Iy-pa-QXg" firstAttribute="height" secondItem="vEH-UB-taC" secondAttribute="height" id="Atv-Gz-5ni"/>
+                                                <constraint firstItem="3Iy-pa-QXg" firstAttribute="top" secondItem="vEH-UB-taC" secondAttribute="top" id="JMW-1d-Prv"/>
+                                                <constraint firstItem="3Iy-pa-QXg" firstAttribute="width" secondItem="vEH-UB-taC" secondAttribute="width" multiplier="0.95" id="jJJ-wu-tvX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="mMl-Wh-bqO" id="dVd-YS-KCx"/>
+                            <outlet property="delegate" destination="mMl-Wh-bqO" id="j9P-Ez-wRG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="c0v-mD-9Gw"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m07-NX-QR6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1839" y="956"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Oaj-Pu-Nid">
+            <objects>
+                <tableViewController id="1E8-tY-NcK" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9dh-pl-OLX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="OI4-2s-qbU">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sLX-VG-TzT">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sLX-VG-TzT" id="Fl9-U1-lfv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUO-Ff-xPH">
+                                                    <rect key="frame" x="10.5" y="0.0" width="393" height="42"/>
+                                                    <string key="text">
+TERMS OF USE
+
+Last updated  November 21, 2019 
+ 
+
+ 
+AGREEMENT TO TERMS
+ 
+These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity Lunch box concerning your access to and use of the Lunchbox website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+ 
+Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Terms of Use to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.  
+ 
+The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable. 
+ 
+ 
+INTELLECTUAL PROPERTY RIGHTS
+ 
+Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, foreign jurisdictions, and international conventions. The Content and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as expressly provided in these Terms of Use, no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.
+ 
+Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.
+ 
+USER REPRESENTATIONS
+ 
+By using the Site, you represent and warrant that: (1) you have the legal capacity and you agree to comply with these Terms of Use;  (2) you are not a minor in the jurisdiction in which you reside; (3) you will not access the Site through automated or non-human means, whether through a bot, script, or otherwise; (4) you will not use the Site for any illegal or unauthorized purpose; and (5) your use of the Site will not violate any applicable law or regulation.
+ 
+If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Site (or any portion thereof). 
+ 
+PROHIBITED ACTIVITIES
+ 
+You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.
+ 
+As a user of the Site, you agree not to:
+
+ 
+
+ 
+SUBMISSIONS
+ 
+You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Site ("Submissions") provided by you to us are non-confidential and shall become our sole property. We shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such Submissions are original with you or that you have the right to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions. 
+ 
+SITE MANAGEMENT
+ 
+We reserve the right, but not the obligation, to: (1) monitor the Site for violations of these Terms of Use; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Use, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.
+ 
+TERM AND TERMINATION
+ 
+These Terms of Use shall remain in full force and effect while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.
+ 
+If we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.
+ 
+MODIFICATIONS AND INTERRUPTIONS 
+ 
+We reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Site without notice at any time. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Site.  
+ 
+We cannot guarantee the Site will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Site at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Site during any downtime or discontinuance of the Site. Nothing in these Terms of Use will be construed to obligate us to maintain and support the Site or to supply any corrections, updates, or releases in connection therewith.
+ 
+GOVERNING LAW 
+ 
+These Terms of Use and your use of the Site are governed by and construed in accordance with the laws of the State of Utah applicable to agreements made and to be entirely performed within the State of Utah , without regard to its conflict of law principles.  
+ 
+DISPUTE RESOLUTION
+ 
+Binding Arbitration
+ 
+If the Parties are unable to resolve a Dispute through informal negotiations, the Dispute (except those Disputes expressly excluded below) will be finally and exclusively resolved by binding arbitration. YOU UNDERSTAND THAT WITHOUT THIS PROVISION, YOU WOULD HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL. The arbitration shall be commenced and conducted under the Commercial Arbitration Rules of the American Arbitration Association ("AAA") and, where appropriate, the AAA’s Supplementary Procedures for Consumer Related Disputes ("AAA Consumer Rules"), both of which are available at the AAA website www.adr.org. Your arbitration fees and your share of arbitrator compensation shall be governed by the AAA Consumer Rules and, where appropriate, limited by the AAA Consumer Rules. The arbitration may be conducted in person, through the submission of documents, by phone, or online. The arbitrator will make a decision in writing, but need not provide a statement of reasons unless requested by either Party. The arbitrator must follow applicable law, and any award may be challenged if the arbitrator fails to do so. Except where otherwise required by the applicable AAA rules or applicable law, the arbitration will take place in  United States. Except as otherwise provided herein, the Parties may litigate in court to compel arbitration, stay proceedings pending arbitration, or to confirm, modify, vacate, or enter judgment on the award entered by the arbitrator.
+ 
+If for any reason, a Dispute proceeds in court rather than arbitration, the Dispute shall be commenced or prosecuted in the state and federal courts located in United States, and the Parties hereby consent to, and waive all defenses of lack of personal jurisdiction, and forum non conveniens with respect to venue and jurisdiction in such state and federal courts. Application of the United Nations Convention on Contracts for the International Sale of Goods and the the Uniform Computer Information Transaction Act (UCITA) are excluded from these Terms of Use.
+
+If this provision is found to be illegal or unenforceable, then neither Party will elect to arbitrate any Dispute falling within that portion of this provision found to be illegal or unenforceable and such Dispute shall be decided by a court of competent jurisdiction within the courts listed for jurisdiction above, and the Parties agree to submit to the personal jurisdiction of that court.
+ 
+Restrictions
+ 
+The Parties agree that any arbitration shall be limited to the Dispute between the Parties individually. To the full extent permitted by law, (a) no arbitration shall be joined with any other proceeding; (b) there is no right or authority for any Dispute to be arbitrated on a class-action basis or to utilize class action procedures; and (c) there is no right or authority for any Dispute to be brought in a purported representative capacity on behalf of the general public or any other persons.
+ 
+Exceptions to Arbitration
+ 
+The Parties agree that the following Disputes are not subject to the above provisions concerning binding arbitration: (a) any Disputes seeking to enforce or protect, or concerning the validity of, any of the intellectual property rights of a Party; (b) any Dispute related to, or arising from, allegations of theft, piracy, invasion of privacy, or unauthorized use; and (c) any claim for injunctive relief. If this provision is found to be illegal or unenforceable, then neither Party will elect to arbitrate any Dispute falling within that portion of this provision found to be illegal or unenforceable and such Dispute shall be decided by a court of competent jurisdiction within the courts listed for jurisdiction above, and the Parties agree to submit to the personal jurisdiction of that court.
+ 
+CORRECTIONS
+ 
+There may be information on the Site that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.
+ 
+DISCLAIMER
+ 
+THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.
+ 
+LIMITATIONS OF LIABILITY
+ 
+IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED HEREIN, OUR LIABILITY TO YOU FOR ANY CAUSE WHATSOEVER AND REGARDLESS OF THE FORM OF THE ACTION, WILL AT ALL TIMES BE LIMITED TO THE LESSER OF THE AMOUNT PAID, IF ANY, BY YOU TO US. CERTAIN STATE LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MAY HAVE ADDITIONAL RIGHTS.
+ 
+INDEMNIFICATION
+ 
+You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) use of the Site; (2) breach of these Terms of Use; (3) any breach of your representations and warranties set forth in these Terms of Use; (4) your violation of the rights of a third party, including but not limited to intellectual property rights; or (5) any overt harmful act toward any other user of the Site with whom you connected via the Site. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.
+  
+USER DATA
+ 
+We will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, as well as data relating to your use of the Site. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.
+  
+ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES
+ 
+Visiting the Site, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communication be in writing. YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SITE. You hereby waive any rights or requirements under any statutes, regulations, rules, ordinances, or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any means other than electronic means. 
+ 
+CALIFORNIA USERS AND RESIDENTS
+ 
+If any complaint with us is not satisfactorily resolved, you can contact the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs in writing at 1625 North Market Blvd., Suite N 112, Sacramento, California 95834 or by telephone at (800) 952-5210 or (916) 445-1254.
+ 
+MISCELLANEOUS
+ 
+These Terms of Use and any policies or operating rules posted by us on the Site or in respect to the Site constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms of Use shall not operate as a waiver of such right or provision. These Terms of Use operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms of Use is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms of Use and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms of Use or use of the Site. You agree that these Terms of Use will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to execute these Terms of Use.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tUO-Ff-xPH" firstAttribute="width" secondItem="Fl9-U1-lfv" secondAttribute="width" multiplier="0.95" id="3nX-xQ-QIt"/>
+                                                <constraint firstItem="tUO-Ff-xPH" firstAttribute="top" secondItem="Fl9-U1-lfv" secondAttribute="top" id="AAw-MI-avh"/>
+                                                <constraint firstItem="tUO-Ff-xPH" firstAttribute="height" secondItem="Fl9-U1-lfv" secondAttribute="height" multiplier="0.95" id="Yt2-17-QV8"/>
+                                                <constraint firstItem="tUO-Ff-xPH" firstAttribute="centerX" secondItem="Fl9-U1-lfv" secondAttribute="centerX" id="uyH-aF-nOM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="1E8-tY-NcK" id="s7y-Jm-Q8f"/>
+                            <outlet property="delegate" destination="1E8-tY-NcK" id="c8x-m6-ky5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="noW-Sl-s8z"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BO7-RY-JkM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2786" y="956"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BFq-Pk-Ir2">
+            <objects>
+                <viewController id="usb-M0-yus" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wm3-5N-d2y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yQr-dv-FfE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Report a problem" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i8B-fk-rvn">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Gmx-YI-bVv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please email calegre2014@gmail.com to report a problem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tlc-Ih-vGN">
+                                        <rect key="frame" x="0.0" y="56" width="414" height="331"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tlc-Ih-vGN" firstAttribute="width" secondItem="yQr-dv-FfE" secondAttribute="width" id="aA8-Ye-WRl"/>
+                                    <constraint firstItem="i8B-fk-rvn" firstAttribute="width" secondItem="yQr-dv-FfE" secondAttribute="width" id="seK-WA-a4a"/>
+                                </constraints>
+                            </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWe-OY-Khv">
+                                <rect key="frame" x="267.5" y="394" width="126" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="7uA-wE-zYs"/>
+                                    <constraint firstAttribute="height" constant="47" id="h5g-D1-1zO"/>
+                                </constraints>
+                                <state key="normal" image="send"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yQr-dv-FfE" firstAttribute="centerX" secondItem="gqW-5h-ke2" secondAttribute="centerX" id="0wN-UT-gMl"/>
+                            <constraint firstItem="pWe-OY-Khv" firstAttribute="top" secondItem="tlc-Ih-vGN" secondAttribute="bottom" constant="7" id="45P-Ve-lMg"/>
+                            <constraint firstItem="yQr-dv-FfE" firstAttribute="top" secondItem="gqW-5h-ke2" secondAttribute="top" id="7B5-01-D5W"/>
+                            <constraint firstItem="yQr-dv-FfE" firstAttribute="height" secondItem="Wm3-5N-d2y" secondAttribute="height" multiplier="0.8" id="BqO-ku-gkv"/>
+                            <constraint firstItem="yQr-dv-FfE" firstAttribute="width" secondItem="Wm3-5N-d2y" secondAttribute="width" id="Cqs-oj-aNS"/>
+                            <constraint firstItem="pWe-OY-Khv" firstAttribute="trailing" secondItem="tlc-Ih-vGN" secondAttribute="trailing" multiplier="0.95" id="N8T-Ef-Ymx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gqW-5h-ke2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7WY-0s-Ock"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6lU-AI-CFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3683" y="955"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="d7L-ve-zXZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="xQ4-As-MuM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="person.circle" catalog="system" id="xcZ-yx-Zfl"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OJ9-db-dgK">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y8S-Ho-HT5" kind="relationship" relationship="rootViewController" id="Q6h-82-UyO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gpe-Yd-yHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162" y="-210"/>
+        </scene>
+        <!--Photo Picker View Controller-->
+        <scene sceneID="Ydx-Jp-SNM">
+            <objects>
+                <viewController id="zJV-la-iNz" customClass="PhotoPickerViewController" customModule="TourMore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nn5-nr-odx">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lnj-cM-kBA">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNb-0e-SmF">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <connections>
+                                    <action selector="selectImageButtonTapped:" destination="zJV-la-iNz" eventType="touchUpInside" id="iyt-A1-8ty"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Lnj-cM-kBA" secondAttribute="trailing" id="7aj-Dc-gea"/>
+                            <constraint firstAttribute="trailing" secondItem="FNb-0e-SmF" secondAttribute="trailing" id="HuL-1L-4qH"/>
+                            <constraint firstItem="FNb-0e-SmF" firstAttribute="top" secondItem="Nn5-nr-odx" secondAttribute="top" id="ILX-7b-Wg3"/>
+                            <constraint firstItem="FNb-0e-SmF" firstAttribute="leading" secondItem="Nn5-nr-odx" secondAttribute="leading" id="P4Y-a2-faC"/>
+                            <constraint firstItem="Lnj-cM-kBA" firstAttribute="leading" secondItem="Nn5-nr-odx" secondAttribute="leading" id="Rwp-8D-dm7"/>
+                            <constraint firstAttribute="bottom" secondItem="Lnj-cM-kBA" secondAttribute="bottom" id="eb0-Su-tRa"/>
+                            <constraint firstItem="Lnj-cM-kBA" firstAttribute="top" secondItem="Nn5-nr-odx" secondAttribute="top" id="kbU-Td-LA0"/>
+                            <constraint firstAttribute="bottom" secondItem="FNb-0e-SmF" secondAttribute="bottom" id="q1p-Tb-S33"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MSA-sg-CEY"/>
+                    </view>
+                    <connections>
+                        <outlet property="pickedPhotoImageView" destination="Lnj-cM-kBA" id="Lbx-fg-sxH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eDt-DG-ZDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1677" y="-563"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.circle" catalog="system" width="64" height="60"/>
+        <image name="send" width="252" height="94"/>
+    </resources>
+</document>
