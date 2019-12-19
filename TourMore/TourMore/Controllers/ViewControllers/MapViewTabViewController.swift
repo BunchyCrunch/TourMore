@@ -157,7 +157,7 @@ class MapViewTabViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     func searchByCatogory(term: String) {
         guard let userLocation = userLocationForSearch,
-        let search = BusinessSearchController.sharedInstance.getCatogoryQueryItem(for: term) else { return }
+        let search = BusinessSearchController.sharedInstance.getSearchTermQueryItem(for: term) else { return }
         BusinessSearchController.sharedInstance.getSearch(location: userLocation, queryItems: [search]) { (businesses) in
             self.businessArray = businesses
             self.toCollectionView()
